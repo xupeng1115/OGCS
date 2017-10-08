@@ -1,0 +1,183 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>Explore</title>
+    
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/font-awesome.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/iconfont/material-icons.css"
+        type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/Explore.css?v=20170925"
+        type="text/css" />
+
+</head>
+<body>
+    <div class="logo-box">
+        <div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
+        </div>
+    </div>
+    
+<header>
+    <div class="content">
+        <div class="left"></div>
+        <div class="right">
+	        <div class="title">解读自我<span></span>专业解读</div>
+	        <div class="dec">参照行业内与家和职业规划师的建议,形成完整的个人发展计划</div>
+	        <div class="btn">立即开始<i></i></div>
+        </div>
+    </div>
+</header>
+<section>
+	<div class="top">
+		<div class="top-box">
+			<span>当前位置：</span>
+			<span class="home"><a href="/ogcs/Core/">首页</a></span>
+			<span class="right-icon"></span>
+			<span class="read-text">解读自我</span>
+		</div>
+	</div>
+	<div class="evaluation">
+		<div class="list" data-bind="foreach:Items">
+			<div class="item" data-bind="attr:{selected:AssessmenComplete,index:$index}">
+				<div class="title" data-bind="text:Name"><!--ES就业竞争力测试--></div>
+				<div class="dec" data-bind="html:Description"><!--对照就业能力标准，识别短板及时提升--></div>
+				 <!-- ko if:(ID!=2)--> 
+                <div class="video-box" data-bind="attr:{selected:AssessmenComplete,index:$index}">					
+                    <img data-bind="attr:{src:Cover}"/>                    
+					<div class="flo">
+						<div class="flo-btn"></div>
+					</div>
+				</div>
+                 <!-- ko if:(AssessmenComplete!=1)--> 
+				<a target="_blank" class="begin-btn report" selected="0">
+					<i class="fa fa-book" aria-hidden="true"></i>测评报告
+				</a>
+                <!-- /ko --> 
+                <!-- ko if:(AssessmenComplete==1)--> 
+				<a target="_blank" class="begin-btn report" selected="1" data-bind="attr:{ href: ReportUrl[0]}">
+					<i class="fa fa-book" aria-hidden="true"></i>测评报告
+				</a>
+                 <!-- /ko --> 
+
+
+                 <!-- /ko --> 
+
+                 <!-- ko if:(ID==2)--> 
+                <div class="report-btn-box">
+
+                <!-- ko if:(AssessmenComplete!=1)--> 
+                <a target="_blank" class="report-btn-one report-btn report"  selected="0"><i class="material-icons">&#xE163;</i><span>逻辑推理能力报告</span></a>
+                <a target="_blank" class="report-btn-two report-btn  report"  selected="0"><i class="material-icons">&#xE167;</i><span>文字推理能力报告</span></a>
+                <a target="_blank" class="report-btn-three report-btn  report" selected="0"><i class="material-icons">&#xE24B;</i><span>数字推理能力报告</span></a>
+           
+                <!-- /ko --> 
+                <!-- ko if:(AssessmenComplete==1)--> 
+                                    <a target="_blank" class="report-btn-one report-btn report"  selected="1" data-bind="attr:{ href: ReportUrl[0]}"><i class="material-icons">&#xE163;</i><span>逻辑推理能力报告</span></a>
+                    <a target="_blank" class="report-btn-two report-btn  report"  selected="1"  data-bind="attr:{ href: ReportUrl[1]}"><i class="material-icons">&#xE167;</i><span>文字推理能力报告</span></a>
+                    <a target="_blank" class="report-btn-three report-btn  report" selected="1"  data-bind="attr:{ href: ReportUrl[2]}"><i class="material-icons">&#xE24B;</i><span>数字推理能力报告</span></a>
+                  <!-- /ko --> 
+            
+                </div>
+                 <!-- /ko --> 
+			</div>
+		</div>
+        <div class="clearfix"></div>
+	</div>
+</section>
+<div class="dialog">
+    <div class="dialog-box">
+        <div class="player-cancel">
+            <div class="cancel-btn">
+            </div>
+        </div>
+        <div id="player">
+        </div>
+    </div>
+</div>
+
+    <footer>
+	<span class="reg">©肯耐珂萨 2017 | 沪ICP备09051952号-2</span>
+	<span class="in"><a href="http://www.linkedin.com/company/knx?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1825638231400554720831%2CVSRPtargetId%3A3707210%2CVSRPcmpt%3Aprimary" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></span>
+	<span class="weibo"><a href="http://weibo.com/KNXCompany" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></span>
+	<span class="tel"><a href="http://knx.com.cn/about/contact_us" target="_blank">联系我们</a></span>
+	<span class="about"><a href="http://knx.com.cn/about" target="_blank">关于我们</a></span>
+    </footer>
+    
+    <script type="text/javascript" src="../../Scripts/ogcs/Assessment/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Assessment/knockout.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Assessment/umplayer.min.js"></script>
+    <script type="text/javascript">
+    var oCurrent=0;         //保存当前点击报告的下表ID
+    var oItems = [{"ID":1,"Name":"ES就业竞争力测试","Description":"对照就业能力标准，<br/>123<br/>123<br/>第四行<br/><br/><br/>","Cover":"/ogcs_file/assessment/Cover/1.png","Video":"","ReportUrl":[],"AssessmenComplete":0},{"ID":2,"Name":"AT能力测试\r\n","Description":"外企名企校招必备，在线能力测评，提前预知能力水平，稳抓胜率\r\n","Cover":"/ogcs_file/assessment/Cover/2.png","Video":"","ReportUrl":[],"AssessmenComplete":0},{"ID":3,"Name":"创业成功率测试\r\n","Description":"在小型互联网公司拼搏到底适不适合\r\n如何才能与初创公司共同进步\r\n","Cover":"/ogcs_file/assessment/Cover/3.png","Video":"http://material.knx.com.cn/report/chuangyechenggonglvbaogaojiedu_720p.mp4","ReportUrl":[],"AssessmenComplete":1},{"ID":4,"Name":"情商测试\r\n","Description":"如何在职场中如鱼得水\r\n如何发挥自己的性格优势赢得职场战争\r\n","Cover":"/ogcs_file/assessment/Cover/4.png","Video":"http://material.knx.com.cn/report/daxueshengqingshangbaogaojiedu_720p.mp4","ReportUrl":[],"AssessmenComplete":1},{"ID":5,"Name":"EPA职业性格测试","Description":"全面了解职业性格，找到性格亮点，区别对待，客观评价","Cover":"/ogcs_file/assessment/Cover/5.png","Video":"http://material.knx.com.cn/report/EPAbaogaojiedu_720p.mp4","ReportUrl":[],"AssessmenComplete":1},{"ID":6,"Name":"Harrison性格测试","Description":"与心仪职位的匹配度精确到两位小数！在不同职业中纠结？来测测！<br/>还可以挖掘最大性格优势，用性格优势与面试官对话！<br/>","Cover":"/ogcs_file/assessment/Cover/6.png","Video":"","ReportUrl":[],"AssessmenComplete":0}];
+	
+	
+	var vm = {
+        Items: ko.observableArray(oItems),
+    };
+
+    ko.applyBindings(vm);
+	
+	
+	var player = new ump.Player();
+
+    
+	
+	$(document).ready(function(){
+
+        //打开视频
+		$("body").on("click",".video-box",function(event){
+            var oIndex=this.getAttribute("index");
+            var indexNum = Number(oIndex);
+            var assessment = oItems[indexNum];
+            if(assessment.AssessmenComplete == 1){
+                player.create({		
+                        modId:"player",
+                        params:{autostart:false, file: assessment.Video }
+
+                });
+                
+                player.onInited = function(){};
+
+
+	            player.onError= function(info){
+		            if(!info){
+			            return;
+		            }
+		            if(info.desc){
+			            ump.log("播放器错误提示："+info.desc);
+		            }
+	            }
+                $("video").attr("poster",assessment.Cover);
+
+                $(".dialog").show();
+            }
+		})
+		
+      
+
+		$("body").on("click",".confirm-btn",function(){
+			$(".dialog").hide();
+		})
+		
+		$("body").on("click",".player-cancel",function(){
+			$(".dialog").hide();
+			player.stop();
+		})
+		
+		$("body").on("click", ".btn", function () {
+            $("html,body").animate({scrollTop: 410}, 400);
+        })
+		
+	})
+    </script>
+
+</body>
+</html>

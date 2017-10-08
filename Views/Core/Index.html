@@ -1,0 +1,307 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>Index</title>
+    
+    <link rel="stylesheet" href="../../Content/ogcs/Core/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../Content/ogcs/Core/css/base.css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Core/css/Index.css?v=20170930" />
+
+</head>
+<body>
+    <div class="logo-box">
+        <div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
+        </div>
+    </div>
+    
+<header>
+	<div class="title">海途学子-智慧生涯服务平台</div>
+	<div class="line"></div>
+	<ul>
+		<li>人才测评</li>
+		<li>求职培训</li>
+		<li>实习就业</li>
+	</ul>
+</header>
+<section>
+	<div class="flow">
+		<div class="flow-title">Career Success</div>
+		<div class="flow-line"></div>
+		<div class="flow-step" data-bind="foreach:Steps">
+			<div class="step">
+				<div class="step-icon">
+					<div class="badge" data-bind="css:{badgecolor:jump==1}"></div>
+				</div>
+				<div class="step-box" data-bind="attr:{jump:jump,index:$index}">
+					<div class="step-title" data-bind="text:title"><!--探索自我--></div>
+					<div class="step-dec" data-bind="text:dec"><!--通过完整系统的测评工具建立对自己客观公正的认知--></div>
+					<div class="step-btn" data-bind="{text:btn,css:{btnjump:jump==1}}"><!--点击查看--></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="personal">
+		<div class="personal-title">个人信息</div>
+		<div class="personal-line"></div>
+        <div class="personal-name">姓名：<span data-bind="text:Users.name"></span></div>
+		<div class="personal-name-bottom"></div>
+		<div class="personal-message">
+			<div class="item">
+				<div class="circle">
+					<i class="fa fa-university" aria-hidden="true"></i> 
+				</div>
+				<div class="item-message">
+					<div class="item-title">学校</div>
+					<div class="item-content" data-bind="text:Users.school"><!--王大锤--></div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="circle">
+					<i class="fa fa-calendar" aria-hidden="true"></i>
+				</div>
+				<div class="item-message">
+					<div class="item-title">毕业时间</div>
+					<div class="item-content" data-bind="text:Users.date"><!--2017/06/07--></div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="circle">
+					<i class="fa fa-book" aria-hidden="true"></i>
+				</div>
+				<div class="item-message">
+					<div class="item-title">学历</div>
+					<div class="item-content" data-bind="text:Users.education"><!--本科--></div>
+				</div>
+			</div>
+              <div class="item">
+				<div class="circle">
+					<i class="fa fa-pencil-square" aria-hidden="true"></i>
+				</div>
+				<div class="item-message">
+					<div class="item-title">所学专业</div>
+					<div class="item-content" data-bind="text:Users.professional"><!--艺术设计ssssad--></div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="circle">
+					<i class="fa fa-id-card" aria-hidden="true"></i>
+				</div>
+				<div class="item-message">
+					<div class="item-title">求职意向</div>
+					<div class="item-content" data-bind="text:Users.position"><!--UI设计师--></div>
+				</div>
+			</div>			
+			<div class="item">
+				<div class="circle">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</div>
+				<div class="item-message">
+					<div class="item-title">邮箱地址</div>
+					<div class="item-content" data-bind="text:Users.email"><!--999911111@knx.com.cn--></div>
+				</div>
+			</div>          
+		</div>
+	</div>
+
+    <div class="friend">
+		<div class="friend-title">合作伙伴</div>
+		<div class="friend-line"></div>
+		<div class="friend-box">
+			<div class="line-left-one"></div>
+			<div class="line-left-two"></div>
+			<div class="line-right-one"></div>
+			<div class="line-right-two"></div>
+			<table>
+				<tr>
+					<td class="logo-top">
+						<img src="../../Content/ogcs/Core/img/volvo_logo.png" class="volvo"/>
+						<div class="logo-name">公司名字三生三世试试</div>
+					</td>
+					<td class="logo-top">
+						<img src="../../Content/ogcs/Core/img/dun_logo.png" class="dun"/>
+						<div class="logo-name">公司名字三世试试</div>
+					</td>
+					<td class="logo-top">
+						<img src="../../Content/ogcs/Core/img/taikang_logo.png" class="taikang"/>
+						<div class="logo-name">公司名生三世试试</div>
+					</td>
+					<td class="logo-top">
+						<img src="../../Content/ogcs/Core/img/kws_logo.png" class="kws"/>
+						<div class="logo-name">公司名生三世试试</div>
+					</td>
+					<td class="logo-top">
+						<img src="../../Content/ogcs/Core/img/gen_logo.png" class="gen"/>
+						<div class="logo-name">公三世试试</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="logo-bottom">
+						<img src="../../Content/ogcs/Core/img/dazhong_logo.png" class="dazhong"/>
+						<div class="logo-name">公司名字三世试试</div>
+					</td>
+					<td class="logo-bottom">
+						<img src="../../Content/ogcs/Core/img/lijinji_logo.png" class="lijinji"/>
+						<div class="logo-name">公司名字三世试试</div>
+					</td>
+					<td class="logo-bottom">
+						<img src="../../Content/ogcs/Core/img/anyong_logo.png" class="anyong"/>
+						<div class="logo-name">公司名字三生三世试试</div>
+					</td>
+					<td class="logo-bottom">
+						<img src="../../Content/ogcs/Core/img/pwc_logo.png" class="pwc"/>
+						<div class="logo-name">公司名字三生三世试试</div>
+					</td>
+					<td class="logo-bottom">
+						<img src="../../Content/ogcs/Core/img/tengmen_logo.png" class="tengmen"/>
+						<div class="logo-name">公司名字三生三世试试</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</section>
+
+    <footer>
+	<span class="reg">©肯耐珂萨 2017 | 沪ICP备09051952号-2</span>
+	<span class="in"><a href="http://www.linkedin.com/company/knx?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1825638231400554720831%2CVSRPtargetId%3A3707210%2CVSRPcmpt%3Aprimary" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></span>
+	<span class="weibo"><a href="http://weibo.com/KNXCompany" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></span>
+	<span class="tel"><a href="http://knx.com.cn/about/contact_us" target="_blank">联系我们</a></span>
+	<span class="about"><a href="http://knx.com.cn/about" target="_blank">关于我们</a></span>
+    </footer>
+    
+    <script type="text/javascript" src="../../Scripts/ogcs/Core/knockout.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Core/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+
+        //判断浏览器版本是否低于IE9
+        (function(){
+            var DEFAULT_VERSION = 8;
+            var ua = navigator.userAgent.toLowerCase();
+            var isIE = ua.indexOf("msie")>-1;
+            var safariVersion,numVerson;
+            if(isIE){
+                safariVersion =  ua.match(/msie ([\d.]+)/)[1];
+                numVerson=parseInt(safariVersion[0]);
+                if((numVerson>5)&&(numVerson<= DEFAULT_VERSION)){
+                    document.documentElement.style.display="none";
+                    document.body.style.display="none";
+                    window.location.href="/ogcs/Core/Prompt"
+                }else{
+                    
+                }
+            }else{
+
+            }
+        }());
+
+        $(document).ready(function () {
+            
+            var userModel =  {"ContactUserID":31,"IsGraduation":1,"Status":4,"ID":119,"Email":"71233@13.com","FirstName":"餐","LastName":"新","Gender":2,"Tel":"13712345678","Partnerid":1,"Education":"本科学历","Major":"计算机科学","GraduationTime":"2016-07-01","JobIntention":"这个","School":"中国人民解放军国防科学技术大学","Key":"c0cc4119-e6ec-4be7-ba27-2116cea63cf3","CreateDate":"2017-09-28T20:34:45.317","UpdatedDate":"2017-09-28T20:34:45.317"} ; 	//传进来的用户个人信息
+
+            var oUsers = {			//用户个人信息
+                "name": userModel.LastName + userModel.FirstName,
+                "school":userModel.School,
+                "date": userModel.GraduationTime,
+                "education": userModel.Education,
+                "position": userModel.JobIntention,
+                "professional": userModel.Major,
+                "email": userModel.Email
+            }
+
+            //操作流程信息
+            var oSteps = [{
+                "jump": 1,
+                "title": "探索自我",
+                "dec": "通过完整系统的测评工具建立对自己客观公正的认知",
+                "btn": "点击查看"
+            }, {
+                "jump": 0,
+                "title": "解读自我",
+                "dec": "参照行业内与专家和职业规划师的建议，形成完整的个人发展计划",
+                "btn": "点击查看"
+            }, {
+                "jump": 0,
+                "title": "打造自我",
+                "dec": "分解个人目标，落实行动，稳步提高市场竞争力",
+                "btn": "点击查看"
+            }, {
+                "jump": 0,
+                "title": "营销自我",
+                "dec": "匹配优质实习、就业机会",
+                "btn": "点击查看"
+            }]
+
+            //ko绑定数据
+            var vm = {
+                Steps: ko.observable(getStep(oSteps, userModel.Status)),
+                Users: {
+                    "name": ko.observable(oUsers.name),
+                    "school":ko.observable(oUsers.school),
+                    "date": ko.observable(oUsers.date),
+                    "education": ko.observable(oUsers.education),
+                    "position": ko.observable(oUsers.position),
+                    "professional": ko.observable(oUsers.professional),
+                    "email": ko.observable(oUsers.email)
+                }
+            }
+            ko.applyBindings(vm);
+
+            //鼠标移入流程块
+            $("body").on("mouseover", ".step-box", function (event) {
+                if (!this.contains(event.fromElement)) {
+                    $(this).children(".step-btn").animate({ "opacity": "1" }, 200);
+                }
+            })
+
+            //鼠标移出流程块
+            $("body").on("mouseout", ".step-box", function (event) {
+                if (!this.contains(event.toElement)) {
+                    $(this).children(".step-btn").animate({ "opacity": "0" }, 200);
+                }
+            })
+
+            //鼠标点击流程块
+            $("body").on("click", ".step-box", function (event) {
+                var oIndex = $(this).attr("index");
+                var oJump = $(this).attr("jump");
+                if (oJump==="1") {
+                    switch (oIndex) {
+                        case "0":
+                            window.location.href = "/ogcs/Assessment/Index";
+                            break;
+                        case "1": 
+                        window.location.href = "/ogcs/Assessment/Explore";
+                            break;
+                        case "2":
+                            window.location.href = "/ogcs/Course/";
+                            break;
+                        case "3":
+                             window.location.href = "/ogcs/ContactUser/Index";
+                            break;
+                    }
+                }
+            })
+
+            //获取用户操作的当前步骤
+            function getStep(oSteps, oStepValue) {
+                var oNewStep = [];
+                for (var i = 0; i < oSteps.length; i++) {
+                    if (i < oStepValue) {
+                        oSteps[i].jump = 1;
+                    }
+                    oNewStep.push(oSteps[i]);
+                }
+                return oNewStep;
+            }
+        })
+    </script>
+
+</body>
+</html>

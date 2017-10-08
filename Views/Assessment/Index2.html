@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>Index2</title>
+    
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/font-awesome.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/Index2.css?v=20170925"
+        type="text/css" />
+        
+</head>
+<body>
+    <div class="logo-box">
+        <div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
+        </div>
+    </div>
+    
+<header>
+	<div class="content">
+		<div class="left"></div>
+		<div class="right">
+			<div class="title">探索自我<span></span>专业测评</div>
+			<div class="dec">通过完整系统的测评工具建立对自己客观公正的认知</div>
+			<div class="btn">立即开始<i></i></div>
+		</div>
+	</div>
+</header>
+<section>
+	<div class="top">
+		<div class="top-box">
+			<span>当前位置：</span>
+			<span class="home"><a href="/ogcs/Core/">首页</a></span>
+			<span class="right-icon"></span>
+			<span class="seek-text">探索自我</span>
+		</div>
+	</div>
+    <div class="nav-tip">
+        <div class="nav-one">
+            请仔细阅读以下测评简介，您可以根据自己的实际情况选择其中三个测评进行作答，
+        </div>
+        <div class="nav-two">
+            作答过程中每个单独的测评都需要一次性作答完毕，请您在安静的环境中，保持注意力集中作答。
+        </div>
+        <div class="nav-three">
+            测评结束后你将解锁“<span class="yel">解读自我</span>”功能，查看个人报告和观看解读视频。
+        </div>
+    </div>
+	<div class="evaluation">
+		<div class="select-box">
+			已选<span class="selected-num red" data-bind="text:Num"><!--1--></span><span class="red">/</span><span class="total-num red">3</span>个
+		</div>
+		<div class="tip">
+			<div class="tip-text">您将在3个工作日内收到报告结果</div>
+		</div>
+		<div class="list" data-bind="foreach:Items">
+			<a class="item" target="_blank" data-bind="attr:{index:ID,status:AssessmenStatus,num:$index()}">
+				<div class="title" data-bind="text:Name"><!--ES就业竞争力测试--></div>
+				<div class="dec" data-bind="html:Description"><!--对照就业能力标准，识别短板及时提升--></div>
+				<div class="begin-btn" data-bind="attr:{status:AssessmenStatus}">
+					开始测试<span class="arrow" data-bind="attr:{status:AssessmenStatus}"><i data-bind="attr:{status:AssessmenStatus}"></i></span>
+				</div>
+				<div class="state" data-bind="visible:AssessmenStatus!=0,text:AssessmenStatus!=0?(AssessmenStatus!=3?'未完成':'已完成'):'',attr:{status:AssessmenStatus}">未完成</div>
+			</a>
+		</div>
+        <div class="clearfix"></div>
+	</div>
+</section>
+<div class="dialog">
+    <div class="dialog-box first">
+        <div class="top first-top">
+            <div class="top-text">
+                <i class="fa fa-exclamation-circle"></i>提示</div>
+        </div>
+        <div class="tip-content first-tip-content">
+            请问您是否确定选择此测试一旦选择无法修改</div>
+        <div class="btn confirm-btn">
+            确定</div>
+        <div class="btn cancel-btn">
+            取消</div>
+    </div>
+    <div class="dialog-box repeat">
+        <div class="top repeat-top">
+            <div class="top-text">
+                <i class="fa fa-exclamation-circle"></i>提示</div>
+        </div>
+        <div class="tip-content">
+            如果你已完成该测评，不需要继续测试</div>
+        <div class="btn continue-btn">
+            测试</div>
+        <div class="btn no-btn">
+            取消</div>
+    </div>
+</div>
+
+    <footer>
+	<span class="reg">©肯耐珂萨 2017 | 沪ICP备09051952号-2</span>
+	<span class="in"><a href="http://www.linkedin.com/company/knx?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1825638231400554720831%2CVSRPtargetId%3A3707210%2CVSRPcmpt%3Aprimary" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></span>
+	<span class="weibo"><a href="http://weibo.com/KNXCompany" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></span>
+	<span class="tel"><a href="http://knx.com.cn/about/contact_us" target="_blank">联系我们</a></span>
+	<span class="about"><a href="http://knx.com.cn/about" target="_blank">关于我们</a></span>
+    </footer>
+    
+    <script type="text/javascript" src="../../Scripts/ogcs/Assessment/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Assessment/knockout.min.js"></script>
+    <script type="text/javascript">
+        var oList = [{"ID":1,"Name":"ES就业竞争力测试","Description":"对照就业能力标准，<br/>123<br/>123<br/>第四行<br/><br/><br/>","AssessmenStatus":0},{"ID":2,"Name":"AT能力测试\r\n","Description":"外企名企校招必备，在线能力测评，提前预知能力水平，稳抓胜率\r\n","AssessmenStatus":0},{"ID":3,"Name":"创业成功率测试\r\n","Description":"在小型互联网公司拼搏到底适不适合\r\n如何才能与初创公司共同进步\r\n","AssessmenStatus":3},{"ID":4,"Name":"情商测试\r\n","Description":"如何在职场中如鱼得水\r\n如何发挥自己的性格优势赢得职场战争\r\n","AssessmenStatus":3},{"ID":5,"Name":"EPA职业性格测试","Description":"全面了解职业性格，找到性格亮点，区别对待，客观评价","AssessmenStatus":3},{"ID":6,"Name":"Harrison性格测试","Description":"与心仪职位的匹配度精确到两位小数！在不同职业中纠结？来测测！<br/>还可以挖掘最大性格优势，用性格优势与面试官对话！<br/>","AssessmenStatus":0}];
+
+        var oCurrent = 0;     //保存当前选中的测评项目的ID
+        var oNumber = 0;      //保存当前选中的测评项目的顺序下标
+
+        var vm = {
+            Items: ko.observableArray(oList),
+            Num: ko.observable(0),
+            CompleteNum: ko.observable(0)
+        }
+        ko.applyBindings(vm);
+
+        $(function () {
+
+            var timer = window.setInterval(function () {
+                if (vm.Num() > 0) {
+                    var getAjax = false;
+                    for (i = 0; i < 6; i++) {
+                        if (oList[i] && (oList[i].AssessmenStatus == 2 || oList[i].AssessmenStatus == 1)) {
+                            getAjax = true;
+                            break;
+                        }
+                    }
+                    if (getAjax) {
+                        getAjax = false;
+                        $.getJSON("/ogcs/Assessment/GetUserAssessmentStatus?"+Math.random()
+                        , function (resu) {
+                            if (resu && resu.success && resu.data) {
+                                if (resu.data.length == 3) window.clearInterval(timer);
+                                if (resu.data.length > vm.CompleteNum()) {
+                                    vm.CompleteNum(resu.data.length);
+                                    for (j = 0; j < resu.data.length; j++) {
+                                        for (k = 0; k < 6; k++) {
+                                            if (oList[k].ID == resu.data[j]) { oList[k].AssessmenStatus = 3; }
+                                        }
+                                    }
+                                    vm.Items([]);
+                                    vm.Items(oList);
+                                    init();
+                                }
+                            }
+                        }
+                    );
+                    }
+                }
+            }, 2000);
+
+            //初始化首先执行
+            init();
+
+            //选出状态为3的测评项
+            function checkItemThree() {
+                var oTotal = vm.Items();
+                for (var i = 0; i < oTotal.length; i++) {
+                    if (oTotal[i].AssessmenStatus == 3) {
+                        $(".item").eq(i).unbind("mouseenter").unbind("mouseleave");         //解绑hover
+                        vm.CompleteNum(vm.CompleteNum() + 1);
+                    }
+                }
+            }
+
+            //获取已选中的测评项目数量
+            function getSelected() {
+                var oTotal = vm.Items();
+                var oNum = 0;
+                for (var i = 0; i < oTotal.length; i++) {
+                    if (oTotal[i].AssessmenStatus != 0) {
+                        oNum++;
+                    }
+                }
+                return oNum;
+            }
+
+            //初始化执行
+            function init() {
+                var oItems = getSelected();
+                vm.Num(oItems);
+                if (oItems < 3) {
+                    $(".item").eq(0).css({
+                        "background": "url(/Content/ogcs/Assessment/img/es01.jpg)no-repeat center center",
+                        "backgroundSize": "100% 100%"
+                    })
+                    $(".item").eq(1).css({
+                        "background": "url(/Content/ogcs/Assessment/img/at01.jpg)no-repeat center center",
+                        "backgroundSize": "100% 100%"
+                    })
+                    $(".item").eq(2).css({
+                        "background": "url(/Content/ogcs/Assessment/img/start01.jpg)no-repeat center center",
+                        "backgroundSize": "100% 100%"
+                    })
+                    $(".item").eq(3).css({
+                        "background": "url(/Content/ogcs/Assessment/img/eq01.jpg)no-repeat center center",
+                        "backgroundSize": "100% 100%"
+                    })
+                    $(".item").eq(4).css({
+                        "background": "url(/Content/ogcs/Assessment/img/epa01.jpg)no-repeat center center",
+                        "backgroundSize": "100% 100%"
+                    })
+                    $(".item").eq(5).css({
+                        "background": "url(/Content/ogcs/Assessment/img/ha01.jpg)no-repeat center center",
+                        "backgroundSize": "100% 100%"
+                    })
+
+                    $(".item").eq(0).children(".begin-btn").css({ "borderColor": "#0099e5", "color": "#0099e5" })
+                    $(".item").eq(1).children(".begin-btn").css({ "borderColor": "#0099e5", "color": "#0099e5" })
+                    $(".item").eq(2).children(".begin-btn").css({ "borderColor": "#f7a27b", "color": "#f7a27b" })
+                    $(".item").eq(3).children(".begin-btn").css({ "borderColor": "#f7a27b", "color": "#f7a27b" })
+                    $(".item").eq(4).children(".begin-btn").css({ "borderColor": "#baa0cb", "color": "#baa0cb" })
+                    $(".item").eq(5).children(".begin-btn").css({ "borderColor": "#baa0cb", "color": "#baa0cb" })
+
+                    $(".item").eq(0).children(".begin-btn").children(".arrow").css({ "borderColor": "#0099e5" })
+                    $(".item").eq(1).children(".begin-btn").children(".arrow").css({ "borderColor": "#0099e5" })
+                    $(".item").eq(2).children(".begin-btn").children(".arrow").css({ "borderColor": "#f7a27b" })
+                    $(".item").eq(3).children(".begin-btn").children(".arrow").css({ "borderColor": "#f7a27b" })
+                    $(".item").eq(4).children(".begin-btn").children(".arrow").css({ "borderColor": "#baa0cb" })
+                    $(".item").eq(5).children(".begin-btn").children(".arrow").css({ "borderColor": "#baa0cb" })
+
+                    $(".item").eq(0).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#0099e5" })
+                    $(".item").eq(1).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#0099e5" })
+                    $(".item").eq(2).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#f7a27b" })
+                    $(".item").eq(3).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#f7a27b" })
+                    $(".item").eq(4).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#baa0cb" })
+                    $(".item").eq(5).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#baa0cb" })
+
+
+                    $(".item").eq(0).hover(function () {
+                        $(this).css({ "boxShadow": "0 2px 4px 0 rgba(214, 214, 214, 0.5)" })
+                        $(this).children(".begin-btn").css({ "background": "#0099e5", "color": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#fff" })
+                    }, function () {
+                        $(this).css({ "boxShadow": "none" })
+                        $(this).children(".begin-btn").css({ "background": "#fff", "color": "#0099e5" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#0099e5" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#0099e5" })
+                    })
+                    $(".item").eq(1).hover(function () {
+                        $(this).css({ "boxShadow": "0 2px 4px 0 rgba(214, 214, 214, 0.5)" })
+                        $(this).children(".begin-btn").css({ "background": "#0099e5", "color": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#fff" })
+                    }, function () {
+                        $(this).css({ "boxShadow": "none" })
+                        $(this).children(".begin-btn").css({ "background": "#fff", "color": "#0099e5" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#0099e5" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#0099e5" })
+                    })
+                    $(".item").eq(2).hover(function () {
+                        $(this).css({ "boxShadow": "0 2px 4px 0 rgba(214, 214, 214, 0.5)" })
+                        $(this).children(".begin-btn").css({ "background": "#f7a27b", "color": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#fff" })
+                    }, function () {
+                        $(this).css({ "boxShadow": "none" })
+                        $(this).children(".begin-btn").css({ "background": "#fff", "color": "#f7a27b" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#f7a27b" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#f7a27b" })
+                    })
+                    $(".item").eq(3).hover(function () {
+                        $(this).css({ "boxShadow": "0 2px 4px 0 rgba(214, 214, 214, 0.5)" })
+                        $(this).children(".begin-btn").css({ "background": "#f7a27b", "color": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#fff" })
+                    }, function () {
+                        $(this).css({ "boxShadow": "none" })
+                        $(this).children(".begin-btn").css({ "background": "#fff", "color": "#f7a27b" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#f7a27b" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#f7a27b" })
+                    })
+                    $(".item").eq(4).hover(function () {
+                        $(this).css({ "boxShadow": "0 2px 4px 0 rgba(214, 214, 214, 0.5)" })
+                        $(this).children(".begin-btn").css({ "background": "#baa0cb", "color": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#fff" })
+                    }, function () {
+                        $(this).css({ "boxShadow": "none" })
+                        $(this).children(".begin-btn").css({ "background": "#fff", "color": "#baa0cb" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#baa0cb" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#baa0cb" })
+                    })
+                    $(".item").eq(5).hover(function () {
+                        $(this).css({ "boxShadow": "0 2px 4px 0 rgba(214, 214, 214, 0.5)" })
+                        $(this).children(".begin-btn").css({ "background": "#baa0cb", "color": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#fff" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#fff" })
+                    }, function () {
+                        $(this).css({ "boxShadow": "none" })
+                        $(this).children(".begin-btn").css({ "background": "#fff", "color": "#baa0cb" })
+                        $(this).children(".begin-btn").children(".arrow").css({ "borderColor": "#baa0cb" })
+                        $(this).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#baa0cb" })
+                    })
+                }
+                //重新渲染状态为3的测评项
+                checkItemThree();
+            }
+
+            //点选数为3个时重新渲染元素
+            function checkItem() {
+                var oTotal = vm.Items();
+                for (var i = 0; i < oTotal.length; i++) {
+                    if (oTotal[i].AssessmenStatus == 0) {
+                        if (i < 2) {
+                            if (i === 0) {
+                                $(".item").eq(i).css({
+                                    "background": "url(/Content/ogcs/Assessment/img/es02.jpg)no-repeat center center",
+                                    "backgroundSize": "100% 100%"
+                                })
+                            }
+                            if (i === 1) {
+                                $(".item").eq(i).css({
+                                    "background": "url(/Content/ogcs/Assessment/img/at02.jpg)no-repeat center center",
+                                    "backgroundSize": "100% 100%"
+                                })
+                            }
+                            $(".item").eq(i).attr("key", "close");
+                            $(".item").eq(i).children(".begin-btn").css({ "borderColor": "#c3c3c3", "color": "#6d6d6d" })
+                            $(".item").eq(i).children(".begin-btn").children(".arrow").css({ "borderColor": "#6d6d6d" })
+                            $(".item").eq(i).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#6d6d6d" })
+                            $(".item").eq(i).unbind("mouseenter").unbind("mouseleave");         //解绑hover
+                        }
+
+                        if (2 <= i < 4) {
+                            if (i === 2) {
+                                $(".item").eq(i).css({
+                                    "background": "url(/Content/ogcs/Assessment/img/start02.jpg)no-repeat center center",
+                                    "backgroundSize": "100% 100%"
+                                })
+                            }
+                            if (i === 3) {
+                                $(".item").eq(i).css({
+                                    "background": "url(/Content/ogcs/Assessment/img/eq02.jpg)no-repeat center center",
+                                    "backgroundSize": "100% 100%"
+                                })
+                            }
+                            $(".item").eq(i).attr("key", "close");
+                            $(".item").eq(i).children(".begin-btn").css({ "borderColor": "#c3c3c3", "color": "#6d6d6d" })
+                            $(".item").eq(i).children(".begin-btn").children(".arrow").css({ "borderColor": "#6d6d6d" })
+                            $(".item").eq(i).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#6d6d6d" })
+                            $(".item").eq(i).unbind("mouseenter").unbind("mouseleave");         //解绑hover
+                        }
+
+                        if (4 <= i <= 5) {
+                            if (i === 4) {
+                                $(".item").eq(i).css({
+                                    "background": "url(/Content/ogcs/Assessment/img/epa02.jpg)no-repeat center center",
+                                    "backgroundSize": "100% 100%"
+                                })
+                            } else if (i === 5) {
+                                $(".item").eq(i).css({
+                                    "background": "url(/Content/ogcs/Assessment/img/ha02.jpg)no-repeat center center",
+                                    "backgroundSize": "100% 100%"
+                                })
+                            }
+                            $(".item").eq(i).attr("key", "close");
+                            $(".item").eq(i).children(".begin-btn").css({ "borderColor": "#c3c3c3", "color": "#6d6d6d" })
+                            $(".item").eq(i).children(".begin-btn").children(".arrow").css({ "borderColor": "#6d6d6d" })
+                            $(".item").eq(i).children(".begin-btn").children(".arrow").children("i").css({ "borderColor": "#6d6d6d" })
+                            $(".item").eq(i).unbind("mouseenter").unbind("mouseleave");         //解绑hover
+                        }
+                    }
+
+                    if (oTotal[i].AssessmenStatus == 3) {
+                        $(".item").eq(i).unbind("mouseenter").unbind("mouseleave");         //解绑hover
+                    }
+                }
+
+            }
+
+            //点选测评项目
+            $("body").on("click", ".item", function () {
+
+                var oStatus = $(this).attr("status");
+                var oKey = $(this).attr("key");
+                var oId = $(this).attr("index");
+                var oNum = $(this).attr("num");
+                if (getSelected() !== 3) {
+                    if (!(oKey === "close" || oStatus === "3")) {
+                        //切换当前点击的项目
+                        oCurrent = oId;
+                        oNumber = oNum;
+                        if (oStatus === "0") {
+                            $(".first").show();
+                            $(".dialog").show();
+                        }
+
+                        if (oStatus === "1" || oStatus === "2") {
+                            $(".repeat").show();
+                            $(".dialog").show();
+                        }
+                    }
+                } else {
+                    if (oStatus === "1" || oStatus === "2") {
+                        //切换当前点击的项目
+                        oCurrent = oId;
+                        oNumber = oNum;
+                        $(".repeat").show();
+                        $(".dialog").show();
+                    }
+                }
+            })
+
+            //确定选中测评项目
+            $("body").on("click", ".confirm-btn", function () {
+                var oNum = vm.Num();
+                var oCurrentItem = $(".item").eq(parseInt(oNumber));
+                var oStatus = parseInt(oCurrentItem.attr("status"));
+                if (oStatus === 0) {
+                    oCurrentItem.attr("status", 1);
+                    oCurrentItem.children(".state").attr("status", 1);
+                    oCurrentItem.children(".state").text("未完成");
+                    oCurrentItem.children(".state").css({ "display": "block", "color": "#ee5c54" });
+
+                    vm.Num(parseInt(oNum) + 1);
+                    vm.Items()[parseInt(oNumber)].AssessmenStatus = 1;
+
+                }
+                if (getSelected() === 3) {
+                    checkItem();
+                }
+
+                $(".first").hide();
+                $(".dialog").hide();
+
+                //打开新标签页
+                window.open('select?assessmentId=' + oCurrent);
+            })
+
+            $("body").on("click", ".continue-btn", function () {
+                $(".repeat").hide();
+                $(".dialog").hide();
+                //打开新标签页
+                window.open('select?assessmentId=' + oCurrent);
+            })
+
+            $("body").on("click", ".cancel-btn", function () {
+                $(".first").hide();
+                $(".dialog").hide();
+            })
+
+            $("body").on("click", ".no-btn", function () {
+                $(".repeat").hide();
+                $(".dialog").hide();
+            })
+
+            $("body").on("click", ".btn", function () {
+                $("html,body").animate({ scrollTop: 410 }, 400);
+            })
+
+        })
+    </script>
+
+</body>
+</html>

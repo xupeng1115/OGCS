@@ -1,0 +1,260 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>Exam</title>
+    
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/Exam.css?v=20170925" type="text/css" />
+
+</head>
+<body>
+    <div class="logo-box">
+        <div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
+        </div>
+    </div>
+    
+<header>
+	<div class="back-btn">
+		<i></i>返回课程详情
+	</div>
+</header>
+    <section>
+	<div class="top">
+		<div class="begin">
+			<div class="begin-box">
+				<div class="begin-bg"></div>
+				<div class="begin-dec">
+					<p class="begin-title">开始考试</p>
+					<p class="begin-text">
+						以下题目均为单选题（共<span class="num" data-bind="text:Number"><!--20--></span>道题）
+					</p>
+					<p class="begin-line"></p>
+				</div>
+			</div>
+		</div>
+		<div class="flo-content">
+			<div class="flo"></div>
+		</div>
+	</div>
+	<div class="bottom">
+		<div class="content">
+			<div class="list" data-bind="foreach:Exams">
+				<div class="item" data-bind="attr:{index:$index()+1}">
+					<div class="item-top">
+						<div class="item-num" data-bind="text:($index()+1)<10?('0'+($index()+1)):($index()+1)"><!--01--></div>
+						<div class="item-title" data-bind="text:Title"><!--当你的同事被老板责骂，你会怎样疏导他？--></div>
+					</div>
+                    <div class="select-box" data-bind="foreach:Options">
+                        <div class="item-select" data-bind="attr:{num:Num,key:0,questionid:QuestionId,id:ID}">
+					        <div class="select-icon"></div>
+					        <div class="select-circle"></div>
+                            <div class="select-type" data-bind="text:Num+'.'"></div>
+					        <div class="select-text" data-bind="text:Title"><!--A.小事情啦，不用放在心上！--></div>
+				        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="submit-btn">提交答卷</div>
+	</div>
+	<div class="dialog">
+		<div class="dialog-box tip">
+			<div class="tip-top dialog-top">
+				<div class="top-text">考前提示</div>
+				<div class="top-close">
+					<div class="close-btn"></div>
+				</div>
+			</div>
+			<div class="tip-one" data-bind="visible:OneExam">敲黑板！！！虽然我们提供重考机会，但是，我们比较看重你<span class="blue">第一次答</span>题的分数哦，希望童鞋们认真作答，把握机会！</div>
+			<div class="tip-two" data-bind="style:{marginTop:!OneExam?'70px':'0px'}">本考试满分<span class="red">100</span>分，当您的成绩<span class="red">≥80</span>分，即为通过，否则视为不通过。</div>
+			<div class="btn know-btn">知道了</div>
+			<div class="btn cancel-btn">取消</div>
+		</div>
+		<div class="dialog-box result">
+			<div class="result-top dialog-top">
+				<div class="top-text">您的成绩</div>
+				<div class="top-close result-top-close">
+					<div class="result-close-btn"></div>
+				</div>
+			</div>
+			<div class="result-one"><span class="score" data-bind="text:Score">90</span>分</div>
+			<div class="result-two" data-bind="visible:parseInt(Score())<80">没关系，您还有重考机会。</div>
+			<div class="result-three" data-bind="visible:parseInt(Score())<80">建议您把课程认真学完后再重考，加油哦！</div>
+            <div class="result-success" data-bind="visible:parseInt(Score())>=80">恭喜您，考试通过！</div>
+			<div class="btn result-back-btn">返回</div>
+		</div>
+        <div class="dialog-box earn">
+			<div class="earn-top dialog-top">
+				<div class="top-text">友情提示</div>
+				<div class="top-close">
+					<div class="close-btn"></div>
+				</div>
+			</div>
+			<div class="earn-one">您还有题目未答，请答完所有的题目！</div>
+			<div class="btn confirm-btn">确定</div>
+		</div>
+        <div class="dialog-box back">
+			<div class="back-top dialog-top">
+				<div class="top-text">退出提示</div>
+				<div class="top-close">
+					<div class="close-btn"></div>
+				</div>
+			</div>
+			<div class="back-one">您确定要退出本次答题吗！</div>
+			<div class="btn back-cancel-btn">取消</div>
+            <div class="btn back-confirm-btn">确定</div>
+		</div>
+	</div>
+</section>
+
+    <footer>
+	<span class="reg">©肯耐珂萨 2017 | 沪ICP备09051952号-2</span>
+	<span class="in"><a href="http://www.linkedin.com/company/knx?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1825638231400554720831%2CVSRPtargetId%3A3707210%2CVSRPcmpt%3Aprimary" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></span>
+	<span class="weibo"><a href="http://weibo.com/KNXCompany" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></span>
+	<span class="tel"><a href="http://knx.com.cn/about/contact_us" target="_blank">联系我们</a></span>
+	<span class="about"><a href="http://knx.com.cn/about" target="_blank">关于我们</a></span>
+    </footer>
+    
+    <script type="text/javascript" src="../../Scripts/ogcs/Course/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Course/knockout.min.js"></script>
+    <script type="text/javascript">
+     var courseId =2;
+        var oExams =  [{"ID":77,"CourseId":2,"Num":"","Title":"团队决策易于解决什么问题？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":259,"CourseId":2,"QuestionId":77,"Num":"A","Title":"个别问题","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":260,"CourseId":2,"QuestionId":77,"Num":"B","Title":"综合性问题","OptionValue":10,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":261,"CourseId":2,"QuestionId":77,"Num":"C","Title":"疑难问题","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.333"}]},{"ID":74,"CourseId":2,"Num":"","Title":"（）是激励组织内创新活动的主要动力？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":250,"CourseId":2,"QuestionId":74,"Num":"A","Title":"核心竞争力","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":251,"CourseId":2,"QuestionId":74,"Num":"B","Title":"团队运动","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":252,"CourseId":2,"QuestionId":74,"Num":"C","Title":"团队文化","OptionValue":10,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.33"}]},{"ID":71,"CourseId":2,"Num":"","Title":"以下关于个人和团队之间的关系，说法错误的是？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":241,"CourseId":2,"QuestionId":71,"Num":"A","Title":"个人从属团队","OptionValue":10,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.313"},{"ID":242,"CourseId":2,"QuestionId":71,"Num":"B","Title":"个人能力有限","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.327"},{"ID":243,"CourseId":2,"QuestionId":71,"Num":"C","Title":"团队早就个人","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.327"}]},{"ID":72,"CourseId":2,"Num":"","Title":"团队决策的主要特征不包括？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":244,"CourseId":2,"QuestionId":72,"Num":"A","Title":"责任分担","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.327"},{"ID":245,"CourseId":2,"QuestionId":72,"Num":"B","Title":"封闭性","OptionValue":10,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.327"},{"ID":246,"CourseId":2,"QuestionId":72,"Num":"C","Title":"合理性","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.327"}]},{"ID":75,"CourseId":2,"Num":"","Title":"团队成员为实现团队目标做出共同的承诺，各成员之间应该互相支持、互相配合。该特点为创新团队目标的（）？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":253,"CourseId":2,"QuestionId":75,"Num":"A","Title":"一致性","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":254,"CourseId":2,"QuestionId":75,"Num":"B","Title":"具体性","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":255,"CourseId":2,"QuestionId":75,"Num":"C","Title":"合作性","OptionValue":10,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.33"}]},{"ID":79,"CourseId":2,"Num":"","Title":"高效团队具有的文化特征不包括？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":265,"CourseId":2,"QuestionId":79,"Num":"A","Title":"生活实践","OptionValue":10,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.337"},{"ID":266,"CourseId":2,"QuestionId":79,"Num":"B","Title":"团队精神","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.337"},{"ID":267,"CourseId":2,"QuestionId":79,"Num":"C","Title":"不断进取","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.337"}]},{"ID":73,"CourseId":2,"Num":"","Title":"（）是团队对其成员的吸引力和成员之间的相互吸引力，是无形的精神力量？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":247,"CourseId":2,"QuestionId":73,"Num":"A","Title":"团队凝聚力","OptionValue":10,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":248,"CourseId":2,"QuestionId":73,"Num":"B","Title":"合作能力","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":249,"CourseId":2,"QuestionId":73,"Num":"C","Title":"沟通","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.33"}]},{"ID":78,"CourseId":2,"Num":"","Title":"创新团队建设的第一大障碍是团队成员间？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":262,"CourseId":2,"QuestionId":78,"Num":"A","Title":"惧怕冲突","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":263,"CourseId":2,"QuestionId":78,"Num":"B","Title":"缺乏信任","OptionValue":10,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":264,"CourseId":2,"QuestionId":78,"Num":"C","Title":"逃避责任","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.333"}]},{"ID":76,"CourseId":2,"Num":"","Title":"创新团队精神的核心是？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":256,"CourseId":2,"QuestionId":76,"Num":"A","Title":"团结合作、优势互补","OptionValue":10,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":257,"CourseId":2,"QuestionId":76,"Num":"B","Title":"奉献精神","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":258,"CourseId":2,"QuestionId":76,"Num":"C","Title":"合作精神","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.333"}]},{"ID":80,"CourseId":2,"Num":"","Title":"强化团队执行力的关键在于？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":268,"CourseId":2,"QuestionId":80,"Num":"A","Title":"树立明确的团队目标","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.337"},{"ID":269,"CourseId":2,"QuestionId":80,"Num":"B","Title":"引入竞争机制","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.337"},{"ID":270,"CourseId":2,"QuestionId":80,"Num":"C","Title":"强化执行力文化建设","OptionValue":10,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.337"}]}];
+        var oneExam = "0" == "1" ;
+
+        var vm = {
+            OneExam:oneExam,
+            Number:oExams.length,
+            Exams: ko.observableArray(oExams),
+            Score:ko.observable(0),
+        }
+        ko.applyBindings(vm);
+
+        $(document).ready(function () {
+
+            $("body").on("click", ".back-btn", function () {
+                $(".dialog").show();
+                $(".back").show();
+            })
+
+            $("body").on("click", ".submit-btn", function () {
+			    var oItems=$(".item");
+                var oSelects=$(".item-select");
+                var datas = {}, questionid, id, params = {},len=0;
+                for(var i=0;i<oSelects.length;i++){
+                    if(oSelects.eq(i).attr("key")==1){
+                        len++;
+                        questionid=oSelects.eq(i).attr("questionid");
+                        id=parseInt(oSelects.eq(i).attr("id"));
+                        datas[questionid]=id;
+                    }
+                }
+
+                if(oItems.length!==len){
+            	    $(".dialog").show();
+                    $(".earn").show();
+                }else{
+            	    //设置提交时的参数
+            	    params.CourseId =courseId ;
+            	    params.Answers = datas;
+            	
+            	    $.ajax({
+                        type: "POST",
+                        url: "/ogcs/Course/Save",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false,
+                        data: JSON.stringify(params),
+                        dataType: "json",
+                        success: function (result) {
+                            if(result.Success){
+                                vm.Score(result.Data.Score);
+            				    $(".dialog").show();
+            				    $(".result").show();
+                            }else{
+                                alert(result.Message);
+                            }
+                        },
+                        error: function (ex, status) {
+                    	    alert("网络出错了");
+                        }
+                    });
+                }
+		    })
+
+            $("body").on("click", ".top-close", function () {
+                $(".dialog").hide();
+                $(".back").hide();
+                $(".earn").hide();
+                $(".tip").hide();
+            })
+
+            $("body").on("click", ".back-cancel-btn", function () {
+                $(".dialog").hide();
+                $(".back").hide();
+            })
+
+            //回退后一页
+            $("body").on("click", ".back-confirm-btn", function () {
+                $(".dialog").hide();
+                $(".back").hide();
+                window.location.href = "/ogcs/Course/detail/" + courseId;
+            })
+
+            $("body").on("click", ".result-back-btn", function () {
+                window.location.href = "/ogcs/Course/detail/" + courseId;
+            })
+
+            $("body").on("click", ".result-top-close", function () {
+                window.location.href = "/ogcs/Course/detail/" + courseId;
+            })
+
+            $("body").on("click", ".know-btn", function () {
+                $(".dialog").hide();
+                $(".tip").hide();
+            })
+
+            $("body").on("click", ".confirm-btn", function () {
+                $(".dialog").hide();
+                $(".earn").hide();
+            })
+
+            $("body").on("click", ".cancel-btn", function () {
+                window.location.href = "/ogcs/Course/detail/" + courseId;
+            })
+
+            //点击单选项，显示选中项
+            $("body").on("click", ".item-select", function () {
+                var oKey = $(this).attr("key");
+                var oNum = $(this).attr("num");
+                var oParentSelect = $(this).parent();
+                var oSib = $(this).siblings();
+                var oIndex = oParentSelect.parent().attr("index");
+
+                if (oKey == 0) {
+                    for (var i = 0; i < oSib.length; i++) {
+                        if (oSib.eq(i).attr("key") == 1) {
+                            oSib.eq(i).attr("key", 0);
+                            oSib.eq(i).find(".select-icon").css("borderColor", "#c3c3c3");
+                            oSib.eq(i).find(".select-circle").hide();
+                        }
+                    }
+                    $(this).attr("key", 1);
+                    $(this).find(".select-icon").css("borderColor", "#0099e5");
+                    $(this).find(".select-circle").show();
+                } else {
+
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

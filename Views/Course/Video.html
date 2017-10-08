@@ -1,0 +1,263 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/Video.css?v=20170919" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <div class="video-box">
+            <div class="video-left">
+                <div class="back-btn">
+                    <i></i><a href="/ogcs/Course/detail/2">返回课程详情</a></div>
+                <div class="message">
+                    <span class="video-title" data-bind="text:Name">
+                        <!--XXXX性格测试-->
+                    </span><span class="eye"><i class="fa fa-eye" aria-hidden="true"></i></span><span
+                        class="course-text">学习人数：</span> <span class="course-number" data-bind="text:Learners">
+                            <!--222-->
+                        </span><span class="course-type">人</span> <span class="user"><i class="fa fa-user"
+                            aria-hidden="true"></i></span><span class="user-text">讲师名字：</span> <span class="user-name"
+                                data-bind="text:Lecturer">
+                                <!--王丽娜-->
+                            </span>
+                </div>
+                <div class="play-box">
+                    <div id="player">
+                    </div>
+                    <div class="flo">
+                        <div class="period">
+                            <span class="period-text" data-bind="text:Title">
+                                <!--课时20-->
+                            </span>
+                        </div>
+                        <div class="arrow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="video-right">
+                <div class="list-text">
+                    <div class="mulu text-item" data-bind="attr:{index:1},css:{textitem:ShowMulu()>0},click:function(){vm.ClickList(1,ShowMulu())}">
+                        <div class="text">
+                            目录</div>
+                        <div class="line" data-bind="visible:ShowMulu()>0">
+                        </div>
+                    </div>
+                    <div class="note text-item" data-bind="attr:{index:2},css:{textitem:ShowNote()>0},click:function(){vm.ClickList(2,ShowNote())}">
+                        <div class="text">
+                            笔记</div>
+                        <div class="line" data-bind="visible:ShowNote()>0">
+                        </div>
+                    </div>
+                </div>
+                <!--课程目录-->
+                <div class="list-box mulu-list" data-bind="visible:ShowMulu()>0">
+                    <div class="item-box" data-bind="foreach:Videos">
+                        <a class="item" data-bind="attr:{videoid:ID,href:'/ogcs/Course/Video/?courseId='+CourseId+'&videoId='+ID}">
+                            <span class="badge" data-bind="css:{yellowcircle:ID==$parent.videoId}"></span><span
+                                class="circle" data-bind="css:{yellowcircle:ID==$parent.videoId}"></span><span class="list-line">
+                                </span><span class="item-num" data-bind="text:Name,css:{whitecolor:ID==$parent.videoId}">
+                                    <!--课时1-->
+                                </span><span class="item-title" data-bind="text:Description,css:{whitecolor:ID==$parent.videoId}">
+                                    <!--我是标题标题标题我是标题标题标题我是标题标题标题-->
+                                </span><span class="item-duration" data-bind="text:Duration,css:{whitecolor:ID==$parent.videoId}">
+                                    <!--(03:50:50)-->
+                                </span></a>
+                    </div>
+                </div>
+                <!--课程讨论-->
+                <div class="note-list" data-bind="visible:ShowNote()>0">
+                    <div class="note-input">
+                        <textarea placeholder="在此输入您的评论…" onpropertychange="LimitTextArea(this)" maxlength="200" data-bind="textInput:NoteText"></textarea>
+                        <span class="num-box"><span class="input-num" data-bind="text:TextNum()">48</span>字</span>
+                    </div>
+                    <div class="submit-note" data-bind="click:function(){vm.SubmitNote()}">
+                        发布笔记</div>
+                    <div class="note-box" data-bind="foreach:Note">
+                        <div class="note-item">
+                            <div class="note-message">
+                                <div class="note-date" data-bind="text:CreatedDate">
+                                    <!--2017/02/03-->
+                                </div>
+                                <div class="note-time" >
+                                    <!--13:44-->
+                                </div>
+                                <div class="note-preiod" >
+                                    <!--课时2-->
+                                </div>
+                            </div>
+                            <div class="note-text" data-bind="html:Content">
+                                <!--非常好，十分值得学习，很赞，希望多多出课程。。。。。-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../Scripts/ogcs/Course/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/jquery.nicescroll.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Course/knockout.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Course/umplayer.min.js"></script>
+    <script type="text/javascript">
+
+     var oCourse =  {"course":{"ID":2,"Name":"神队友修炼秘籍","Lecturer":"汤佳 Ira Tang","Cover":"/ogcs_file/Courses/Cover/2.png","Learners":616,"Description":"现在，团队合作就是竞争力。随着市场竞争的日益激烈，企业更加强调团队精神，建立群体共识，以达到更高的工作效率。特别是遇到大型项目时，想凭借一己之力去取得卓越的成果，非常困难。想必你已意识到，单打独斗的时代已经结束，取而代之的是团队合作！","Star":5,"Status":1},"OneVideoId":4,"Videos":[{"ID":4,"CourseId":2,"Name":"课时1","Description":"团队意识","Duration":"12:23","Url":"http://material.knx.com.cn/weike/shenduiyouxiulianmiji/tuanduiyishi_720p.mp4","Sort":1},{"ID":5,"CourseId":2,"Name":"课时2","Description":"协作能力","Duration":"11:57","Url":"http://material.knx.com.cn/weike/shenduiyouxiulianmiji/xiezuonengli_720p.mp4","Sort":2},{"ID":6,"CourseId":2,"Name":"课时3","Description":"主动承担责任","Duration":"09:08","Url":"http://material.knx.com.cn/weike/shenduiyouxiulianmiji/zhudongchengdanzeren_720p.mp4","Sort":3}]};
+     var videoId = 4;
+     var videoUrl= "http://material.knx.com.cn/weike/shenduiyouxiulianmiji/tuanduiyishi_720p.mp4";
+     var videoName= "课时1";
+     var oUserInfo =  {"ID":119,"LastName":"新","FirstName":"餐","CreatedDate":"2017-09-30"} ; 	//传进来的用户个人信息
+     var oNote=  [];
+
+     var vm = {
+        videoId:videoId,
+        Title: videoName,
+        Cover: oCourse.course.Cover,
+        Name: oCourse.course.Name,
+        Learners: oCourse.course.Learners,
+        Lecturer: oCourse.course.Lecturer,
+        Description: oCourse.course.Description,
+        CousrseId: oCourse.course.ID,
+        Star: oCourse.course.Star,
+        Videos: oCourse.Videos,
+        
+        videoName:ko.observable(videoName),
+        ShowMulu:ko.observable(1),						//课程课时列表：0:hide,1:show
+    	ShowNote:ko.observable(0),						//添加笔记部分：0:hide,1:show
+    	
+    	NoteText:ko.observable(""),						//笔记内容
+    	Note:ko.observableArray(oNote),					//笔记集合
+    	CurrentNotePage:ko.observable(1),				//当前的笔记页页数
+    	NotePage:ko.observable(100),					//笔记页总数		
+    	
+    	ClickList:function(index,show){
+    		if(show===0){
+    			if(index===1){
+    				this.ShowMulu(1);										
+    				this.ShowNote(0);
+    			}
+    			if(index===2){
+    				this.ShowMulu(0);										
+    				this.ShowNote(1);
+    			}
+    		}
+    	},
+    	SubmitNote:function(){
+    		if($.trim(vm.NoteText())!==""){
+                var oText=this.NoteText().replace(/\n/g,"<br/>");
+			    var oNewObj={
+			    	"ID":oUserInfo.ID,
+			    	"VideoId":this.videoId,
+			    	"IsLaud":0,
+			    	"Point":"",
+			    	"VideoName":this.videoName(),
+				    "FirstName":oUserInfo.FirstName,
+				    "LastName":oUserInfo.LastName,
+				    "CreatedDate":oUserInfo.CreatedDate,
+				    "Content":oText,
+                    CourseId:this.CousrseId
+			    }
+			    
+			    this.Note().unshift(oNewObj);
+			    this.Note(JSON.parse(JSON.stringify(this.Note())));
+			    this.NoteText("");
+			    
+			    $.ajax({
+                        type: "POST",
+                        url: "/ogcs/Note/AddNote",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false,
+                        data: JSON.stringify(oNewObj),
+                        dataType: "json",
+                        success: function (result) {
+                            if (result.success) {
+                            } else {
+                                alert(result.msg);
+                            }
+                        },
+                        error: function (ex, status) {
+                            alert("网络出错了");
+                        }
+                    });
+			    
+			} else {
+                    alert("笔记不能为空！");
+                }
+    	}
+    }
+    
+    vm.TextNum = ko.dependentObservable(function () {
+	   if(this.NoteText().length>=200){
+            this.NoteText().substring(0,200);
+    		return 0;
+    	}else{
+    		return 200-(this.NoteText().length);
+    	}
+	}, vm);
+
+    ko.applyBindings(vm);
+
+    function LimitTextArea(field) {
+        var maxlimit = 200;
+       	if (field.value.length > maxlimit) {
+            field.value = field.value.substring(0, maxlimit);
+            return field.value;
+        }
+   	}
+
+    var videoPlayer;
+    $(document).ready(function () {
+        
+        //自定义滚动条
+    	$('.mulu-list').niceScroll({
+            cursorcolor: "#000",//#CC0071 光标颜色
+            cursoropacitymax: 0.3, //改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
+            touchbehavior:false, //使光标拖动滚动像在台式电脑触摸设备
+            cursorwidth: "5px", //像素光标的宽度
+            cursorborder: "0", // 	游标边框css定义
+            cursorborderradius: "5px",//以像素为光标边界半径
+            autohidemode: false //是否隐藏滚动条
+        });
+    	$('.note-list').niceScroll({
+            cursorcolor: "#000",//#CC0071 光标颜色
+            cursoropacitymax: 0.3, //改变不透明度非常光标处于活动状态（scrollabar“可见”状态），范围从1到0
+            touchbehavior:false, //使光标拖动滚动像在台式电脑触摸设备
+            cursorwidth: "5px", //像素光标的宽度
+            cursorborder: "0", // 	游标边框css定义
+            cursorborderradius: "5px",//以像素为光标边界半径
+            autohidemode: false //是否隐藏滚动条
+        });
+
+    	//视频播放器设置生成
+        videoPlayer = new ump.Player();
+        var params = {
+            autostart: false,
+            file: videoUrl,
+        };
+        videoPlayer.create({		
+            modId: "player",
+            params: params
+        });
+        videoPlayer.onInited = function () {
+
+        };
+
+        videoPlayer.onError = function (info) {
+            if (!info) {
+                return;
+            }
+            if (info.desc) {
+                ump.log("播放器错误提示：" + info.desc);
+            }
+        }
+
+    })
+    </script>
+</body>
+</html>

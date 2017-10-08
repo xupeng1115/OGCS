@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+	<title></title>
+	<link href="../../Content/ogcs/lib/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/ContactUser/iconfont/material-icons.css"
+        type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/ContactUser/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/ContactUser/css/m_Position.css?v=20170926" type="text/css" />
+</head>
+<body>
+<div class="back-btn"><a href="/ogcs/ContactUser/">返回</a></div>
+<div class="container-fluid">
+	<div class="row logo-box">
+		<div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="http://m.htsaclub.com/m" target="_blank">海途学子</a>
+        </div>
+	</div>
+	<div class="row head-box">
+		<div class="title text-center">营销自我</div>
+		<div class="dec text-center">匹配优质实习，就业岗位</div>
+	</div>
+	<div class="row detail-box">
+		<div class="row detail-title-box">
+			<div class="detail-title text-center">岗位推荐</div>
+			<div class="detail-dec text-center">恭喜你完成简历提交，距离名企又近一步，以下是我们为你精选的5个岗位，祝你成功！</div>
+		</div>
+		<div class="row detail">
+			<ul class="list-unstyled detail-list" data-bind="foreach:Info">
+				<li class="detail-item">
+					<div class="row item-title text-left">
+						
+						<div class="col-xs-3 message-box">
+							<div class="message-top">
+								<div class="position-name overflow-text" data-bind="html:Name"><!--市场部实习生市场部实习生--></div>
+								<div class="pay" data-bind="html:Salary"><!--10000/月--></div>
+							</div>
+							<div class="company-name overflow-text" data-bind="html:CompanyName"><!--金海棠资产管理有限公四金海棠资产管理有限公四--></div>
+						</div>
+						<div class="col-xs-1 deliver-box" data-bind="attr:{index:ID,key:0},click:$parent.Deliver">
+							<div class="deliver-btn" data-bind="style: { border: Status ==1 ? ' ' : '1px solid #c3c3c3',color:Status ==1 ? ' ' : '#c3c3c3'},key:Status==1? 0:1">
+								<span>投递</span>
+							</div>
+						</div>
+					</div>
+					<div class="row position-box" style="display:none;">
+						<div class="row position-title">
+							<div class="position-title-name overflow-text text-left" data-bind="html:Name"><!--市场部实习生--></div>
+							<div class="row position-title-message text-left">
+								<span class="position-message-company overflow-text" data-bind="html:CompanyName"><!--尊斌计算机科技什么的公司--></span>
+								<span class="position-message-address overflow-text" data-bind="html:City"><!--南京市--></span>
+								<span class="position-message-pay overflow-text" data-bind="html:Salary"><!--40000/月--></span>
+							</div>
+							<div class="position-title-date text-left" data-bind="html:'发布于 '+GetCreatedDate"><!--投递于 15分钟内--></div>
+						</div>
+						<div class="row content">
+							<div class="row position-dec position-content-box">
+								<div class="dec-title position-content-title">职位描述：</div>
+								<div class="dec-text text" data-bind="html:Description"><!--我是一句描述职速度方感到反感--></div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="row position-btn-box text-center" data-bind="attr:{index:$index()},click:function(){vm.Detail($index())}">
+						<span class="position-btn">
+							<span class="btn-text">详细信息</span>
+							<i class="up"></i>
+							<i class="down"></i>
+						</span>
+						
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+
+<script type="text/javascript" src="../../Scripts/ogcs/ContactUser/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../Scripts/ogcs/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../Scripts/ogcs/ContactUser/knockout.min.js"></script>
+<script type="text/javascript">
+    var oInfos = [{"ID":41,"PositionID":0,"Status":5,"Remarks":"09 28 2017  8:42PM","Name":"UI设计师/零基础可实习（双休+4k-6k）","CompanyName":"华腾信息技术有限公司","Province":"上海","City":"上海","Industry":"互联网/电子商务, 计算机软件","CompanySize":"10000人以上","Salary":"4.5-6千/月","Number":"10","Description":"岗位职责：\n1、大专及以上学历，专业不限，有无经验均可，热爱互联网工作，有一定的逻辑思维；\n2、有无基础都可以，对设计有一定的兴趣，愿意往UI方向发展；\n3、细心踏实，能够有很好的执行力，具有良好的团队合作意识；\n4、学习能力强，工作热情高，富有责任感，在高级设计师的指导下完成工作内容；\n5、想获得一份有长远发展、稳定、有晋升空间的工作；\n6、欢迎应往届大学毕业生或者想转行人士也可以参加。\n \n岗位职责\n1、负责网站制作过程中，网页切图，制作静动态网页任务，以满足客户需求；\n2、负责完成客户网站的效果/动画效果设计任务；\n3、通过团队合作完成设计师下发的工作任务，高效完成工作内容。\n \n晋升空间：\n实习网页设计师——网页设计师——创意设计师——高级设计师——首席设计师——设计经理——设计总监\n\n \n工作时间\n1、周一至周五，早上9：00-下午17:30，周末双休；\n2、针对连续工作满1年的员工提供带薪5天年假；\n \n福利待遇：\n1、科学合理的绩效考核体系以及具有竞争优势的薪酬制度！\n2、为员工购买五险一金，让员工无后顾之忧！\n3、人性化的培训管理制度、一对一的指定帮助让员工快速融入新环境并成长！\n4、五天七小时工作制、周末双休、法定节假日之外的带薪病假、年休假，让员工与家人共享美好生活！","Email":"test@knx.com.cn","GetCreatedDate":"2017-09-11"},{"ID":42,"PositionID":0,"Status":5,"Remarks":"09 28 2017  8:42PM","Name":"见习经理助理（人事方向）","CompanyName":"上海怡乐食食品科技服务有限公司","Province":"上海","City":"上海","Industry":"餐饮业, 酒店/旅游","CompanySize":"500-1000人","Salary":"3-4.5千/月","Number":"1","Description":"职位职责：\n此岗位为人事助理方向培养发展。\n\n工作职责：\n1、招聘：协助当地人力资源负责人开发招聘渠道，发布招聘广告，筛选候选人简历，为用人部门安排面试等相关事宜；\n2、员工管理：协助人员入离职资料收集及归档；\n3、协助相关人力状况报告的日常更新，包括协助员工考勤及加班统计等报告的制作。\n\n任职要求：\n1、专科以上学历，人力资源、工商管理类相关专业优先考虑；\n2、沟通能力强，逻辑思维清晰；\n3、有招聘工作经验者优先考虑；\n4、英语读写能力良好。\n\n见习期：6个月\n见习期满，根据表现和公司情况择优录用。","Email":"test@knx.com.cn","GetCreatedDate":"2017-09-09"},{"ID":43,"PositionID":0,"Status":5,"Remarks":"09 28 2017  8:42PM","Name":"星巴克咖啡来福士2店实习生见习经理","CompanyName":"上海统一星巴克咖啡有限公司","Province":"上海","City":"上海","Industry":"快速消费品(食品、饮料、化妆品), 餐饮业","CompanySize":"10000人以上","Salary":"3-4.5千/月","Number":"10","Description":"岗位职责：\n1、熟练操作门市各类营运岗位工作内容，为顾客提供良好的星巴克体验。\n2、接受系统的门市营运培训，掌握门市营运管理流程。\n3、通过各类考核，成为值班经理，负责门市营运班次管理\n\n任职要求：\n1、大专及以上学（明年毕业），不限专业。\n2、良好的沟通交流能力，有服务意识，富有团队合作精神。\n3、态度积极、热情，有一定抗压能力。\n4、热爱咖啡、认同星巴克文化。\n5、能适应轮班轮休制度。\n（由于有早晚班,请留意自己上下班是否方便。早班6:30-15:00中间班8:00-17:30晚班13:00-21:30）\n\n工作内容：\n1.熟悉操作门市各类营运岗位工作内容，包括Register,Beverage,caf , Food Partner等，为顾客提供良好的星巴克体验。\n2.接受系统的门市营运培训，掌握门市营运班次管理。\n3.通过各类考核，有意向成为值班经理，负责门市营运班次管理。\n4.见习经理在3个月内通过管理课程考核，以达到星巴克的值班经理标准。\n5.能独立管理营运班次，确保操作流程符合规范、为顾客提供品质稳定的产品、处理各类营运过程中的突发事件。\n6.负责门市各类日常工作。\n职业成长道路：\n见习经理/实习生见习经理-&gt;值班主管-&gt;店副理-&gt;店经理-&gt;区域经理-&gt;营运经理\n\n伙伴福利：（全职可享受全部福利，***享部分福利）\n1.足额缴纳社保及公积金。\n2.企业年金：入职后第七个月始公司会为伙伴缴纳，伙伴个人部分1元/月，属类似养老金的理财产品，账户内的金额会由专业的金融机构投资。汇报有保障，可保障今后退休生活。\n3.团体医疗保险：公司支付全额，伙伴年累计医疗费用（医保卡）超出500元。超出部分公司可报90%，店经理以上层级可全报100%（全层级配偶及子女等家属可报销50%25%）\n4.公司福利旅游：入职满5年伙伴每位补助5000元；入职满10年伙伴每位补助7500元（5天的旅游公假）。做满2年发放旅游津贴。门店每三个月组织1次庆生。\n5.公司各类家庭性福利，同时还可以享受集团互助会。若发生本人、配偶子儿、父母身故会得到互助金从1万元到3万元不等。所有门市全职伙伴都可享受此类福利。\n6.节假日福利：每年春节、端午节、中秋节公司都会发放各项福利品。\n7.月度福利：入职第三个月始可享受10张/每月的咖啡券；门市每月达成公司给予营业净额目标还有月度营运奖金。\n8.门市可享受10件/月商品的7折优惠（饮料食品不计）。\n9.伙伴可享受年终双薪，另根据公司经营状况享年终奖金，春节礼金等。\n10.带薪专业培训。\n11.伙伴每工作四小时还可享受饮料一杯。\n\n薪资：\n1、实习见习经理--17.5元/小时（全日制在校大专在读每月≥120工时，可提前转正成***值班经理）（工时不封顶，多劳多得）\n2、早班津贴\n3、每月工时大于120小时可分门市营运奖金\n4、节假日三倍工资\n5、年底年终分红\n\n联系人：钱经理 15800769013\n工作地址：\n上海市黄浦区西藏中路268号来福士商务楼一楼大堂星巴克（来福士2店）","Email":"test@knx.com.cn","GetCreatedDate":"2017-09-08"},{"ID":44,"PositionID":0,"Status":5,"Remarks":"09 28 2017  8:42PM","Name":"Social Intern社交媒体运营实习生","CompanyName":"安吉斯媒体集团","Province":"上海","City":"上海","Industry":"广告","CompanySize":"1000-2000人","Salary":"100元/天","Number":"5","Description":"职位描述：\n1、负责社交媒体的文案撰写\n2、社交媒体部分的运营维护\n3、协助Team内项目执行\n4、客户为奢侈品及快销行业\n\n岗位要求：\n1.针对大四同学（2018年毕业），有留用机会！\n2. 一周至少能来3天，可实习至少3个月；\n3. 熟练掌握Excel及PPT技能\n4. 有社交媒体运营经验的优先\n5.英语基础良好\n6. 耐心仔细，有上进心，学习能力强","Email":"test@knx.com.cn","GetCreatedDate":"2017-09-08"},{"ID":45,"PositionID":0,"Status":5,"Remarks":"09 28 2017  8:42PM","Name":"时尚编辑实习生","CompanyName":"I.T（香港高级品牌服饰连销集团）","Province":"上海","City":"上海","Industry":"服装/纺织/皮革, 贸易/进出口","CompanySize":"150-500人","Salary":"20元/小时","Number":"5","Description":"Key responsibilities:\nResponsible for professional copywriting and high quality content development of Company s e-com site, social media platforms, e-newsletters, and all kinds of online promotional collaterals\nWrite up of featured trends and stories to ensure timely and smart coverage across key digital channels\nDefine routines for scheduling publications and set seasonal and promotional themes to ensure customers are appropriately and interestingly engaged, with positive user experience\n \nJob Requirements:\nUniversity degree\nAble to produce fast and interesting copies and engaging content\nExcellent in both written English and Chinese","Email":"test@knx.com.cn","GetCreatedDate":"2017-09-08"}];
+</script>
+<script type="text/javascript">
+
+    var vm = {
+        Info: ko.observableArray(oInfos),
+        Detail: function (index) {
+            var oHeight = $(".position-box").eq(index).height();
+            var oStatus = $(".position-box").eq(index).css("display");
+            console.log(oHeight);
+            if (oStatus === "block") {
+                $(".up").eq(index).hide();
+                $(".down").eq(index).show();
+                $(".btn-text").eq(index).text("详细信息");
+                $(".position-box").eq(index).animate({
+                    "height": "0px"
+                }, 200)
+                setTimeout(function () {
+                    $(".position-box").eq(index).hide();
+                    $(".position-box").eq(index).css("height", oHeight + "px");
+                }, 250)
+
+            } else {
+                $(".position-box").eq(index).css("height", "0px");
+                $(".position-box").eq(index).show();
+                $(".up").eq(index).show();
+                $(".down").eq(index).hide();
+                $(".btn-text").eq(index).text("收起");
+                $(".position-box").eq(index).animate({
+                    "height": oHeight + "px"
+                }, 250)
+            }
+        },
+        Deliver: function (event) {
+            if (event.Status == 5) {
+                return;
+            }
+            var oId = event.ID;
+            var oEle = $(".deliver-box[index='" + oId + "']");
+            var oKey = oEle.attr("key");
+            var DeliverStatus = {
+                ID: event.ID
+            };
+
+            if (oKey === "0") {
+                oEle.attr("key", "1");
+                $.ajax({
+                    type: "POST",
+                    url: "/ogcs/ContactUser/SetDeliverStatus",
+                    contentType: "application/json; charset=utf-8",
+                    cache: false,
+                    data: JSON.stringify(DeliverStatus),
+                    dataType: "json",
+                    success: function (result) {
+                        if (result != null) {
+                            if (result.success) {
+                                event.Status = 5;
+                                oEle.attr("key", "1");
+                                oEle.find(".deliver-btn").css({
+                                    "border": "1px solid #c3c3c3",
+                                    "color": "#c3c3c3"
+                                })
+                            } else {
+                                oEle.attr("key", "0");
+                            }
+                        }
+                    },
+                    error: function () {
+                        oEle.attr("key", "0");
+                    }
+                });
+            } else {
+
+            }
+
+        }
+    }
+    ko.applyBindings(vm);
+
+    $(document).ready(function () {
+
+    })
+</script>
+</body>
+</html>

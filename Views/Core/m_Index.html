@@ -1,0 +1,178 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+	<title></title>
+	<link rel="stylesheet" href="../../Content/ogcs/Core/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../Content/ogcs/Core/css/m_Index.css?v=20170929" type="text/css"/>
+	
+</head>
+<body>
+<header>
+	<div class="top">
+		<div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="http://m.htsaclub.com/m" target="_blank">海途学子</a>
+        </div>
+	</div>
+	<div class="banner">
+		<div class="title">海途学子-智慧生涯服务平台</div>
+		<ul>
+			<li>人才测评</li>
+		    <li>求职培训</li>
+		    <li>实习就业</li>
+		</ul>
+	</div>
+</header>
+<section>
+	<div class="flow-title">操作流程</div>
+	<div class="flow-line"></div>
+	<div class="flow-box" data-bind="foreach:Steps">
+		<div class="step" data-bind="attr:{index:$index,jump:jump}">
+			<div class="step-line"></div>
+			<div class="badge" data-bind="css:{jump:jump==1}"></div>
+			<div class="circle" data-bind="css:{circlejump:jump==1}"></div>
+			<div class="arrow"></div>
+			<div class="step-title" data-bind="text:title"><!--探索自我--></div>
+			<div class="step-dec" data-bind="text:dec"><!--通过完整系统的测评工具建立对自己客观公正的认知--></div>
+		</div>
+	</div>
+	<div class="message-title">个人信息</div>
+	<div class="message-line"></div>
+	<div class="message-box">
+		<div class="item">
+            <span class="item-icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+			<span class="item-type">姓名：</span>
+			<span class="item-message" data-bind="text:Users.name"><!--王大锤--></span>
+		</div>
+        <div class="item">
+			<span class="item-icon"><i class="fa fa-university" aria-hidden="true"></i></span>
+			<span class="item-type">学校：</span>
+			<span class="item-message" data-bind="text:Users.school"><!--中国科技大学--></span>
+		</div>
+		<div class="item">
+			<span class="item-icon"><i class="fa fa-book" aria-hidden="true"></i></span>
+			<span class="item-type">学历：</span>
+			<span class="item-message" data-bind="text:Users.education"><!--本科--></span>
+		</div>
+		<div class="item">
+			<span class="item-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+			<span class="item-type">毕业时间：</span>
+			<span class="item-message" data-bind="text:Users.date"><!--2017/06/07--></span>
+		</div>		
+		<div class="item">
+			<span class="item-icon"><i class="fa fa-pencil-square" aria-hidden="true"></i></span>
+			<span class="item-type">所学专业：</span>
+			<span class="item-message" data-bind="text:Users.professional"><!--可是搭街坊深刻解读--></span>
+		</div>
+        <div class="item">
+			<span class="item-icon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+			<span class="item-type">求职意向：</span>
+			<span class="item-message" data-bind="text:Users.position"><!--UI设计师--></span>
+		</div>
+		<div class="item">
+			<span class="item-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+			<span class="item-type">邮箱地址：</span>
+			<span class="item-message" data-bind="text:Users.email"><!--9999991213@knx.com.cn--></span>
+		</div>
+	</div>
+
+    <div class="friend">
+		<div class="friend-title">合作伙伴</div>
+		<div class="friend-line"></div>
+		<div class="friend-company-logo"></div>
+	</div>
+</section>
+
+<script type="text/javascript" src="../../Scripts/ogcs/Core/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../Scripts/ogcs/Core/knockout.min.js"></script>
+
+<script type="text/javascript">
+     var userModel =  {"ContactUserID":31,"IsGraduation":1,"Status":4,"ID":119,"Email":"71233@13.com","FirstName":"餐","LastName":"新","Gender":2,"Tel":"13712345678","Partnerid":1,"Education":"本科学历","Major":"计算机科学","GraduationTime":"2016-07-01","JobIntention":"这个","School":"中国人民解放军国防科学技术大学","Key":"c0cc4119-e6ec-4be7-ba27-2116cea63cf3","CreateDate":"2017-09-28T20:34:45.317","UpdatedDate":"2017-09-28T20:34:45.317"} ; 	
+          
+	var oUsers = {			
+      "name": userModel.LastName + userModel.FirstName,
+      "school":userModel.School,
+      "date": userModel.GraduationTime,
+      "education": userModel.Education,
+      "position": userModel.JobIntention,
+      "professional": userModel.Major,
+      "email": userModel.Email
+  }
+	
+	//操作流程信息
+    var oSteps = [{
+        "jump": 1,
+        "title": "探索自我",
+        "dec": "通过完整系统的测评工具建立对自己客观公正的认知",
+    }, {
+        "jump": 0,
+        "title": "解读自我",
+        "dec": "参照行业内与专家和职业规划师的建议，形成完整的个人发展计划",
+    }, {
+        "jump": 0,
+        "title": "打造自我",
+        "dec": "分解个人目标，落实行动，稳步提高市场竞争力",
+    }, {
+        "jump": 0,
+        "title": "营销自我",
+        "dec": "匹配优质实习、就业机会",
+    }]
+    
+    //ko绑定数据
+    var vm = {
+        Steps: ko.observable(getStep(oSteps, userModel.Status)),
+        Users: {
+            "name": ko.observable(oUsers.name),
+            "school":ko.observable(oUsers.school),
+            "date": ko.observable(oUsers.date),
+            "education": ko.observable(oUsers.education),
+            "position": ko.observable(oUsers.position),
+            "professional": ko.observable(oUsers.professional),
+            "email": ko.observable(oUsers.email)
+        }
+    }
+    ko.applyBindings(vm);
+    
+    $(document).ready(function(){
+    	$("body").on("click", ".step", function (event) {
+            var oIndex = $(this).attr("index");
+            var oJump = $(this).attr("jump");
+            if (oJump==="1") {
+                switch (oIndex) {
+                    case "0":
+                        window.location.href = "/ogcs/Assessment/Index";
+                        break;
+                    case "1": 
+                    window.location.href = "/ogcs/Assessment/Explore";
+                        break;
+                    case "2":
+                        window.location.href = "/ogcs/Course/";
+                        break;
+                    case "3":
+                        window.location.href = "/ogcs/ContactUser/";
+                        break;
+                }
+            }
+       	})
+        
+    })
+    //获取用户操作的当前步骤
+    function getStep(oSteps, oStepValue) {
+        var oNewStep = [];
+        for (var i = 0; i < oSteps.length; i++) {
+            if (i < oStepValue) {
+                oSteps[i].jump = 1;
+            }
+            oNewStep.push(oSteps[i]);
+        }
+        return oNewStep;
+    }
+            
+</script>
+	
+</body>
+</html>

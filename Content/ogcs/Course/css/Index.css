@@ -1,0 +1,845 @@
+@charset "utf-8";
+html,body{
+	min-width:1040px;
+	margin:0;
+	padding:0;
+	border: 0;
+	font-family:"Microsoft YaHei","微软雅黑","PingFang SC","Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+	display:block;
+	position:relative;
+}
+.clearfix{
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+	*zoom:1;
+}
+a{
+    text-decoration: none; 
+}
+
+
+.container-fluid {
+  	padding:0;
+}
+.row{
+	margin:0;
+}
+.col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12{
+	padding:0;
+}
+.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{
+	padding:0;
+}
+.overflow-text{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.logo-box{
+    width:100%;
+    height:60px;
+    background:#fff;
+    position:relative;
+ }
+.logo-box .logo{
+	width:140px;
+	height:22px;
+	margin:16px 20px 10px 115px; 
+	background:url(../img/knx_logo.png)no-repeat center center;
+	background-size:100% 100%;
+	float:left;
+}
+.logo-box .ht-logo{
+	width:81px;
+	height:26px;
+	margin-top:17px;
+	background:url(../../lib/img/ht_logo.png)no-repeat center center;
+	background-size:100% 100%;
+	float:left;
+}
+.logo-box .ht-btn{
+    width:140px;
+    height:45px;
+    float:right;
+    border-radius:4px;
+    margin-right:113px;
+    margin-top:7px;
+    border:1px solid #efa03c;
+    line-height:45px;
+    font-size:14px;
+    text-align:center;
+    color:#efa03c;
+}
+.logo-box .ht-btn a{
+    width:100%;
+    height:100%;
+    display:block;
+    text-decoration:none;
+    color:#efa03c;
+}
+header{
+	width:100%;
+	height:300px;
+	background:url(../img/forge.png)no-repeat center center;
+	background-size:cover;
+	position:relative;
+}
+header .title{
+	margin:0 auto;
+	padding-top:98px;
+	font-size: 28px;
+	line-height:33px;
+  	letter-spacing: 3px;
+  	text-align: center;
+  	color: #ffffff;
+}
+header .title span{
+	display:inline-block;
+	width: 2px;
+  	height: 20px;
+  	margin:0 10px;
+  	line-height:28px;
+  	background:#b2b2b2;
+}
+header .dec{
+	margin:0 auto;
+	font-size: 16px;
+  	letter-spacing: 1px;
+  	text-align:center;
+  	color: #f3f3f3;
+  	padding:20px 0 30px 0;
+}
+header .begin-btn{
+	margin:0 auto;
+	width: 147px;
+  	height: 45px;
+  	border-radius: 100px;
+  	line-height:45px;
+  	background-color: #0099e5;
+  	font-size: 14px;
+  	letter-spacing: 1.5px;
+  	text-align: center;
+  	color: #ffffff;
+  	cursor:pointer;
+}
+header .begin-btn i{
+	display:inline-block;
+	width:7px;
+	height:7px;
+	margin-left: 7px;
+	margin-bottom:3px;
+	line-height:40px;
+	border-bottom:1px solid #fff;
+	border-right:1px solid #fff;
+	
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 
+}
+
+section{
+	width:100%;
+}
+section .top{
+	width:100%;
+	height: 50px;
+	margin:0 auto;
+  	background-color: #eeeeee;
+  	line-height:50px;
+  	box-shadow: 0 2px 3px 0 rgba(228, 228, 228, 0.5);
+  	font-size: 14px;
+  	text-align: left;
+  	color: #6d6d6d;
+}
+section .top .top-box{
+	width:1006px;
+	margin:0 auto;
+}
+section .top .top-box span{
+	display:inline-block;
+}
+section .top .top-box .home{
+	padding:0 3px;
+	cursor:pointer;
+}
+section .top .top-box .home a{
+    color:#6d6d6d;
+}
+section .top .top-box .right-icon{
+	width:6px;
+	height:6px;
+	margin-left: 0px;
+	margin-bottom:1px;
+	border-bottom:1px solid #c3c3c3;
+	border-right:1px solid #c3c3c3;
+	
+	transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg); 	/* IE 9 */
+	-moz-transform:rotate(-45deg); 	/* Firefox */
+	-webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(-45deg); 
+}
+section .top .top-box .forge{
+	padding-left:3px;
+	color: #333333;
+}
+
+/***********************************************************************/
+section .tutor-box{
+	background:#f7f7f7;
+}
+section .tutor-box .tutor-title{
+	width:180px;
+	height:18px;
+	background:url(../img/tutor_icon.png)no-repeat center center;
+	background-size:100% 100%;
+	margin:0 auto;
+	margin-top:35px;
+	margin-bottom:20px;
+	font-size: 24px;
+  	text-align: center;
+  	color: #333333;
+  	line-height:0.7;
+  	letter-spacing: 2.6px;
+}
+section .tutor-box .tutor-head{
+	width:480px;
+	height:82px;
+	margin:0 auto;
+	margin-bottom:30px;
+}
+section .tutor-box .tutor-head .tutor-head-item{
+	width:82px;
+	height:82px;
+	float:left;
+	padding:5px;
+	border:1px dashed transparent;
+	border-radius:100px;
+	margin-right:50px;
+	position:relative;
+	cursor:pointer;
+}
+section .tutor-box .tutor-head .tutor-head-item:nth-of-type(1){
+    border:1px dashed #efa03c;
+}
+section .tutor-box .tutor-head .tutor-head-item .tutor-head-flo{
+	width:72px;
+	height:72px;
+	border-radius:100px;
+	background:rgba(0,0,0,0.3);
+	position:absolute;
+	top:4px;
+	left:4px;
+	z-index:100;
+}
+section .tutor-box .tutor-head .tutor-head-item:nth-of-type(1) .tutor-head-flo{
+    background:rgba(0,0,0,0);
+}
+section .tutor-box .tutor-head .tutor-head-item:hover{
+	border:1px dashed #ff9713;
+}
+section .tutor-box .tutor-head .tutor-head-item:hover .tutor-head-flo{
+	background:rgba(0,0,0,0);
+}
+section .tutor-box .tutor-head .tutor-head-item:last-child{
+	margin-right:0;
+}
+section .tutor-box .tutor-head .tutor-head-item img{
+	display:block;
+	width:72px;
+	height:72px;
+	border-radius:100px;
+	position:absolute;
+	top:4px;
+	left:4px;
+}
+section .tutor-message{
+	width:992px;
+	height:310px;
+	background:url(../img/tutor_bg.png)no-repeat center center;
+	background-size:100% 100%;
+	margin:0 auto;
+	margin-bottom:60px;
+}
+section .tutor-message .tutor-message-box{
+	width:100%;
+	height:100%;
+	position:relative;
+}
+section .tutor-message .tutor-message-box .tutor-message-item{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:100;
+}
+
+/**********************************************左侧个人信息块**********************************************/
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-left{
+	width:260px;
+	height:220px;
+	margin:40px 0;
+	border-right:1px solid #e0e0e0;
+	float:left;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-left .tutor-message-head{
+	width:100px;
+	height:100px;
+	margin:0 auto;
+	margin-top:15px;
+	border-radius:100px;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-left .tutor-message-head img{
+	display:block;
+	width:100%;
+	height:100%;
+	border-radius:100px;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-left .tutor-message-name{
+	margin-top:10px;
+	font-size: 14px;
+  	font-weight: 500;
+  	letter-spacing: 1.5px;
+  	text-align: center;
+  	color: #0099e5;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-left .tutor-message-dec{
+	margin-top:8px;
+	font-size: 12px;
+  	letter-spacing: 1.3px;
+  	text-align: center;
+  	color: #333333;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-left .tutor-message-course-btn{
+	width: 91px;
+  	height: 25px;
+  	margin:0 auto;
+  	margin-top:10px;
+  	border-radius: 36px;
+  	line-height:23px;
+  	background-color:#fff;
+  	border:1px solid #efa03c;
+  	font-size: 12px;
+  	font-weight: 500;
+  	letter-spacing: 1.3px;
+  	text-align: center;
+  	color: #efa03c;
+  	cursor:pointer;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-left .tutor-message-course-btn:hover{
+  	background-color:#efa03c;	
+  	color: #fff;
+}
+
+
+/**********************************************右侧个人信息描述和课程列表**********************************************/
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right{
+	width:722px;
+	height:220px;
+	margin:40px 0;
+	padding:0 30px 0 25px;
+	position:relative;
+	float:left;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .power-title{
+	width:625px;
+	height:40px;
+	line-height:20px;
+	font-size: 20px;
+  	font-weight: 500;
+  	letter-spacing: 1.6px;
+  	text-align: left;
+ 	color: #efa03c;
+ 	background:#fff;
+ 	padding-bottom:15px;
+ 	position:absolute;
+ 	top:0;
+ 	left:25px;
+ 	z-index:100;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .course-close{
+	width:30px;
+	height:30px;
+	padding:5px;
+	position:absolute;
+	top:-5px;
+	right:45px;
+	cursor:pointer;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .course-close i{
+	font-size:24px;
+	color:#6d6d6d;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-power{
+	width:100%;
+	height:185px;
+	margin-top:40px;
+	padding-right:10px;
+	position:relative;
+	overflow:hidden;
+}
+
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-power .power-item{
+	width:662px;
+	padding-bottom:12px;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-power .power-item .power-area{
+	padding-bottom:0;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-power .power-item .power-left{
+	float:left;
+	font-size: 14px;
+	line-height:22px;
+  	text-align: left;
+  	color: #333333;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-power .power-item .power-right{
+	width:590px;
+	margin-left:70px;
+	font-size: 12px;
+  	text-align: left;
+  	color: #6d6d6d;
+  	line-height:20px;
+}
+
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box{
+	width:100%;
+	height:185px;
+	margin-top:40px;
+	padding-right:10px;
+	position:relative;
+	overflow:hidden;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box img{
+	display:block;
+	width:164px;
+	height:120px;
+	margin:0 auto;
+	margin-bottom:10px;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box .no-text{
+	font-size: 16px;
+  	text-align: center;
+  	color: #6d6d6d;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box .tutor-course-item{
+	display:block;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	background:#fff;
+	font-size: 14px;
+  	color: #a3a3a3;
+  	margin-bottom:5px;
+  	cursor:pointer;
+  	text-decoration:none;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box .tutor-course-item span{
+	display:inline-block;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box .tutor-course-item .tutor-course-name{
+	width:540px;
+	height:25px;
+	float:left;
+	text-align:left;
+	padding-left:5px;
+}
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box .tutor-course-item .tutor-course-time{
+	width:100px;
+	height:25px;
+	float:right;
+	text-align:right;
+	padding-right:5px;
+}
+
+section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box .tutor-course-item:hover{
+	background:#f3f3f3;
+	color:#333333;
+}
+
+
+section .nav-tip{
+    width:100%;
+    height:270px;
+    background:url(../img/list_nav.png)no-repeat center center;
+    background-size:100% 100%;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    color: #e6e6e6;
+}
+section .nav-tip .nav-tip-title{
+    font-size: 24px;
+    text-align: center;
+    color: #ffffff;
+    padding:30px 0 7px 0;
+}
+section .nav-tip .nav-tip-wave{
+    width:35px;
+    height:4px;
+    margin:0 auto;
+    background:url(../img/wave_icon.png)no-repeat center center;
+    background-size:100% 100%;
+    font-size: 14px;
+    text-align: center;
+    color: #e6e6e6;
+}
+section .nav-tip .nav-one{
+    width:450px;
+    margin:0 auto;
+    padding-top:15px;
+    position:relative;
+}
+section .nav-tip .nav-two{
+    padding-top:15px;
+}
+section .nav-tip .nav-three{
+     width:388px;
+    margin:0 auto;
+    padding-top:30px;
+    position:relative;
+}
+section .nav-tip .nav-four{
+    padding-top:15px;
+}
+section .nav-tip .nav-circle::before{
+    content:"";
+    width:11px;
+    height:11px;
+    border:3px solid rgba(255,255,255,0.35);
+    border-radius:100px;
+    position:absolute;
+}
+section .nav-tip .nav-circle:after{
+    content:"";
+    width:5px;
+    height:5px;
+    background:rgba(255,255,255,0.85);
+    border-radius:100px;
+    position:absolute;
+}
+section .nav-tip .nav-one::before{
+    top:20px;
+    left:-10px;
+}
+section .nav-tip .nav-three::before{
+    top:34px;
+    left:-15px;
+}
+section .nav-tip .nav-one::after{
+    top:23px;
+    left:-7px;
+}
+section .nav-tip .nav-three::after{
+    top:37px;
+    left:-12px;
+}
+section .list-box{
+	width:100%;
+	background:#fff;
+}
+
+section .hot{
+	padding-bottom:45px;
+	background:#fff;
+	box-shadow: 0 2px 4px 0 rgba(227, 227, 227, 0.5);
+}
+section .necessary{
+	margin-top:2px;
+	padding-bottom:45px;
+	background:#f7f7f7;
+}
+section .list-box .list{
+	width:986px;
+	margin:0 auto;
+	padding:76px 10px 45px 10px;
+	position:relative;
+}
+section .list-box .list .item-box{
+	display: -webkit-flex;		/****设定容器为弹性盒模型***/
+    display: flex;
+    -webkit-flex-wrap: wrap;	/******设定弹性容器为多行，超出换新行*******/
+    flex-wrap: wrap;
+}
+section .list-box .list .item-box a{
+    text-decoration: none;
+}
+section .list-box .list .list-title{
+	width:976px;
+	margin:0 auto;
+	border-top:dashed 1px #c3c3c3;
+	position:relative;
+}
+section .hot .list .list-title {
+    width: 955px;
+}
+section .necessary .list .list-title {
+    width: 960px;
+}
+section .list-box .list .list-title .title-box{
+	width:170px;
+	height:29px;
+	position:absolute;
+	top:-15px;
+	left:50%;
+	margin-left:-85px;
+}
+section .hot .list .list-title .title-box{
+	background:#fff;
+}
+section .necessary .list .list-title .title-box{
+	background:#f7f7f7;
+}
+section .list-box .list .list-title .title-box .hot-icon{
+	width:19px;
+	height:27px;
+	background:url(../img/recommend.png)no-repeat center center;
+	background-size:100% 100%;
+	position:absolute;
+	top:-1px;
+	left:10px;
+}
+section .list-box .list .list-title .title-box .necessary-icon{
+	width:27px;
+	height:27px;
+	background:url(../img/necessary.png)no-repeat center center;
+	background-size:100% 100%;
+	position:absolute;
+	top:-1px;
+	left:7px;
+}
+section .list-box .list .list-title .title-box .title-text{
+	font-size: 24px;
+  	letter-spacing: 2.6px;
+  	text-align: center;
+  	color: #333333;
+  	position:absolute;
+  	top:-4px;
+  	right:14px;
+}
+section .hot .list .add-btn{
+	width:82px;
+	height:30px;
+	line-height:30px;
+	font-size: 16px;
+  	text-align: left;
+  	color: #69a2cd;
+  	position:absolute;
+  	bottom:-20px;
+  	right:12px;
+  	cursor:pointer;
+}
+section .hot .list .add-btn i.down{
+    display:block;
+	width:6px;
+	height:6px;
+	position:absolute;
+	top:9px;
+	right:7px;
+	line-height:40px;
+	border-bottom:1px solid #69a2cd;
+	border-right:1px solid #69a2cd;
+	
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 
+}
+section .hot .list .add-btn i.up{
+	display:none;
+	width:6px;
+	height:6px;
+	position:absolute;
+	bottom:9px;
+	right:7px;
+	line-height:40px;
+	border-top:1px solid #69a2cd;
+	border-left:1px solid #69a2cd;
+	
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 
+}
+section .list-box .list .item-box .item{
+	width:302px;
+	margin-right:30px;
+	margin-top:55px;
+	float:left;
+	cursor:pointer;
+}
+section .hot .list .item-box .item {
+    width: 300px;
+}
+section .list-box .list .item-box .item:nth-of-type(3n+0){
+	margin-right:0;
+}
+section .list-box .list .item-box .item .img-box{
+	position:relative;
+	border-radius:2px;
+	overflow:hidden;
+	
+	transition: all 0.2s;
+	-moz-transition: all 0.2s;	/* Firefox 4 */
+	-webkit-transition: all 0.2s;	/* Safari 和 Chrome */
+	-o-transition: all 0.2s;	/* Opera */
+}
+section .necessary .list .item-box .item .img-box{
+	position:relative;
+	border-radius:2px;
+	overflow:hidden;
+	
+	transition: all 0.2s;
+	-moz-transition: all 0.2s;	/* Firefox 4 */
+	-webkit-transition: all 0.2s;	/* Safari 和 Chrome */
+	-o-transition: all 0.2s;	/* Opera */
+}
+section .list-box .list .item-box .item:hover .img-box{
+	box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
+}
+/*section .necessary .list .item-box .item:hover .img-box{
+	box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
+}*/
+section .list-box .list .item-box .item .img-box .item-img{
+	display:block;
+	font-size:0;
+	border:none;
+	width:100%;
+}
+section .list-box .list .item-box .item .img-box .flo{
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.2);
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:10;
+}
+section .list-box .list .item-box .item .img-box .hot-box{
+	width: 45px;
+    height: 45px;
+    background:url(../img/hot.png)no-repeat center center;
+    background-size:100% 100%;
+    position:absolute;
+	top:0px;
+	right:-1px;
+	z-index:20;
+}
+section .list-box .list .item-box .item .item-title{
+	width:90%;
+	padding-top:6px;
+	padding-left:10px;
+	font-size: 20px;
+  	text-align: left;
+  	color: #333333;
+  	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	
+	transition: all 0.2s;
+	-moz-transition: all 0.2s;	/* Firefox 4 */
+	-webkit-transition: all 0.2s;	/* Safari 和 Chrome */
+	-o-transition: all 0.2s;	/* Opera */
+}
+section .list-box .list .item-box .item:hover .item-title{
+	color:#ee5c54;
+}
+section .list-box .list .item-box .item .item-dec{
+	width:90%;
+	padding-top:8px;
+	padding-left:10px;
+	font-size: 14px;
+  	text-align: left;
+  	color: #6d6d6d;
+  	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+section .hot .list .item-box .item .item-dec {
+    height: 25px;
+}
+section .list-box .list .item-box .item .item-view{
+	width:100%;
+	padding-top:6px;
+	padding-left:10px;
+}
+section .list-box .list .item-box .item .item-view .view-icon{
+	float:left;
+}
+section .list-box .list .item-box .item .item-view .view-icon i{
+	font-size:14px;
+	color:#aaa;
+}
+section .list-box .list .item-box .item .item-view .view-number{
+	padding-left:5px;
+	font-size: 14px;
+  	color: #aaaaaa;
+}
+section .list-box .list .item-box .item .item-view .view-star{
+	padding-left:10px;
+}
+section .list-box .list .item-box .item .item-view .view-star i{
+	font-size: 14px;
+  	color: #efa03c;
+}
+
+
+section .hot .list .item-box{
+	height:313px;
+	overflow:hidden;
+}
+section .hot .list .item-box .item:nth-of-type(1){
+	display:block;
+}
+section .hot .list .item-box .item:nth-of-type(2){
+	display:block;
+}
+section .hot .list .item-box .item:nth-of-type(3){
+	display:block;
+}
+
+footer{
+	width:100%;
+	height:80px;
+	background-color: #454545;
+  	font-size: 14px;
+  	text-align: left;
+  	color: rgba(208, 208, 208, 0.9);
+}
+footer span{
+	display:inline-block;
+	float:right;
+	line-height:80px;
+	padding-right:30px;
+}
+footer span a{
+	font-size:14px;
+	color: rgba(208, 208, 208, 0.9);
+	text-decoration:none;
+}
+footer .in{
+	padding-right:103px;
+}
+footer .in i{
+	font-size:17px;
+}
+footer .weibo{
+	padding-right:20px;
+}
+footer .weibo i{
+	font-size:17px;
+}
+footer .reg{
+	float:left;
+	padding-left:103px;
+	padding-right:10px;
+}

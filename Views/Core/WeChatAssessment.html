@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+	<title></title>
+	<link rel="stylesheet" href="../../Content/Core/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../Content/Core/css/m_WeChatAssessment.css?v=20170828" type="text/css"/>
+
+</head>
+<body>
+<div class="content">
+    <div class="top">
+        
+    </div>
+    <div class="title">
+        提示信息
+    </div>
+    <div class="dec">
+        如果确定开始测试，请点击<span>开始测试</span>按钮，或者点击返回按钮返回上一页面
+    </div>
+    <div class="btn-box">
+        <div class="begin">
+            开始测试
+        </div>
+        <div class="back">
+            <a href="/ogcs/Assessment/Index">返回</a>
+        </div>
+    </div>
+</div>
+   
+<div class="dialog">
+	<div class="flo">
+		<div class="flo-one">
+			1.点击右上方
+			<span class="arrow"><i></i><i></i><i></i></span>
+			按钮。
+		</div>
+		<div class="flo-two">
+			2.在弹出菜单中选择您的浏览器开始测评。
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../../Scripts/ogcs/Core/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../Scripts/ogcs/Core/knockout.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("body").on("touchstart", ".dialog", function () {
+            $(this).hide();
+        })
+
+        $("body").on("touchstart", ".begin", function () {
+            $(".dialog").show();
+        })
+    })
+</script>
+</body>
+</html>

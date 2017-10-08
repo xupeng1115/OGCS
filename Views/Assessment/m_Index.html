@@ -1,0 +1,241 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/m_Index.css?v=20170929"
+        type="text/css" />
+</head>
+<body>
+    <div class="back-btn">
+        <a href="/ogcs/Core/">返回</a></div>
+    <header>
+	<div class="top">
+		<div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="http://m.htsaclub.com/m" target="_blank">海途学子</a>
+        </div>
+	</div>
+	<div class="banner">
+		<div class="title">
+			<span class="left">探索自我</span>
+			<span></span>
+			<span class="right">专业测评</span>
+		</div>
+		<div class="dec">通过完整系统的测评工具建立对自己客观公正的认知</div>
+	</div>
+</header>
+    <section>
+    <div class="nav-tip">
+        <div class="nav-one">
+            请仔细阅读以下测评简介，您可以根据自己的实际情况选择其中三个测评进行作答，作答过程中每个单独的测评都需要一次性作答完毕，请您在安静的环境中，保持注意力集中作答。
+        </div>
+        <div class="nav-two">
+            测评结束后你将解锁“<span class="yel">解读自我</span>”功能，查看个人报告和观看解读视频。
+        </div>
+    </div>
+	<div class="select-box">已选<span class="selected" data-bind="text:Num"><!--3--></span><span class="line">/</span><span class="total-select">3</span>个</div>
+	<div class="select-dec">您将在3个工作日内收到报告结果</div>
+	<div class="list" data-bind="foreach:Items">
+		<a class="item"  data-bind="attr:{index:ID,status:AssessmenStatus,num:$index()}" target="_blank">
+			<div class="name" data-bind="text:Name"><!--ES就业竞争力测试--></div>
+			<div class="dec" data-bind="html:Description"><!--对照就业能力标准，识别短板及时提升--></div>
+			<div class="state" data-bind="visible:AssessmenStatus!=0,text:AssessmenStatus!=0?(AssessmenStatus!=3?'未完成':'已完成'):'',attr:{status:AssessmenStatus}"><!--未完成--></div>
+		</a>
+	</div>
+</section>
+    <div class="dialog">
+        <div class="dialog-box tip">
+            <div class="tip-top top">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i><span class="top-text">考前提示</span>
+            </div>
+            <div class="tip-text">
+                请问您是否确定选择此测试一旦选择无法修改</div>
+            <div class="btn know-btn confirm-btn">
+                知道了</div>
+            <div class="btn cancel-btn">
+                取消</div>
+        </div>
+        <div class="dialog-box repeat">
+            <div class="repeat-top top">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i><span class="top-text">考前提示</span>
+            </div>
+            <div class="tip-text">
+                如果你已完成该测评，不需要继续测试</div>
+            <div class="btn know-btn continue-btn">
+                测试</div>
+            <div class="btn no-btn">
+                取消</div>
+        </div>
+        <div class="flo">
+            <div class="flo-one">
+                1.点击右上方 <span class="arrow"><i></i><i></i><i></i></span>按钮。
+            </div>
+            <div class="flo-two">
+                2.在弹出菜单中选择您的浏览器开始测评。
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../Scripts/ogcs/Assessment/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Assessment/knockout.min.js"></script>
+    <script type="text/javascript">
+        var oList =  [{"ID":1,"Name":"ES就业竞争力测试","Description":"对照就业能力标准，<br/>123<br/>123<br/>第四行<br/><br/><br/>","AssessmenStatus":0},{"ID":2,"Name":"AT能力测试\r\n","Description":"外企名企校招必备，在线能力测评，提前预知能力水平，稳抓胜率\r\n","AssessmenStatus":0},{"ID":3,"Name":"创业成功率测试\r\n","Description":"在小型互联网公司拼搏到底适不适合\r\n如何才能与初创公司共同进步\r\n","AssessmenStatus":3},{"ID":4,"Name":"情商测试\r\n","Description":"如何在职场中如鱼得水\r\n如何发挥自己的性格优势赢得职场战争\r\n","AssessmenStatus":3},{"ID":5,"Name":"EPA职业性格测试","Description":"全面了解职业性格，找到性格亮点，区别对待，客观评价","AssessmenStatus":3},{"ID":6,"Name":"Harrison性格测试","Description":"与心仪职位的匹配度精确到两位小数！在不同职业中纠结？来测测！<br/>还可以挖掘最大性格优势，用性格优势与面试官对话！<br/>","AssessmenStatus":0}];
+
+        var oCurrent = 0;     //保存当前选中的测评项目的ID
+        var oNumber = 0;      //保存当前选中的测评项目的顺序下标
+
+        var vm = {
+            Items: ko.observableArray(oList),
+            Num: ko.observable(0)
+        }
+        ko.applyBindings(vm);
+
+        $(document).ready(function () {
+
+            //初始化首先执行
+            init();
+
+            //是否微信内置浏览器
+            function isWeixin() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            function init() {
+                var oItems = getSelected();
+                vm.Num(oItems);
+                if (oItems < 3) {
+                    $(".item").eq(0).css({ "borderColor": "#0099e5" })
+                    $(".item").eq(1).css({ "borderColor": "#0099e5" })
+                    $(".item").eq(2).css({ "borderColor": "#f7a27b" })
+                    $(".item").eq(3).css({ "borderColor": "#f7a27b" })
+                    $(".item").eq(4).css({ "borderColor": "#baa0cb" })
+                    $(".item").eq(5).css({ "borderColor": "#baa0cb" })
+                }
+
+            }
+
+            //获取已选中的测评项目数量
+            function getSelected() {
+                var oTotal = vm.Items();
+                console.log(oTotal);
+                var oNum = 0;
+                for (var i = 0; i < oTotal.length; i++) {
+                    if (oTotal[i].AssessmenStatus != 0) {
+                        oNum++;
+                    }
+                }
+
+                return oNum;
+            }
+
+            //点选测评项目
+            $("body").on("click", ".item", function () {
+                var oStatus = $(this).attr("status");
+                var oKey = $(this).attr("key");
+                var oId = $(this).attr("index");
+                var oNum = $(this).attr("num");
+                if (getSelected() !== 3) {
+                    if (!(oKey === "close" || oStatus === "3")) {                       
+                        //切换当前点击的项目
+                        oCurrent = oId;
+                        oNumber = oNum;
+                        if (oStatus === "0") {
+                            $(".repeat").hide();
+                            $(".tip").show();
+                            $(".dialog").show();
+                        } else {
+                            $(".tip").hide();
+                            $(".repeat").show();
+                            $(".dialog").show();
+                        }
+                    }
+                } else {
+                    if (oStatus === "1" || oStatus === "2") {
+                        //切换当前点击的项目
+                        oCurrent = oId;
+                        oNumber = oNum;
+                        $(".tip").hide();
+                        $(".repeat").show();
+                        $(".dialog").show();
+                    }
+                }
+            })
+
+            //确定选中测评项目
+            $("body").on("click", ".confirm-btn", function () {
+                var oNum = vm.Num();
+                var oCurrentItem = $(".item").eq(parseInt(oNumber));
+                var oStatus = parseInt(oCurrentItem.attr("status"));
+                if (oStatus === 0) {
+                    oCurrentItem.attr("status", 1);
+                    oCurrentItem.find(".state").attr("status", 1);
+                    oCurrentItem.find(".state").text("未完成");
+                    oCurrentItem.find(".state").css({ "background": "#ee5c54", "borderColor": "#fff", "display": "block" });
+
+                    vm.Num(parseInt(oNum) + 1);
+                    vm.Items()[parseInt(oNumber)].AssessmenStatus = 1;
+
+                }
+                if (getSelected() === 3) {
+                    checkItem();
+                }
+
+                $(".dialog").hide();
+
+                //打开新标签页
+                window.open('select?assessmentId=' + oCurrent);
+            })
+
+            $("body").on("click", ".continue-btn", function () {
+                $(".repeat").hide();
+                $(".dialog").hide();
+                //打开新标签页
+                window.open('select?assessmentId=' + oCurrent);
+            })
+
+            //点选数为3个时重新渲染元素
+            function checkItem() {
+                var oTotal = vm.Items();
+                for (var i = 0; i < oTotal.length; i++) {
+                    if (oTotal[i].AssessmenStatus == 0) {
+                        if (i < 2) {
+                            $(".item").eq(i).attr("key", "close");
+                            $(".item").eq(i).css({ "borderColor": "#c3c3c3" })
+                        }
+
+                        if (2 <= i < 4) {
+                            $(".item").eq(i).attr("key", "close");
+                            $(".item").eq(i).css({ "borderColor": "#c3c3c3" })
+                        }
+
+                        if (4 <= i < 6) {
+                            $(".item").eq(i).attr("key", "close");
+                            $(".item").eq(i).css({ "borderColor": "#c3c3c3" })
+                        }
+                    }
+                }
+            }
+
+            $("body").on("click", ".no-btn", function () {
+                $(".repeat").hide();
+                $(".dialog").hide();
+            })
+
+            $("body").on("click", ".cancel-btn", function () {
+                $(".tip").hide();
+                $(".dialog").hide();
+            })
+        })
+
+    </script>
+</body>
+</html>

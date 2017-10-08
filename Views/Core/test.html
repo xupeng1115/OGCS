@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<button data-bind="click:jump">跳转</button>
+<button data-bind="click:function(event){vm.add(event,Counter,Status)}">点击加1</button>
+<button data-bind="click:add2">点击加2</button>
+<div class="one" data-bind="text:Counter"></div>
+<div class="list" data-bind="foreach:List">
+	<button class="item" data-bind="attr:{index:$index(),name:name,age:age},text:name,click:function(event){$parent.Click(event,name,age,$index(),id)}"></button>
+</div>
+<div class="list" data-bind="foreach:List">
+	<button class="item" data-bind="attr:{index:$index(),name:name,age:age},text:name,click:function(event){Click2(event,name,age,$index(),id)}"></button>
+</div>
+<div class="linker" data-bind="foreach:List">
+	<a href="" data-bind="attr:{index:$index(),name:name,age:age},text:name,click:function(event){Click3(event,name,age,$index(),id)}" target="_blank"></a>
+</div>
+<div class="some">
+	<button data-bind="click:someObject.getName.bind(someObject)">我是一个Someobject</button>
+</div>
+
+<div class="parent" data-bind="click:someObject.getName.bind(someObject)">
+	<div class="sub" data-bind="click:subSomeObject.getName.bind(subSomeObject),clickBubble: false">我是子元素</div>
+</div>
+<script type="text/javascript" src="../../Scripts/ogcs/Core/knockout.min.js"></script>
+<script type="text/javascript" src="../../Scripts/ogcs/Core/jquery-1.11.3.min.js"></script>
+<script>
+var oList=[
+	{
+		"id":100,
+		"name":"xiaoming",
+		"age":"20"
+	},
+	{
+		"id":200,
+		"name":"AB",
+		"age":"40"
+	},
+	{
+		"id":300,
+		"name":"kitty",
+		"age":"60"
+	}
+]
+
+var someObject={
+	"name":"hehe",
+	"age":"10",
+	"getName":function(){
+		console.log(this.name+":"+this.age);
+		return this.name+":"+this.age;
+	}
+}
+var subSomeObject={
+	"name":"hehede",
+	"age":"1010",
+	"getName":function(){
+		console.log(this.name+":"+this.age);
+		return this.name+":"+this.age;
+	}
+}
+//ko绑定数据
+var vm = {
+	Status:ko.observable(1000),
+	List:ko.observableArray(oList),
+   	Counter:ko.observable(0),
+// 	SomeObject:ko.observable(someObject),
+   	add:function(event,Counter,Status){
+   		alert(1);
+   		console.log(event);
+   		console.log(Counter());
+   		console.log(Status());
+		var oCounter=this.Counter();
+		this.Counter(oCounter+1);
+   	},
+   	Click:function(event,name,age,index,id){
+   		console.log(this);		//this：vm本身
+   		console.log(event);		//event：当前数组项的对象集合
+   		console.log(name);		//name：当前数组项的"name"信息
+   		console.log(age);		//age：当前数组项的"age"信息
+   		console.log(index);		//index：当前数组项的index下标信息
+   		console.log(id);		//id：当前数组项的"id"信息
+   		console.log(oList);
+   	}
+}
+	
+ko.applyBindings(vm);
+
+function add2(event){
+	console.log(event);
+	console.log(this.Counter());
+	var oCounter=vm.Counter();
+	vm.Counter(oCounter+2);
+}
+
+function jump(){
+	window.open("http://www.baidu.com");
+}
+
+function Click2(event,name,age,index,id){
+	console.log(this.vm);		//this：window本身
+	console.log(event);		//event：当前数组项的对象集合
+	console.log(name);		//name：当前数组项的"name"信息
+	console.log(age);		//age：当前数组项的"age"信息
+	console.log(index);		//index：当前数组项的index下标信息
+	console.log(id);		//id：当前数组项的"id"信息
+}
+
+function Click3(event,name,age,index,id){
+	console.log(this.vm);		//this：window本身
+	console.log(event);		//event：当前数组项的对象集合
+	console.log(name);		//name：当前数组项的"name"信息
+	console.log(age);		//age：当前数组项的"age"信息
+	console.log(index);		//index：当前数组项的index下标信息
+	console.log(id);		//id：当前数组项的"id"信息
+	console.log(oList);
+	window.open("http://www.baidu.com");
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+

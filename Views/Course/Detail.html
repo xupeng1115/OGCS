@@ -1,0 +1,594 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>Detail</title>
+    
+    <link rel="stylesheet" href="../../Content/ogcs/Course/iconfont/material-icons.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/Course/css/Detail.css?v=20170925" type="text/css" />
+    <link rel="stylesheet" href="../../Scripts/ogcs/style.css" type="text/css" />
+
+    <!--[if lt IE 9]>
+      <script src="../../Scripts/ogcs/lib/html5shiv.min.js"></script>
+      <script src="../../Scripts/ogcs/lib/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+    <div class="logo-box">
+        <div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
+        </div>
+    </div>
+    
+<header>
+	<div class="title">打造自我<span></span>课程视频</div>
+	<div class="dec">分解个人目标，落实行动，稳步提高市场竞争力</div>
+	<div class="btn">立即开始<i></i></div>
+</header>
+<section>
+	<div class="top-one">
+		<div class="head-box">
+			<span>当前位置：</span>
+			<span class="home"><a href="/ogcs/Core/">首页</a></span>
+			<span class="right-icon"></span>
+			<span class="forge"><a href="/ogcs/Course/">打造自我</a></span>
+            <span class="right-icon"></span>
+			<span class="detail-text">课程详请</span>
+		</div>
+	</div>
+	<div class="detail">
+		<div class="top">
+			<div class="head">
+				<div class="course-video detail-title">
+					<div class="text">课程视频</div>
+					<div class="title-line"></div>
+				</div>
+				<div class="course-list detail-title">
+					<div class="text">目录与笔记</div>
+					<div class="title-line"></div>
+				</div>
+				<div class="begin-exam detail-title">
+					<div class="text"><a data-bind="attr:{href:'/ogcs/Course/Exam?courseId='+ID}">开始考试</a></div>
+					<div class="title-line"></div>
+				</div>
+			</div>
+			<div class="detail-content">
+				<img data-bind="attr:{src:Cover}" class="detail-img" onerror="nofind();"/>
+				<div class="flo"></div>
+				<a class="content-box" data-bind="attr:{href:'/ogcs/Course/Video?courseId='+ID+ '&videoId='+OneVideoId }">
+					<div class="content-title" data-bind="text:Name">XXXX性格测试</div>
+					<div class="content-star">
+						<i class="fa fa-star" aria-hidden="true" data-bind="visible:Star>=1"></i>
+						<i class="fa fa-star" aria-hidden="true" data-bind="visible:Star>=2"></i>
+						<i class="fa fa-star" aria-hidden="true" data-bind="visible:Star>=3"></i>
+						<i class="fa fa-star" aria-hidden="true" data-bind="visible:Star>=4"></i>
+						<i class="fa fa-star" aria-hidden="true" data-bind="visible:Star>=5"></i>
+					</div>
+					<div class="content-message">
+						<span class="eye"><i class="fa fa-eye" aria-hidden="true"></i></span>
+						<span class="course-text">学习人数：</span>
+						<span class="course-number" data-bind="text:Learners"><!--222--></span>
+						<span class="course-type">人</span>
+						<span class="user"><i class="fa fa-user" aria-hidden="true"></i></span>
+						<span class="user-text">讲师名字：</span>
+						<span class="user-name" data-bind="text:Lecturer"> </span>
+					</div>
+					<div class="content-dec" data-bind="html:Description"> </div>
+					<div class="content-btn"></div>
+					<div class="content-btn-text">立即学习</div>
+				</a>
+			</div>
+		</div>
+		<div class="list">
+			<div class="list-top">
+				<div class="top-left">
+					<div class="mulu" data-bind="css:{clickitem:ShowList()>0},click:function(event){vm.ListShow(event,0,ShowList())}">
+						<i class="fa fa-list-ul" aria-hidden="true"></i>
+						<span class="mulu-text">目录列表</span>
+					</div>
+					<div class="box-line"></div>
+					<div class="note" id="divNote" data-bind="css:{clickitem:ShowPraise()>0},click:function(event){vm.ListShow(event,1,ShowPraise())}">
+						<i class="material-icons">&#xE150;</i></i>
+						<span class="note-text">课程笔记</span>
+					</div>
+				</div>
+				<div class="top-right" data-bind="click:function(event){vm.ListShow(event,2,ShowAdd())}">
+					<i class="material-icons">&#xE145;</i>
+					<span class="add-btn-text">添加笔记</span>
+				</div>
+			</div>
+            <!--视频列表-->
+            <div class="list-content" data-bind="visible:ShowList(),attr:{index:0,show:ShowList()}">
+			    <div class="list-box" data-bind="foreach:Videos">
+				    <a class="item" data-bind="attr:{href:'/ogcs/Course/Video/?courseId='+$root.ID + '&videoId='+ID }">
+				    	<span class="line"></span>
+					    <span class="badge"></span>
+					    <span class="circle"></span>
+					    <span class="item-num" data-bind="text:Name"><!--课时1--></span>
+					    <span class="item-title" data-bind="text:Description"><!--我是这个课时的小标题名称--></span>
+					    <span class="item-btn">立即播放</span>
+					    <span class="item-line"></span>
+                        <span class="item-duration" data-bind="text:Duration"><!--(03:50)--></span>
+				    </a>
+			    </div>
+		    </div>
+
+            <!--课程笔记-->
+		    <div class="note-content" data-bind="visible:ShowPraise(),attr:{index:1,show:ShowPraise()}">
+				<!-- 课时列表  -->
+				<div class="period-box">
+					<div class="period-list" data-bind="foreach:Period">
+						<span class="period" data-bind="css:{current:ID===$parent.CurrentPeriod()},text:Name,click:function(){vm.PeriodClick(ID)}"></span>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<!-- 笔记列表部分 -->
+		    	<div class="note-list" data-bind="foreach:Note">
+					<div class="note-item">
+						<div class="message-box">
+							<span class="message-head" data-bind="text:LastName[0].toUpperCase()"><!--A--></span>
+							<span class="message-personal">
+								<span class="message-name" data-bind="text:LastName+FirstName"><!--Apple--></span>
+								<span class="message-date" data-bind="text:CreatedDate"><!--2017/02/03--></span>
+							</span>
+							<span class="period-time period-right" data-bind="text:Point"><!--20:20:20--></span>
+							<span class="period-num period-right" data-bind="text:VideoName"><!--课时200--></span>
+						</div>
+						<div class="message-text" data-bind="html:Content"><!--高级命令：filetype：搜索PDF或这些关键词必须--></div>
+						<div class="note-btn-box">
+							<div class="comment btn-right" data-bind="attr:{index:$index() },click:function(){vm.ShowComment($index())}">
+								<i class="material-icons">&#xE0CB;</i>
+								<span class="comment-num" data-bind="text:CommentList.length,attr:{ID: '_noteId_'+ID }"><!--3000000--></span>
+							</div>
+							<div class="praise btn-right" data-bind="attr:{praise:IsLaud},css:{bg:IsLaud==1},click:function(){vm.AddPraise(this,$index())}">
+								<i class="material-icons">&#xE8DC;</i>
+								<span class="praise-num" data-bind="text:PraiseNum"><!--200000--></span>
+							</div>
+							<div class="detele btn-right" data-bind="attr:{show:(UserId==$parent.UserId)?1:0},click:function(){vm.DeteleNote($index())}">
+								<i class="material-icons">&#xE872;</i>
+								<span>删除</span>
+							</div>
+						</div>
+						
+						<!-- 评论部分 -->
+						<div class="comment-box">
+							<div class="comment-input">
+								<div class="comment-content">
+									<textarea placeholder="请添加你的评论..." maxlength="200" onpropertychange="LimitTextArea(this)"></textarea>
+								</div>
+								<div class="comment-btn" data-bind="attr:{index:$index()},click:function(){vm.SubmitComment($index())}">提交</div>
+							</div>
+							
+							<!-- 评论列表 -->
+							<div class="comment-list" data-bind="foreach:CommentList,attr:{index:$index()}">
+								<div class="comment-item">
+									<div class="comment-item-head" data-bind="text:LastName[0].toUpperCase()"><!--一--></div>
+									<div class="comment-item-message">
+										<div class="comment-item-message-top">
+											<div class="comment-item-name" data-bind="text:LastName+FirstName"><!--一个地球人--></div>
+											<div class="comment-item-date" data-bind="text:CreatedDate"><!--2017/02/03--></div>
+										</div>
+										<div class="comment-item-message-text" data-bind="html:Content"><!--我有话要说苏的商店还高风亮节看--></div>
+										<div class="comment-item-detele" data-bind="visible:UserId===$root.UserId,attr:{commentId:ID,noteId:$parent.ID}">删除</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+		    	</div>
+		    	
+		    	<!--分页按钮-->
+               
+                    <div id="demo3"></div>
+		    </div>
+
+            <!--添加笔记-->
+        	<div class="add-praise" data-bind="visible:ShowAdd(),attr:{index:2,show:ShowAdd()}">
+        		<div class="add-praise-course" data-bind="text:'课程：'+Name"><!--课程：阿萨德岁跟发送结果辅导时间大厦--></div>
+        		<div class="praise-select-box">
+        			<span>针对</span>
+        			<span class="praise-select" data-bind="click:function(){vm.ClickOptions()}">
+        				<span class="praise-text" data-bind="text:CurrentSelect().Name  + ' ' + CurrentSelect().Description"></span>	
+        				<span class="praise-arrow-top" data-bind="visible:!ShowSelect()"></span>
+        				<span class="praise-arrow-bottom" data-bind="visible:ShowSelect()"></span>
+        			</span>
+        			<span class="praise-select-tip">选择课程,笔记将归属于全局课程；选择课时,将笔记归属于课时</span>
+        			<span class="star">*</span>
+        			<span>做笔记</span>
+        		</div>
+        		<div class="praise-options" data-bind="foreach:Options,visible:ShowSelect()">
+        			<div class="praise-option-item" data-bind="text:Name+' '+Description,click:function(){vm.SelectOption(this);}"><!--课时1 --></div>
+        		</div> 
+        		<div class="praise-input">
+        			<textarea placeholder="在此输入您想记录的笔记…" maxlength="200"  onpropertychange="LimitTextArea(this)" data-bind="value:NoteText"></textarea>
+        		</div>
+        		<div class="privacy" data-bind="attr:{privacy:Privacy()},click:function(){vm.ClickPrivacy(Privacy())}">
+                    <i class="nochecked" data-bind="visible:!Privacy()"></i>
+                    <i class="material-icons checked" id="privacy-btn" data-bind="visible:Privacy()">&#xE834;</i>
+        			<span class="privacy-text">隐私</span>
+        		</div>
+        		<div class="praise-submit-btn" data-bind="click:function(){vm.SubmitNote()}">提交</div>
+        	</div>
+		</div>
+	</div>
+	
+</section>
+
+    <footer>
+	<span class="reg">©肯耐珂萨 2017 | 沪ICP备09051952号-2</span>
+	<span class="in"><a href="http://www.linkedin.com/company/knx?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1825638231400554720831%2CVSRPtargetId%3A3707210%2CVSRPcmpt%3Aprimary" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></span>
+	<span class="weibo"><a href="http://weibo.com/KNXCompany" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></span>
+	<span class="tel"><a href="http://knx.com.cn/about/contact_us" target="_blank">联系我们</a></span>
+	<span class="about"><a href="http://knx.com.cn/about" target="_blank">关于我们</a></span>
+    </footer>
+      
+    <script type="text/javascript" src="../../Scripts/ogcs/Course/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/jquery.paginate.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/jquery.nicescroll.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/Course/knockout.min.js"></script>
+    <script src="../../Scripts/ogcs/xss.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var oCourse =  {"course":{"ID":2,"Name":"神队友修炼秘籍","Lecturer":"汤佳 Ira Tang","Cover":"/ogcs_file/Courses/Cover/2.png","Learners":612,"Description":"现在，团队合作就是竞争力。随着市场竞争的日益激烈，企业更加强调团队精神，建立群体共识，以达到更高的工作效率。特别是遇到大型项目时，想凭借一己之力去取得卓越的成果，非常困难。想必你已意识到，单打独斗的时代已经结束，取而代之的是团队合作！","Star":5,"Status":1},"OneVideoId":4,"Videos":[{"ID":4,"CourseId":2,"Name":"课时1","Description":"团队意识","Duration":"12:23","Url":"http://material.knx.com.cn/weike/shenduiyouxiulianmiji/tuanduiyishi_720p.mp4","Sort":1},{"ID":5,"CourseId":2,"Name":"课时2","Description":"协作能力","Duration":"11:57","Url":"http://material.knx.com.cn/weike/shenduiyouxiulianmiji/xiezuonengli_720p.mp4","Sort":2},{"ID":6,"CourseId":2,"Name":"课时3","Description":"主动承担责任","Duration":"09:08","Url":"http://material.knx.com.cn/weike/shenduiyouxiulianmiji/zhudongchengdanzeren_720p.mp4","Sort":3}]};
+        var oUserInfo =  {"ID":119,"LastName":"新","FirstName":"餐","CreatedDate":"2017-09-30"} ; 	//传进来的用户个人信息
+
+        function getNoteList(courseId, videoId, pageIndex) {
+            var pageSize = "5";
+            $.ajax({
+                type: "get",
+                url: "/ogcs/Note/GetNote?courseId=" + courseId + "&videoId=" + videoId + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize,
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                dataType: "json",
+                success: function (result) {
+                    if (result && result.success) {
+                        if (result.data && result.data.Data) {
+                            vm.Note(result.data.Data);
+                            vm.PageLen(result.data.PageCount);
+                            //页面加载完后执行初始化生成分页按钮
+                        }
+                        else {
+                            vm.Note();
+                            vm.PageLen(1);
+                            //页面加载完后执行初始化生成分页按钮
+                        }
+                        var display = 12;
+                        if(vm.PageLen() < 12)
+                            display = vm.PageLen();
+                            
+                        if(display <2) return; 
+
+                        $("#demo3").paginate({
+                            count: vm.PageLen(),
+                            start: vm.CurrentPage(),
+                            display: display,
+                            border: true,
+                            border_color: '#BEF8B8',
+                            text_color: '#68BA64',
+                            background_color: '#E3F2E1',
+                            border_hover_color: '#68BA64',
+                            text_hover_color: 'black',
+                            background_hover_color: '#CAE6C6',
+                            rotate: false,
+                            images: false,
+                            mouse: 'press',
+                            onChange:function(p){
+                                vm.CurrentPage(p);
+                                getNoteList(vm.ID,vm.CurrentPeriod(),vm.CurrentPage());
+                            }
+                        });
+                    }
+                },
+                error: function (ex, status) {
+
+                }
+            });
+        }
+
+        var oPeriod = [{ "ID": -1, "Name": "全部" }, { "ID": 0, "Name": "课程"}];
+        oPeriod = oPeriod.concat(oCourse.Videos);
+        var oSelect = [{ "ID": 0, "CourseId": oCourse.course.ID, "Name": "课程", "Description": oCourse.course.Name}];
+        oSelect = oSelect.concat(oCourse.Videos);
+
+
+        var vm = {
+            UserId: oUserInfo.ID,
+            ID: oCourse.course.ID,
+            Cover: oCourse.course.Cover,
+            Name: oCourse.course.Name,
+            Learners: oCourse.course.Learners,
+            Lecturer: oCourse.course.Lecturer,
+            Description: oCourse.course.Description,
+            CousrseId: oCourse.course.ID,
+            Star: oCourse.course.Star,
+            Videos: oCourse.Videos,
+            OneVideoId: oCourse.OneVideoId,
+
+            ShowList: ko.observable(1), 					//课程课时列表：0:hide,1:show
+            ShowPraise: ko.observable(0), 				//课程笔记评论：0:hide,1:show
+            ShowAdd: ko.observable(0), 					//添加笔记部分：0:hide,1:show
+            ShowDetele: ko.observable(false), 			//是否显示删除：true:show,false:hide
+
+            CurrentPeriod: ko.observable(-1), 				//当前选中的课时ID  -1表全部，0表课程
+            Period: ko.observableArray(oPeriod),
+
+            ShowSelect: ko.observable(false), 			//下拉列表:false:hide,true:show
+            CurrentSelect: ko.observable(oSelect[0]), //当前选中的下拉项:
+            Options: ko.observableArray(oSelect), //下拉列表组
+
+            NoteText: ko.observable(""), 					//笔记内容:
+            Note: ko.observableArray(), 				//笔记列表
+
+            PageLen: ko.observable(100), 					//页数多和少：100/10
+            CurrentPage: ko.observable(1), 				//当前选中的分页数：默认1:第一个页
+
+            Checked: ko.observable(false), 				//是否隐私
+            Privacy: ko.observable(0), 					//是否隐私  0:否，1:是
+
+            //目录，笔记，添加笔记切换
+            ListShow: function (event, index, show) {
+                if (show === 0) {
+                    if (index === 0) {
+                        event.ShowList(1);
+                        event.ShowPraise(0);
+                        event.ShowAdd(0);
+                    }
+
+                    if (index === 1) { //点击课程笔记
+                        event.ShowList(0);
+                        event.ShowPraise(1);
+                        event.ShowAdd(0);
+                        event.CurrentPeriod(0);
+                       $(".period").eq(0).click();
+                    }
+
+                    if (index === 2) {
+                        event.ShowList(0);
+                        event.ShowPraise(0);
+                        event.ShowAdd(1);
+                    }
+                }
+            },
+            //点选课时
+            PeriodClick: function (videoId) {
+                if (videoId !== this.CurrentPeriod()) {
+                    this.CurrentPeriod(videoId);
+                    $("#demo3").empty();
+                    $("#demo3").removeAttr("style")
+                    getNoteList(this.ID, videoId, 1);                    
+                    this.CurrentPage(1);
+                }
+            },
+            //点赞数加1
+            AddPraise: function (o, index) {
+             var oLaud=$(".praise").eq(index).attr("praise");
+                if(oLaud=="0"){
+                    if (o.IsLaud == 0) {
+                        $(".praise-num").eq(index).text(o.PraiseNum + 1);
+                        $(".praise").eq(index).addClass("bg");
+                        $(".praise").eq(index).attr("praise","1");
+
+                        var _NoteLaud = {
+                            ID: 0,
+                            CourseId: this.ID,
+                            NoteId: o.ID,
+                            UserId: 0
+                        };
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/ogcs/Note/AddNoteLaud",
+                            contentType: "application/json; charset=utf-8",
+                            cache: false,
+                            data: JSON.stringify(_NoteLaud),
+                            dataType: "json",
+                            success: function (result) {
+                            }
+                        });
+                    }
+                }
+            },
+            //控制展示评论部分
+            ShowComment: function (index) {
+                var oComment = $(".comment-box").eq(index);
+                var oStatus = oComment.css("display");
+                if (oStatus === "none") {
+                    oComment.css("display", "block");
+                } else {
+                    oComment.css("display", "none");
+                }
+            },
+            //提交评论
+            SubmitComment: function (index) {
+                var oTextValue = $("textarea").eq(index).val().replace(/\n/g,"<br/>");
+                var oNum = parseInt($(".comment-num").eq(index).text());
+                var oStr = '';
+                var _self = this;
+                if ($.trim(oTextValue) !== "") {
+                    oTextValue = filterXSS(oTextValue);//过滤xss攻击代码
+                    var _NoteComment = {
+                        CourseId: _self.ID,
+                        NoteId: _self.Note()[index].ID,
+                        Content: oTextValue
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/ogcs/Note/AddNoteComment",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false,
+                        data: JSON.stringify(_NoteComment),
+                        dataType: "json",
+                        success: function (result) {
+                            if (result.success) {
+                                var oNewObj = {
+                                    "ID": result.data.ID,
+                                    "FirstName": oUserInfo.FirstName,
+                                    "LastName": oUserInfo.LastName,
+                                    "CreatedDate": oUserInfo.CreatedDate,
+                                    "Content": oTextValue
+                                }
+
+                                oStr += '<div class="comment-item">' +
+						'<div class="comment-item-head">' + oNewObj.LastName[0].toUpperCase() + '</div>' +
+						'<div class="comment-item-message">' +
+						'<div class="comment-item-message-top">' +
+						'<div class="comment-item-name">' + oNewObj.LastName + oNewObj.FirstName + '</div>' +
+						'<div class="comment-item-date">' + oNewObj.CreatedDate + '</div></div>' +
+						'<div class="comment-item-message-text" data-bind="text:Content">' + oNewObj.Content + '</div>' +
+						'<div class="comment-item-detele" index=' + index + '  commentid='+result.data.ID+' noteid='+_NoteComment.NoteId +'">删除</div>' +
+						'</div></div>';
+
+                                $(".comment-list").eq(index).prepend(oStr);
+                                $("textarea").eq(index).val("");
+                                $(".comment-num").eq(index).text(oNum + 1);
+                            } else {
+                                alert(result.msg);
+                            }
+
+                        },
+                        error: function (ex, status) {
+                            alert("网络出错了");
+                        }
+                    });
+                }
+            },
+            //点击选项框
+            ClickOptions: function (event) {
+                if (this.ShowSelect() === false) {
+                    this.ShowSelect(true);
+                } else {
+                    this.ShowSelect(false);
+                }
+            },
+            //点选选项
+            SelectOption: function (o) {
+                this.CurrentSelect(o);
+                this.ShowSelect(false);
+            },
+            //提交笔记
+            SubmitNote: function () {
+                var _self = this;
+                var oNoteText = this.NoteText().replace(/\n/g,"<br/>");
+                
+                if ($.trim(oNoteText) !== "") {
+                    oNoteText = filterXSS(oNoteText);//过滤xss攻击代码
+                    var _note = {
+                        ID: 0,
+                        CourseId: this.CurrentSelect().CourseId,
+                        VideoId: this.CurrentSelect().ID,
+                        UserId: 0,
+                        Content: oNoteText,
+                        IsPrivate: this.Privacy(),
+                        Point: ""
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "/ogcs/Note/AddNote",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false,
+                        data: JSON.stringify(_note),
+                        dataType: "json",
+                        success: function (result) {
+                            if (result.success) {
+                                _self.Privacy(0);
+                                _self.NoteText("");
+                                $("#divNote").click();
+                            } else {
+                                alert(result.msg);
+                            }
+                        },
+                        error: function (ex, status) {
+                            alert("网络出错了");
+                        }
+                    });
+                }
+                else {
+                    alert("笔记不能为空！");
+                }
+            },
+            DeteleNote: function (index) {
+                var _delNote = { ID: this.Note()[index].ID }
+                $.post("/ogcs/Note/DeleNote", _delNote);
+                $(".note-item").eq(index).hide();
+            },
+            ClickPrivacy: function (privacy) {
+                if (privacy === 0) {
+                    this.Privacy(1);
+                } else {
+                    this.Privacy(0);
+                }
+            }
+        }
+
+        ko.applyBindings(vm);
+
+        //图片没有成功加载出来时处理
+        function nofind(){
+            var oImg=event.srcElement;
+            oImg.src="../../../Content/ogcs/Course/img/item.png";
+            oImg.onerror=null;
+        }
+
+        function LimitTextArea(field) {
+            var maxlimit = 200;
+       	    if (field.value.length > maxlimit) {
+                field.value = field.value.substring(0, maxlimit);
+                return field.value;
+            }
+   	    }
+
+        $(document).ready(function () {
+            //自定义滚动条
+            $('.praise-options').niceScroll({
+                cursorcolor: "#000",
+                cursoropacitymax: 0.2, 
+                touchbehavior:false, 
+                cursorwidth: "5px", 
+                cursorborder: "0", 
+                cursorborderradius: "5px",
+                autohidemode: false
+            });
+
+            //点击删除评论按钮
+            $("body").on("click", ".comment-item-detele", function () {
+//                alert('1');
+                var _commentId = parseInt($(this).attr("commentId"));
+//                alert('2');
+                var _noteId = parseInt($(this).attr("noteId"));
+//                alert('3');
+                var divNoteComment = $("#_noteId_" +_noteId );
+//                alert('4');
+                var oNum = parseInt(divNoteComment.text());              
+//                alert('5');
+                $(this).parent().parent().hide();
+//                alert('6');
+                divNoteComment.text(oNum - 1);
+                var _delNoteComment = { ID: _commentId };
+                $.post("/ogcs/Note/DeleNoteComment", _delNoteComment);
+            })
+
+            //点击立即开始滚动到课程部分
+            $("body").on("click", ".btn", function () {
+                $("html,body").animate({ scrollTop: 460 }, 400);
+            })
+
+            //点击课程目录滚动到课程目录部分
+            $("body").on("click", ".course-list", function () {
+                $("html,body").animate({ scrollTop: 860 }, 400);
+            })
+
+        })
+    </script>
+
+</body>
+</html>

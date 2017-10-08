@@ -1,0 +1,338 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+	<title></title>
+	<link rel="stylesheet" href="../../Content/ogcs/Course/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../Content/ogcs/Course/css/m_Index.css?v=20170925" type="text/css"/>
+	
+</head>
+<body>
+<div class="back-btn"><a href="/ogcs/Core/">返回</a></div>
+<header>
+	<div class="top">
+		<div class="logo"></div>
+        <div class="ht-logo"></div>
+        <div class="ht-btn">
+            <a href="http://m.htsaclub.com/m" target="_blank">海途学子</a>
+        </div>
+	</div>
+	<div class="banner">
+		
+		<div class="title">
+			<span class="left">打造自我</span>
+			<span></span>
+			<span class="right">课程视频</span>
+		</div>
+		<div class="dec">分解个人目标，落实行动，稳步提高市场竞争力</div>
+	</div>
+</header>
+<section>
+	<div class="tutor">
+		<div class="tutor-title">专家团队</div>
+		<div class="tutor-head">
+			<div class="tutor-head-item" data-bind="click:function(){vm.OverHead(0)}">
+				<img src="../../Content/ogcs/Course/img/1.png"/>
+				<div class="tutor-head-flo"></div>
+			</div>
+			<div class="tutor-head-item" data-bind="click:function(){vm.OverHead(1)}">
+				<img src="../../Content/ogcs/Course/img/2.png"/>
+				<div class="tutor-head-flo"></div>
+			</div>
+			<div class="tutor-head-item" data-bind="click:function(){vm.OverHead(2)}">
+				<img src="../../Content/ogcs/Course/img/3.png"/>
+				<div class="tutor-head-flo"></div>
+			</div>
+			<div class="tutor-head-item" data-bind="click:function(){vm.OverHead(3)}">
+				<img src="../../Content/ogcs/Course/img/4.png"/>
+				<div class="tutor-head-flo"></div>
+			</div>
+		</div>
+		<div class="tutor-item" data-bind="visible:CurrentTutor()===0">
+			<div class="tutor-item-head">
+				<img src="../../Content/ogcs/Course/img/1.png"/>
+			</div>
+			<div class="tutor-item-name">Ellen Sun</div>
+			<div class="tutor-item-dec">肯耐珂萨董事常务副总裁兼合伙人</div>
+			<div class="tutor-item-border">
+				<div class="tutor-item-course-btn" data-bind="text:ShowList()<1?'查看课程':'返回',click:function(){vm.ClickCourseList(0)}"><!--查看课程--></div>
+			</div>
+			<div class="tutor-item-title" data-bind="text:ShowList()<1?'能力提示':'课时列表'"><!--能力提升--></div>
+			<div class="tutor-item-message" data-bind="visible:ShowList()<1">
+				<div class="tutor-message-box">
+					<div class="tutor-left">专家信息：</div>
+					<div class="tutor-right">
+						现任肯耐珂萨董事常务副总裁兼合伙人，全权负责中国招聘事业部，包括招聘流程外部业务和高端猎头服务。1998年开始从事高端猎头行业。
+					</div>
+				</div>
+				<div class="tutor-message-box">
+					<div class="tutor-left">服务客户：</div>
+					<div class="tutor-right">
+						欧莱雅、联合利华、花旗银行、通用汽车、法国巴黎银行、平安集团等国内外知名企业。
+					</div>
+				</div>
+				<div class="tutor-message-box">
+					<div class="tutor-left">擅长领域：</div>
+					<div class="tutor-right">
+						擅长领域：金融和消费品行业。为客户成功的在中国，香港，新加坡，美国，德国等地引进1000多位高端候选人。
+					</div>
+				</div>
+			</div>
+			<div class="tutor-course-list" data-bind="visible:ShowList()>0">
+				<img src="../../Content/ogcs/Course/img/tutor_icon_no.png"/>
+				<div class="no-text">暂无课程</div>
+			</div>
+		</div>
+		<div class="tutor-item" data-bind="visible:CurrentTutor()===1">
+			<div class="tutor-item-head">
+				<img src="../../Content/ogcs/Course/img/2.png"/>
+			</div>
+			<div class="tutor-item-name">Clara CHEN</div>
+			<div class="tutor-item-dec">肯耐珂萨招聘流程外包运营总监</div>
+			<div class="tutor-item-border">
+				<div class="tutor-item-course-btn" data-bind="text:ShowList()<1?'查看课程':'返回',click:function(){vm.ClickCourseList(0)}"><!--查看课程--></div>
+			</div>
+			<div class="tutor-item-title" data-bind="text:ShowList()<1?'能力提示':'课时列表'"><!--能力提升--></div>
+			<div class="tutor-item-message" data-bind="visible:ShowList()<1">
+				<div class="tutor-message-box">
+					<div class="tutor-left">专家信息：</div>
+					<div class="tutor-right">
+						现任肯耐珂萨招聘流程外包运营总监，肯耐珂萨认证讲师，资深招聘专家。</br>
+						15年人力资源服务行业，包括招聘，培训，绩效，薪酬福利。其中超过10年高管搜寻及人力资源外包服务项目经验。
+					</div>
+				</div>
+				<div class="tutor-message-box">
+					<div class="tutor-left">服务客户：</div>
+					<div class="tutor-right">
+						渣打银行，汇丰银行，通用电气，耐克，空气产品，利乐包装，波士顿科学，柯惠医疗等。
+					</div>
+				</div>
+				<div class="tutor-message-box">
+					<div class="tutor-left">擅长领域：</div>
+					<div class="tutor-right">
+						招聘流程管理、招聘技能 培训、项目管理。
+					</div>
+				</div>
+			</div>
+			<div class="tutor-course-list" data-bind="visible:ShowList()>0">
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=9&videoId=23"><span class="course-name">如何写好一封简历</span><span class="course-time">13:26</span></a>
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=9&videoId=24"><span class="course-name">简历排版与投递</span><span class="course-time">08:25</span></a>
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=10&videoId=25"><span class="course-name">面试，你准备好了吗？</span><span class="course-time">09:10</span></a>
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=10&videoId=26"><span class="course-name">面试，必备加分技能！</span><span class="course-time">08:25</span></a>
+			</div>
+		</div>
+		<div class="tutor-item" data-bind="visible:CurrentTutor()===2">
+			<div class="tutor-item-head">
+				<img src="../../Content/ogcs/Course/img/3.png"/>
+			</div>
+			<div class="tutor-item-name">Rengen Li</div>
+			<div class="tutor-item-dec">肯耐珂萨研究院执行院长</div>
+			<div class="tutor-item-border">
+				<div class="tutor-item-course-btn" data-bind="text:ShowList()<1?'查看课程':'返回',click:function(){vm.ClickCourseList(0)}"><!--查看课程--></div>
+			</div>
+			<div class="tutor-item-title" data-bind="text:ShowList()<1?'能力提示':'课时列表'"><!--能力提升--></div>
+			<div class="tutor-item-message" data-bind="visible:ShowList()<1">
+				<div class="tutor-message-box">
+					<div class="tutor-left">专家信息：</div>
+					<div class="tutor-right">
+						现任肯耐珂萨研究院执行院长，专家讲师 </br>
+						原可口可乐大学（中国）创办人（1995-1999）</br>
+						原可口可乐公司全球领导力发展总监（2010-2014）</br>
+						印地安那大学理学硕士（教学技术学）</br>
+						弗罗里达州大学哲学博士（教学系统）</br>
+						乔治亚州大学EMBA
+					</div>
+				</div>
+				<div class="tutor-message-box">
+					<div class="tutor-left">擅长领域：</div>
+					<div class="tutor-right">
+						多文化领导力、情商领导力、全脑思维领导力、领导力发展 组织与人才发展等。
+					</div>
+				</div>
+			</div>
+			<div class="tutor-course-list" data-bind="visible:ShowList()>0">
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=7&videoId=16"><span class="course-name">高情商就是会说话？</span><span class="course-time">10:30</span></a>
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=7&videoId=17"><span class="course-name">我也控几不住我记几，肿么办？</span><span class="course-time">10:22</span></a>
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=7&videoId=18"><span class="course-name">做你自己，勇敢Say No！</span><span class="course-time">11:14</span></a>
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=7&videoId=19"><span class="course-name">知人冷暖，关系杠杠滴！</span><span class="course-time">08:35</span></a>
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=7&videoId=20"><span class="course-name">真相只有一个？</span><span class="course-time">09:11</span></a>
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=7&videoId=21"><span class="course-name">与压力做朋友</span><span class="course-time">10:35</span></a>
+			</div>
+		</div>
+		<div class="tutor-item" data-bind="visible:CurrentTutor()===3">
+			<div class="tutor-item-head">
+				<img src="../../Content/ogcs/Course/img/4.png"/>
+			</div>
+			<div class="tutor-item-name">Icey Han</div>
+			<div class="tutor-item-dec">肯耐珂萨内容产品研究院产品总监</div>
+			<div class="tutor-item-border">
+				<div class="tutor-item-course-btn" data-bind="text:ShowList()<1?'查看课程':'返回',click:function(){vm.ClickCourseList(0)}"><!--查看课程--></div>
+			</div>
+			<div class="tutor-item-title" data-bind="text:ShowList()<1?'能力提示':'课时列表'"><!--能力提升--></div>
+			<div class="tutor-item-message" data-bind="visible:ShowList()<1">
+				<div class="tutor-message-box">
+					<div class="tutor-left">专家信息：</div>
+					<div class="tutor-right">
+						现任肯耐珂萨内容产品研究院产品总监</br>
+						南开大学应用心理学硕士</br>
+						武汉大学管理学&法学双学士</br>
+						人力资源管理师，二级心理咨询师。
+					</div>
+				</div>
+				<div class="tutor-message-box">
+					<div class="tutor-left">客户服务：</div>
+					<div class="tutor-right">
+						复星集团、亨通国际、上海大众、景瑞地产、华住集团、优衣库、亨得利、卡西欧等。
+					</div>
+				</div>
+				<div class="tutor-message-box">
+					<div class="tutor-left">擅长领域：</div>
+					<div class="tutor-right">
+						人力资源管理实践，对培训与开发、企业文化建设、人才测评、选拔及发展等人资模块有较为深入的理论研究和实践方法。
+					</div>
+				</div>
+			</div>
+			<div class="tutor-course-list" data-bind="visible:ShowList()>0">
+				<a class="tutor-course-item" href="/ogcs/Course/Video/?courseId=6&videoId=15"><span class="course-name">从学习开始的“蜕变之旅”</span><span class="course-time">25:34</span></a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="hot list">
+		<div class="top">
+			<div class="top-title-box">
+				<span class="top-img hot-top-img"></span>
+				<span class="top-title">强烈推荐</span>
+			</div>
+		</div>
+        <div class="nav-tip">
+             强烈推荐的课程是根据您测评结果中有待发展的能力专属定制的，您需要学完这些课程并通过课后考试才能顺利结业。
+        </div>
+		<div class="content-list" data-bind="foreach:Hots">
+			<a class="item" data-bind="attr:{href:'/ogcs/Course/Detail/'+ID}">
+				<div class="hot-box">hot</div>
+				<img data-bind="attr:{src:Cover}" onerror="nofind();"/>
+				<div class="item-title" data-bind="text:Name">我是一个课程标题</div>
+				<div class="item-dec" data-bind="html:Description">假装这里还有课程内容描述蝴蝶酥杨爽肤水…</div>
+			</a>
+		</div>
+		<div class="add-btn">
+			<span>展开更多</span><i class="down"></i><i class="up"></i>
+		</div>
+	</div>
+	<div class="necessary list">
+		<div class="top">
+			<div class="top-title-box">
+				<span class="top-img necessary-top-img"></span>
+				<span class="top-title">职场必备</span>
+			</div>
+		</div>
+        <div class="nav-tip">
+            职业必备课程能帮助您全面地提升职业素养和综合能力，如果您想顺利拿到各大名企的OFFER，不要偷懒哦！
+        </div>
+		<div class="content-list" data-bind="foreach:Necessarys">
+			<a class="item" data-bind="attr:{href:'/ogcs/Course/Detail/'+ID}">
+				<img data-bind="attr:{src:Cover}" onerror="nofind();"/>
+				<div class="item-title" data-bind="text:Name">我是一个课程标题</div>
+				<div class="item-dec" data-bind="html:Description">假装这里还有课程内容描述蝴蝶酥杨爽肤水…</div>
+			</a>
+		</div>
+		
+	</div>
+</section>
+	
+	
+<script type="text/javascript" src="../../Scripts/ogcs/Course/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../Scripts/ogcs/Course/knockout.min.js"></script>
+
+<script type="text/javascript">
+    var recommentdList = [];
+    var otherList  = [{"ID":1,"Name":"高效沟通","Lecturer":"邬岚 Yvonne Wu","Cover":"/ogcs_file/courses/cover/1.png","Learners":136,"Description":"沟通是人生中很重要的一课，说话谁都会，但如何把话说得艺术，如何跟他人进行很好的沟通，建立良好的人际关系，就不是每个人都能做好。想更好地与人沟通，就得学习一点沟通的技巧。","Star":5,"Status":1},{"ID":2,"Name":"神队友修炼秘籍","Lecturer":"汤佳 Ira Tang","Cover":"/ogcs_file/Courses/Cover/2.png","Learners":406,"Description":"现在，团队合作就是竞争力。随着市场竞争的日益激烈，企业更加强调团队精神，建立群体共识，以达到更高的工作效率。特别是遇到大型项目时，想凭借一己之力去取得卓越的成果，非常困难。想必你已意识到，单打独斗的时代已经结束，取而代之的是团队合作！","Star":5,"Status":1},{"ID":3,"Name":"问题分析与解决","Lecturer":"顾晨毅 Bill Gu","Cover":"/ogcs_file/Courses/Cover/3.png","Learners":487,"Description":"解决问题是人生中一项最基本的能力之一。不管你是谁，在做什么，你都会遇到困难。你如何面对这些挑战常常是决定你在人生中能获得多大的成功的因素。尽管遇到的问题形式多样，问题大小不一，本课程能教你一些技巧来找到解决方法。","Star":5,"Status":1},{"ID":4,"Name":"激活你的信息CPU","Lecturer":"余红莲 Sara Yu","Cover":"/ogcs_file/Courses/Cover/4.png","Learners":12,"Description":"工作离不开信息，生活离不开信息，如果不能及时收集和甄别信息，不能快捷传达和展示信息，不能有效利用和创新信息，无异于睁眼瞎，必困无疑，必败无疑！信息处理的能力成为企业竞争、企业致胜、社会发展的十分重要的能力！","Star":5,"Status":1},{"ID":5,"Name":"志存当高远，目标需行动","Lecturer":"蒋芸 Selina Jiang","Cover":"/ogcs_file/Courses/Cover/5.png","Learners":14,"Description":"我们每个人应该都不会对目标陌生，可以说所有人都做过目标计划。但是，做计划的时候我们需要考虑哪些因素才能够让目标计划更合理，既能够有完成的可能又不至于太轻松的就通过呢？","Star":5,"Status":1},{"ID":6,"Name":"从学习开始的“蜕变之旅”","Lecturer":"韩冰莹 Icey Han","Cover":"/ogcs_file/Courses/Cover/6.png","Learners":101,"Description":"社会每时每刻都在前进，周围的环境在不断变化！你若不能虚心地向周围的同事、同行、客户等学习，不断的刷新自己的大脑，给大脑补给能量，那么你很快就会被企业淘汰。所以，无论新员工还是老员工，调整好积极学习的心态与思维惯性，全面接受新的知识，才会进步地更快，也只有这样，才能更好地适应当前的竞争社会要求了。","Star":5,"Status":1},{"ID":7,"Name":"情商修炼指南","Lecturer":"李仁根 Rengen Li","Cover":"/ogcs_file/Courses/Cover/7.png","Learners":24,"Description":"情商被定义为一种能理解、管理、有效地表达个人情感的能力。有数据表明，工作场合中，表现优异的人士中有90%具有高情商；相对的，表现不佳的人中有80%的情商都不高。情商对于亲密个人关系的形成、发展、维护和加强具有重要作用。不同于智商的稳定性，我们可以通过学习提高情商。","Star":5,"Status":1},{"ID":8,"Name":"创新这件大事儿","Lecturer":"高营营 Amy Gao","Cover":"/ogcs_file/Courses/Cover/8.png","Learners":69,"Description":"从钻木取火到蒸汽机的发明，从烽火台的狼烟到现代互联网技术，一部人类文明史，就是一部不断超越、不断创新的历史。创新是一个民族进步的灵魂，是一个国家兴旺发展的动力，也是一个人在工作乃至事业上永葆生机和活力的源泉。","Star":5,"Status":1},{"ID":9,"Name":"简历书写","Lecturer":" ","Cover":"/ogcs_file/Courses/Cover/9.png","Learners":6,"Description":"简历作为求职者的敲门砖日益发挥着极其重要的作用，伴随着网络的发达，网络招聘网站的日益成熟，简历的制作也益加精良。作为初入职场的应届生，毫无工作经验，简历应该怎么写才能脱颖而出呢？","Star":5,"Status":1},{"ID":10,"Name":"面试技巧","Lecturer":" ","Cover":"/ogcs_file/Courses/Cover/10.png","Learners":7,"Description":"许多求职者可能有这样的误区，认为面试就是要向考官证明自己是最好的，因此不惜违背自己的心意编造一个看似完美的故事，说很多违心的话。殊不知这样做只会适得其反，让考官看不到自己的本来面貌。在短暂的10—20分钟内，如何让考官发现你就是那个与岗位相匹配的人呢？","Star":5,"Status":1},{"ID":14,"Name":"1111","Lecturer":"121212","Cover":"2112","Learners":1215,"Description":"1212","Star":4,"Status":1},{"ID":16,"Name":"dwqdqw","Lecturer":"dwq","Cover":"321","Learners":38,"Description":"fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew\r\nfe\r\nwf\r\new\r\nfew","Star":2,"Status":1}];
+    
+
+    //ko绑定数据
+    var vm = {
+        Hots: ko.observableArray(recommentdList),
+        Necessarys: ko.observableArray(otherList),
+        
+        ShowList:ko.observable(0),
+        CurrentTutor:ko.observable(0),
+
+        OverHead:function(index){
+        	vm.CurrentTutor(index);
+        	vm.ShowList(0);
+        },
+        ClickCourseList:function(index){
+        	console.log(index);
+        	if(vm.ShowList()==0){
+        		vm.ShowList(1);
+        		if(index==0){
+	        		$(".tutor-item-title").eq(0).hide();
+	        	}
+        	}else{
+        		vm.ShowList(0);
+        		if(index==0){
+	        		$(".tutor-item-title").eq(0).show();
+	        	}
+        	}
+        }
+    }
+    ko.applyBindings(vm);
+
+    //图片没有成功加载出来时处理
+    function nofind(){
+        var oImg=event.srcElement;
+        oImg.src="../../Content/ogcs/Course/img/item.png";
+        oImg.onerror=null;
+    }
+
+    var oAnimateKey = true;     //增加更多开关项
+
+    $(document).ready(function () {
+
+        init();
+
+        function init() {
+            var oNum = $(".hot .item").length;
+            var oRow = Math.ceil(oNum / 2);
+            if (oRow <= 1) {
+                $(".add-btn").hide();
+            } else {
+                $(".add-btn").show();
+            }
+        }
+
+        $("body").on("click", ".add-btn", function () {
+            var oNum = $(".hot .item").length;
+            var oRow = Math.ceil(oNum / 2);
+            var oTime = 200 * (oRow - 1);
+            if (oAnimateKey) {
+                oAnimateKey = false;
+
+                $(".hot .content-list").animate({
+                    "height": oRow * 194 + "px"
+                }, oTime)
+                $(this).find("span").text("收起更多");
+                $(this).find(".down").hide();
+                $(this).find(".up").show();
+            } else {
+                oAnimateKey = true;
+                $(".hot .content-list").animate({
+                    "height": "194px"
+                }, oTime)
+                $(this).find("span").text("展开更多");
+                $(this).find(".up").hide();
+                $(this).find(".down").show();
+            }
+        })
+
+    })
+            
+</script>
+	
+</body>
+</html>
+

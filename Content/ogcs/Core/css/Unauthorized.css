@@ -1,0 +1,143 @@
+@charset "utf-8";
+html,body{
+	min-width:1000px;
+	height:100%;
+	margin:0;
+	padding:0;
+	border: 0;
+	font-family:"Microsoft YaHei","微软雅黑","PingFang SC","Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+	display:block;
+	position:relative;
+}
+header{
+	width:100%;
+	height:279px;
+	background:url(../img/visit.png)no-repeat center center;
+	background-size:cover;
+	position:relative;
+}
+section{
+	width:100%;
+	height:417px;
+	background:#f7f7f7;
+	position:relative;
+}
+section .error-box{
+	width:740px;
+	height:401px;
+	background:#fff;
+	border-radius:4px;
+	position:absolute;
+	top:-95px;
+	left:50%;
+	margin-left:-370px;
+}
+section .error-box .error-img{
+	width:149px;
+	height:149px;
+	margin:0 auto;
+	margin-top:60px;
+	margin-bottom:30px;
+	background:url(../img/visit_error.png)no-repeat center center;
+	background-size:100% 100%;
+}
+section .error-box .dec{
+	font-size: 26px;
+  	text-align: center;
+  	color: #6d6d6d;
+	margin-bottom:30px;
+}
+section .error-box a{
+	display:block;
+	text-decoration:none;
+	color:#0099e5;
+}
+section .error-box .login-btn{
+	width:150px;
+	margin:0 auto;
+	font-size:16px;
+	text-align:center;
+	cursor:pointer;
+}
+section .error-box .login-btn .arrow{
+	display:inline-block;
+	width:10px;
+	height:0px;
+	margin-left:3px;
+	padding-bottom:5px;
+	border-top:2px solid #0099e5;
+	position:relative;
+	
+	transition:all 0.3s;
+	-ms-transition:all 0.3s; 	/* IE 9 */
+	-moz-transition:all 0.3s; 	/* Firefox */
+	-webkit-transition:all 0.3s; /* Safari 和 Chrome */
+	-o-transition:all 0.3s;
+}
+section .error-box .login-btn .arrow i{
+	display:inline-block;
+	width:8px;
+	height:8px;
+	border-top:2px solid #0099e5;
+	border-right:2px solid #0099e5;
+	
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 
+	
+	position:absolute;
+	top:-6px;
+	right:-1px;
+	
+	transition:all 0.3s;
+	-ms-transition:all 0.3s; 	/* IE 9 */
+	-moz-transition:all 0.3s; 	/* Firefox */
+	-webkit-transition:all 0.3s; /* Safari 和 Chrome */
+	-o-transition:all 0.3s;
+}
+
+
+footer{
+	width:100%;
+	height:72px;
+	background-color: #454545;
+  	font-size: 14px;
+  	text-align: left;
+  	color: rgba(208, 208, 208, 0.9);
+}
+footer span{
+	display:inline-block;
+	float:right;
+	line-height:72px;
+	padding-right:30px;
+}
+footer span a{
+	font-size:14px;
+	color: rgba(208, 208, 208, 0.9);
+	text-decoration:none;
+}
+footer .in{
+	padding-right:103px;
+}
+footer .in i{
+	font-size:17px;
+}
+footer .weibo{
+	padding-right:20px;
+}
+footer .weibo i{
+	font-size:17px;
+}
+footer .reg{
+	float:left;
+	padding-left:103px;
+	padding-right:10px;
+}
+
+
+
+
+
+

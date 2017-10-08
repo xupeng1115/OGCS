@@ -1,0 +1,630 @@
+@charset "utf-8";
+html { font-family:"Microsoft YaHei","微软雅黑","PingFang SC","Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;}
+body { margin: 0;color: #333; background-color: #f2f2f2;  overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+audio, canvas, progress, video { display: inline-block; vertical-align: baseline; }
+audio:not([controls]) { display: none; height: 0; }
+[hidden], template { display: none; }
+svg:not(:root) { overflow: hidden; }
+a { background: transparent; text-decoration: none; -webkit-tap-highlight-color: transparent; color: #0088cc; }
+a:active { outline: 0; }
+a:active { color: #006699; }
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+dfn { font-style: italic; }
+mark { background: #ff0; color: #000; }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+img { border: 0; vertical-align: middle;}
+hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+pre { overflow: auto; white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+code, kbd, pre, samp { font-family: monospace, monospace; font-size: 1em; }
+button, input, optgroup, select, textarea { color: inherit; font: inherit; margin: 0; }
+button { overflow: visible; }
+button, select { text-transform: none; }
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
+button[disabled], html input[disabled] { cursor: default; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+input { line-height: normal; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { height: auto; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+legend { border: 0; padding: 0; }
+textarea { overflow: auto; resize: vertical;}
+optgroup { font-weight: bold; }
+table { border-collapse: collapse; border-spacing: 0; }
+td, th { padding: 0; }
+h1, h2, h3, h4, h5, h6, p, figure, form, blockquote { margin: 0; padding:0;}
+ul, ol, li, dl, dd { margin: 0; padding: 0; }
+ul, ol { list-style: none outside none; }
+h1, h2, h3 { line-height: 2; font-weight: normal; }
+input::-moz-placeholder, textarea::-moz-placeholder { color: #cccccc; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #cccccc; }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #cccccc; }
+
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:after{visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
+.clearfix{*zoom:1;}
+.flex{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;-webkit-box-pack: center;}
+
+html,body{background:#f7f7f7;text-align: center;width:100%;max-width:800px;margin:0 auto;}
+
+img{max-width: 100%;}
+.red{color:#ff6060;}
+
+.g_alert{max-width:160px;text-align:center;padding:10px;color:#fff;border-radius:5px;background: rgba(0,0,0,0.8);display:block;position: fixed;z-index: 200;bottom:40px;left:50%;font-size:12px;}
+.g_alert_video{max-width:160px;text-align:center;padding:12px 30px;color:#fff;border-radius:7px;background: rgba(0,0,0,0.8);display:block;position: fixed;z-index: 2000;top:45%;left:50%;font-size:16px;}
+
+/****************************************************Common Style End******************************************************/
+.back-btn{
+    width:45px;
+    height:45px;
+    text-align:center;
+    border-radius:100px;
+    font-size:12px;
+    opacity: 0.81;
+    background-color: #000000;
+    box-shadow: 0 2px 4px 0 rgba(106, 106, 106, 0.5);
+    color:#ffbf00;
+    line-height:45px;
+    text-align:center;
+	position:fixed;
+    bottom:25px;
+	left:30px;
+	z-index:2000;
+  	cursor:pointer;
+}
+.back-btn a{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius:100px;
+    text-decoration:none;
+    color:#ffbf00;
+}
+header{
+	width:100%;
+}
+header .top{
+	width:100%;
+	height:50px;
+	position:relative;
+}
+header .top .logo{
+	width:90px;
+	height:16px;
+	margin:16px 15px 0 10px; 
+	background:url(../img/m_knx_logo.png)no-repeat center center;
+	background-size:100% 100%;
+	float:left;
+}
+header .top .ht-logo{
+	width:45px;
+	height:16px;
+	margin-top:17px;
+	background:url(../../lib/img/m_ht_logo.png)no-repeat center center;
+	background-size:100% 100%;
+	float:left;
+}
+header .top .ht-btn{
+    width:80px;
+    height:30px;
+    float:right;
+    border-radius:4px;
+    margin-right:20px;
+    margin-top:10px;
+    font-size:10px;
+    border-radius: 2px;
+    background-color: #efa03c;
+    line-height:30px;
+    text-align:center;
+    color:#fff;
+}
+header .top .ht-btn a{
+    width:100%;
+    height:100%;
+    display:block;
+    text-decoration:none;
+    color:#fff;
+}
+header .banner{
+	width:100%;
+	height:130px;
+	background:url(../img/m_List_banner.png)no-repeat center center;
+	background-size:cover;
+}
+header .banner .title{
+	width:160px;
+	line-height:20px;
+	margin:0 auto;
+	padding-top:39px;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 1.7px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.9);
+	position:relative;
+}
+header .banner .title span{
+	display:inline-block;
+}
+header .banner .title span:nth-of-type(1){
+	width:71px;
+	height:20px;
+}
+header .banner .title span:nth-of-type(3){
+	width:71px;
+	height:20px;
+}
+header .banner .title span:nth-of-type(2){
+	width: 1px;
+  	height: 12px;
+  	background:#ffffff;
+}
+header .banner .dec{
+	padding-top:13px;
+	font-size: 12px;
+  	letter-spacing: 0.8px;
+  	color: #f3f3f3;
+}
+section{
+	width:355px;
+	margin:0 auto;
+	padding-top:40px;
+	padding-bottom:20px;
+	position:relative;
+}
+/*************************导师信息*****************************/
+section .tutor{
+	width:100%;
+	position:relative;
+}
+section .tutor .tutor-title{
+	width:123px;
+	height:13px;
+	background:url(../img/tutor_icon.png)no-repeat center center;
+	background-size:100% 100%;
+	margin:0 auto;
+	margin-bottom:15px;
+	font-size: 16px;
+  	text-align: center;
+  	color: #333333;
+  	line-height:13px;
+  	letter-spacing: 1.7px;
+}
+section .tutor .tutor-head{
+	width:262px;
+	height:52px;
+	margin:0 auto;
+	margin-bottom:20px;
+}
+section .tutor .tutor-head .tutor-head-item{
+	width:52px;
+	height:52px;
+	float:left;
+	padding:5px;
+	border:1px dashed transparent;
+	border-radius:100px;
+	margin-right:17px;
+	position:relative;
+	cursor:pointer;
+}
+section .tutor .tutor-head .tutor-head-item:nth-of-type(1){
+    border:1px dashed #efa03c;
+}
+section .tutor .tutor-head .tutor-head-item .tutor-head-flo{
+	width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 100;
+}
+section .tutor .tutor-head .tutor-head-item:nth-of-type(1) .tutor-head-flo{
+    background:rgba(0,0,0,0);
+}
+section .tutor .tutor-head .tutor-head-item:hover{
+	border:1px dashed #ff9713;
+}
+section .tutor .tutor-head .tutor-head-item:hover .tutor-head-flo{
+	background:rgba(0,0,0,0);
+}
+section .tutor .tutor-head .tutor-head-item:last-child{
+	margin-right:0;
+}
+section .tutor .tutor-head .tutor-head-item img{
+	display:block;
+	width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+section .tutor .tutor-item{
+	width:355px;
+	margin:0 auto;
+	margin-top:55px;
+	margin-bottom:40px;
+	background:#fff;
+	position:relative;
+}
+section .tutor .tutor-item .tutor-item-head{
+	width:80px;
+	height:80px;
+	border-radius:100px;
+	margin:0 auto;
+	margin-bottom:10px;
+	position:absolute;
+	top:-40px;
+	left:50%;
+	margin-left:-40px;
+}
+section .tutor .tutor-item .tutor-item-head img{
+	width:80px;
+	height:80px;
+}
+section .tutor .tutor-item .tutor-item-name{
+	padding:50px 0 5px 0;
+	font-size: 14px;
+  	font-weight: 500;
+  	letter-spacing: 1.5px;
+  	text-align: center;
+  	color: #0099e5;
+}
+section .tutor .tutor-item .tutor-item-dec{
+	padding-bottom:10px;
+	font-size: 10px;
+  	text-align: center;
+  	color: #333;
+}
+section .tutor .tutor-item .tutor-item-border{
+	height:1px;
+	width:340px;
+	background:#ebebeb;
+	position:relative;
+	margin:0 auto;
+	margin-top:20px;
+	margin-bottom:30px;
+}
+section .tutor .tutor-item .tutor-item-border .tutor-item-course-btn{
+	width: 91px;
+  	height: 25px;
+  	border-radius: 36px;
+  	background-color: #efa03c;
+  	font-size: 12px;
+  	font-weight: 500;
+  	letter-spacing: 1.3px;
+  	text-align: center;
+  	line-height:25px;
+  	color: #ffffff;
+  	position:absolute;
+  	top:-12px;
+  	left:50%;
+  	margin-left:-45px;
+}
+section .tutor .tutor-item .tutor-item-title{
+	font-size: 16px;
+  	font-weight: 500;
+  	letter-spacing: 1.3px;
+  	text-align: center;
+  	color: #efa03c;
+  	padding-bottom:10px;
+}
+section .tutor .tutor-item .tutor-item-message{
+	padding:0 10px;
+	padding-bottom:20px;
+}
+section .tutor .tutor-item .tutor-item-message .tutor-message-box{
+	width:100%;
+	padding-bottom:15px;
+}
+section .tutor .tutor-item .tutor-item-message .tutor-message-box .tutor-left{
+	float:left;
+	width:65px;
+	font-size: 12px;
+  	text-align: center;
+ 	color: #333333;
+ 	line-height:20px;
+}
+section .tutor .tutor-item .tutor-item-message .tutor-message-box .tutor-right{
+	margin-left:65px;
+	font-size: 12px;
+  	text-align: left;
+  	color: #6d6d6d;
+  	line-height:20px;
+}
+section .tutor .tutor-item .tutor-course-list{
+	width:100%;
+	padding:0 10px;
+	position:relative;
+}
+section .tutor .tutor-item .tutor-course-list img{
+	width:120px;
+	height:88px;
+	margin:0 auto;
+	margin-top:20px;
+	margin-bottom:10px;
+}
+section .tutor .tutor-item .tutor-course-list .no-text{
+	font-size: 12px;
+  	text-align: center;
+  	color: #6d6d6d;
+  	padding-bottom:50px;
+}
+section .tutor .tutor-item .tutor-course-list .tutor-course-item{
+	display: block;
+	text-decoration: none;
+    width: 100%;
+    height: 32px;
+    padding: 6px;
+    margin-bottom: 10px;
+    font-size:12px;
+    text-align: left;
+    border-radius: 2px;
+    border: solid 1px #e2e2e2;
+    color: #6d6d6d;
+}
+section .tutor .tutor-item .tutor-course-list .tutor-course-item .course-name{
+    display:inline-block;
+    max-width: 250px;
+    height: 20px;
+    float:left;
+    text-align: left;
+    line-height: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+section .tutor .tutor-item .tutor-course-list .tutor-course-item .course-time{
+    display:inline-block;
+    max-width: 50px;
+    height: 20px;
+    float: right;
+    line-height: 19px;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+section .list{
+	width:100%;
+	padding-bottom:60px;
+	position:relative;
+}
+section .list a{
+    text-decoration:none;
+}
+section .list .top{
+	height:0px;
+	width:100%;
+	padding-bottom:10px;
+	border-top:1px dashed #c3c3c3;
+	position:relative;
+}
+section .hot .content-list{
+	height:194px;
+	overflow:hidden;
+}
+section .list .top .top-title-box{
+	width:118px;
+	height:25px;
+	background:#f7f7f7;
+	position:absolute;
+	top:-12px;
+	left:50%;
+	margin-left:-56px;
+}
+section .list .top .top-title-box span{
+	display:block;
+	float:left;
+}
+section .list .top .top-title-box .hot-top-img{
+	width:13px;
+	height:19px;
+	background:url(../img/m_recommend.png)no-repeat center center;
+	background-size:100% 100%;
+	margin-left:12px;
+	margin-top:1px;
+}
+section .list .top .top-title-box .necessary-top-img{
+	width:18px;
+	height:18px;
+	background:url(../img/m_necessary.png)no-repeat center center;
+	background-size:100% 100%;
+	margin-left:9px;
+	margin-top:2px;
+}
+section .list .top .top-title-box .top-title{
+	width:80px;
+	height:19px;
+	font-size: 16px;
+  	letter-spacing: 2px;
+  	text-align: center;
+  	color: #6d6d6d;
+  	margin-left:9px;
+}
+section .necessary .top .top-title-box .top-title{
+	margin-left:6px;
+}
+section .list .nav-tip{
+    font-size: 10px;
+    text-align: center;
+    color: #939393;
+    line-height:1.4;
+    padding:10px 40px 25px 40px;
+}
+section .necessary .nav-tip{
+    padding:10px 50px 25px 50px;
+}
+section .list .content-list{
+	width:100%;
+
+	display: -webkit-flex;		/****设定容器为弹性盒模型***/
+    display: flex;
+    -webkit-flex-wrap: wrap;	/******设定弹性容器为多行，超出换新行*******/
+    flex-wrap: wrap;
+    position:relative;
+}
+section .list .content-list .item{
+	float:left;
+	width:170px;
+	height:178px;
+	margin-right:15px;
+	margin-bottom:16px;
+	background:#fff;
+	border-radius: 4px;
+	position:relative;
+	overflow:hidden;
+}
+section .list .content-list .item:nth-of-type(2n+0){
+	margin-right:0;
+}
+section .list .content-list .item .hot-box{
+	width: 50px;
+    height: 16px;
+    color: #fff;
+    text-align: center;
+    line-height: 16px;
+    font-size: 12px;
+
+    background-image: -webkit-linear-gradient(180deg, #df9c3a -26%, #ef2418 182%);
+    background-image: -moz-linear-gradient(180deg, #df9c3a -26%, #ef2418 182%);
+    background-image: -o-linear-gradient(180deg, #df9c3a -26%, #ef2418 182%);
+    background-image: -ms-linear-gradient(180deg, #df9c3a -26%, #ef2418 182%);
+    background-image: linear-gradient(180deg, #df9c3a -26%, #ef2418 182%);
+    
+    -ms-transform:rotate(45deg); 	/* IE 9 */
+    -moz-transform:rotate(45deg); 	/* Firefox */
+    -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+    -o-transform:rotate(45deg); 	/* Opera    */
+    position:absolute;
+	top:4px;
+	right:-13px;
+	z-index:20;
+}
+section .list .content-list .item img{
+	display:block;
+	width:100%;
+}
+section .list .content-list .item .item-title{
+	width:100%;
+	padding:10px;
+	padding-bottom:6px;
+	font-size: 14px;
+  	text-align: left;
+  	color: #333333;
+  	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+section .list .content-list .item .item-dec{
+	width:100%;
+	height:30px;
+	padding:0 10px;
+	padding-top:0;
+	font-size: 10px;
+  	text-align:left;
+  	color: #6d6d6d;
+  	line-height:15px;
+  	word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
+    overflow: hidden;  /** 隐藏超出的内容 **/
+}
+section .list .add-btn{
+	width:60px;
+	height:18px;
+	line-height:18px;
+	font-size: 12px;
+  	text-align: left;
+  	color: #69a2cd;
+  	position:absolute;
+  	bottom: 40px;
+    right: 5px;
+  	cursor:pointer;
+}
+section .list .add-btn i.down{
+	display:block;
+	width:7px;
+	height:7px;
+	position:absolute;
+	bottom: 8px;
+    right: 1px;
+	line-height:18px;
+	border-bottom:1px solid #69a2cd;
+	border-right:1px solid #69a2cd;
+	
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 
+}
+section .list .add-btn i.up{
+	display:none;
+	width:7px;
+	height:7px;
+	position:absolute;
+	bottom:4px;
+	right:1px;
+	line-height:18px;
+	border-top:1px solid #69a2cd;
+	border-left:1px solid #69a2cd;
+	
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 
+}
+
+/*******************Media Query  Begin****************************/
+@media screen and (max-width:360px){
+	section {
+    	width: 300px;
+    }
+    section .list .content-list .item {
+	    width: 145px;
+	    height: 178px;
+	    margin-right: 10px;
+	}
+	section .list .nav-tip{
+        padding:10px 10px 25px 10px;
+    }
+    section .necessary .nav-tip{
+        padding:10px 20px 25px 20px;
+    }
+    section .tutor .tutor-item {
+    	width: 300px;
+    }
+    section .tutor .tutor-item .tutor-item-border {
+    	width: 280px;
+    }
+}
+@media screen and (max-width:320px){
+    section .list .content-list .item .item-dec{
+        height:45px;
+	    -webkit-line-clamp: 3;
+    }
+}
+
+/*******************Media Query  End****************************/
+
+
+
+
+
+
