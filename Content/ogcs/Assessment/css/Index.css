@@ -260,81 +260,84 @@ section .evaluation .list{
     -webkit-flex-wrap: wrap;	/******设定弹性容器为多行，超出换新行*******/
     flex-wrap: wrap;
 }
-section .evaluation .list a{
+section .evaluation .list .list-box{
+	width:495px;
+	height:200px;
+	margin-right:30px;
+	margin-bottom:60px;
+	position:relative;
+}
+section .evaluation .list .list-box:nth-of-type(2n+0){
+	margin-right:0;
+}
+section .evaluation .list .list-box a{
     display:block;
     text-decoration:none;
+    position:absolute;
+	top:0px;
+	left:0px;
+	z-index:10;
 }
-section .evaluation .list .item{
+section .evaluation .list .list-box .item{
     display:block;
 	width:495px;
 	height:200px;
 	position:relative;
-	margin-right:30px;
-	float:left;
-	margin-bottom:60px;
 	border-radius:4px;
-	
-	transition:all 0.3s;
-	-ms-transition:all 0.3s; 	/* IE 9 */
-	-moz-transition:all 0.3s; 	/* Firefox */
-	-webkit-transition:all 0.3s; /* Safari 和 Chrome */
-	-o-transition:all 0.3s;
 }
-section .evaluation .list .item[key="1"]{
+section .evaluation .list .list-box .item[key="1"]{
 	cursor:pointer;
 }
-section .evaluation .list .item:nth-of-type(1)[key="0"]{
+section .evaluation .list .list-box .item:nth-of-type(1)[key="0"]{
 	background:url(../img/es02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(1)[enlignt="1"]{
+section .evaluation .list .list-box .item:nth-of-type(1)[enlignt="1"]{
 	background:url(../img/es01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(2)[key="0"]{
+section .evaluation .list .list-box .item:nth-of-type(2)[key="0"]{
 	background:url(../img/at02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(2)[enlignt="1"]{
+section .evaluation .list .list-box .item:nth-of-type(2)[enlignt="1"]{
 	background:url(../img/at01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(3)[key="0"]{
+section .evaluation .list .list-box .item:nth-of-type(3)[key="0"]{
 	background:url(../img/start02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(3)[enlignt="1"]{
+section .evaluation .list .list-box .item:nth-of-type(3)[enlignt="1"]{
 	background:url(../img/start01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(4)[key="0"]{
+section .evaluation .list .list-box .item:nth-of-type(4)[key="0"]{
 	background:url(../img/eq02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(4)[enlignt="1"]{
+section .evaluation .list .list-box .item:nth-of-type(4)[enlignt="1"]{
 	background:url(../img/eq01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(5)[key="0"]{
+section .evaluation .list .list-box .item:nth-of-type(5)[key="0"]{
 	background:url(../img/epa02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(5)[enlignt="1"]{
+section .evaluation .list .list-box .item:nth-of-type(5)[enlignt="1"]{
 	background:url(../img/epa01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(6)[key="0"]{
+section .evaluation .list .list-box .item:nth-of-type(6)[key="0"]{
 	background:url(../img/ha02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(6)[enlignt="1"]{
+section .evaluation .list .list-box .item:nth-of-type(6)[enlignt="1"]{
 	background:url(../img/ha01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .item:nth-of-type(2n+0){
-	margin-right:0;
-}
-section .evaluation .list .item .title{
+
+section .evaluation .list .list-box .item .title{
 	width:340px;
 	padding-left:30px;
 	padding-bottom:20px;
@@ -346,7 +349,7 @@ section .evaluation .list .item .title{
   	text-align: left;
   	color: #333333;
 }
-section .evaluation .list .item .dec{
+section .evaluation .list .list-box .item .dec{
 	width:280px;
 	line-height:20px;
 	padding-left:30px;
@@ -354,7 +357,7 @@ section .evaluation .list .item .dec{
   	text-align: left;
   	color: #6d6d6d;
 }
-section .evaluation .list .item .begin-btn{
+section .evaluation .list .list-box .item .begin-btn{
 	width: 100px;
   	height: 30px;
   	line-height:30px;
@@ -365,7 +368,7 @@ section .evaluation .list .item .begin-btn{
   	font-size: 12px;
   	color: #c3c3c3;
   	position:absolute;
-  	bottom:20px;
+  	top:155px;
   	left:30px;
   	
   	transition:all 0.3s;
@@ -374,23 +377,23 @@ section .evaluation .list .item .begin-btn{
 	-webkit-transition:all 0.3s; /* Safari 和 Chrome */
 	-o-transition:all 0.3s;
 }
-section .evaluation .list .item[enlignt="0"] .begin-btn{
+section .evaluation .list .list-box .item[enlignt="0"] .begin-btn{
 	border-color:#c3c3c3;
 	color: #c3c3c3;
 }
-section .evaluation .list .item[row="1"][enlignt="1"] .begin-btn{
+section .evaluation .list .list-box .item[row="1"][enlignt="1"] .begin-btn{
 	border-color:#0099e5;
 	color:#0099e5;
 }
-section .evaluation .list .item[row="2"][enlignt="1"] .begin-btn{
+section .evaluation .list .list-box .item[row="2"][enlignt="1"] .begin-btn{
 	border-color:#f7a27b;
 	color:#f7a27b;
 }
-section .evaluation .list .item[row="3"][enlignt="1"] .begin-btn{
+section .evaluation .list .list-box .item[row="3"][enlignt="1"] .begin-btn{
 	border-color:#baa0cb;
 	color:#baa0cb;
 }
-section .evaluation .list .item .begin-btn .arrow{
+section .evaluation .list .list-box .item .begin-btn .arrow{
 	display:inline-block;
 	width:8px;
 	height:0px;
@@ -405,19 +408,19 @@ section .evaluation .list .item .begin-btn .arrow{
 	-webkit-transition:all 0.3s; /* Safari 和 Chrome */
 	-o-transition:all 0.3s;
 }
-section .evaluation .list .item[enlignt="0"] .begin-btn .arrow{
+section .evaluation .list .list-box .item[enlignt="0"] .begin-btn .arrow{
 	border-color:#c3c3c3;
 }
-section .evaluation .list .item[row="1"][enlignt="1"] .begin-btn .arrow{
+section .evaluation .list .list-box .item[row="1"][enlignt="1"] .begin-btn .arrow{
 	border-color:#0099e5;
 }
-section .evaluation .list .item[row="2"][enlignt="1"] .begin-btn .arrow{
+section .evaluation .list .list-box .item[row="2"][enlignt="1"] .begin-btn .arrow{
 	border-color:#f7a27b;
 }
-section .evaluation .list .item[row="3"][enlignt="1"] .begin-btn .arrow{
+section .evaluation .list .list-box .item[row="3"][enlignt="1"] .begin-btn .arrow{
 	border-color:#baa0cb;
 }
-section .evaluation .list .item .begin-btn .arrow i{
+section .evaluation .list .list-box .item .begin-btn .arrow i{
 	display:inline-block;
 	width:4px;
 	height:4px;
@@ -440,19 +443,19 @@ section .evaluation .list .item .begin-btn .arrow i{
 	-webkit-transition:all 0.3s; /* Safari 和 Chrome */
 	-o-transition:all 0.3s;
 }
-section .evaluation .list .item[enlignt="0"] .begin-btn .arrow i{
+section .evaluation .list .list-box .item[enlignt="0"] .begin-btn .arrow i{
 	border-color:#c3c3c3;
 }
-section .evaluation .list .item[row="1"][enlignt="1"] .begin-btn .arrow i{
+section .evaluation .list .list-box .item[row="1"][enlignt="1"] .begin-btn .arrow i{
 	border-color:#0099e5;
 }
-section .evaluation .list .item[row="2"][enlignt="1"] .begin-btn .arrow i{
+section .evaluation .list .list-box .item[row="2"][enlignt="1"] .begin-btn .arrow i{
 	border-color:#f7a27b;
 }
-section .evaluation .list .item[row="3"][enlignt="1"] .begin-btn .arrow i{
+section .evaluation .list .list-box .item[row="3"][enlignt="1"] .begin-btn .arrow i{
 	border-color:#baa0cb;
 }
-section .evaluation .list .item .state{
+section .evaluation .list .list-box .item .state{
 	width:50px;
 	height:20px;
 	line-height:20px;
@@ -465,40 +468,40 @@ section .evaluation .list .item .state{
   	right:30px;
   	display:none;
 }
-section .evaluation .list .item[key="0"] .state{
+section .evaluation .list .list-box .item[key="0"] .state{
 	color: #c3c3c3;
 	display:none;
 }
-section .evaluation .list .item[key="1"] .state{
+section .evaluation .list .list-box .item[key="1"] .state{
 	color: #ee5c54;
 	display:block;
 }
-section .evaluation .list .item[key="2"] .state{
+section .evaluation .list .list-box .item[key="2"] .state{
 	color: #34bf49;
 	display:block;
 }
 /***********************************hover时的样式**********************************/
-section .evaluation .list .item[key="1"]:hover{
+section .evaluation .list .list-box .item[key="1"]:hover{
 	box-shadow: 0 2px 4px 0 rgba(214, 214, 214, 0.5);
 }
-section .evaluation .list .item[key="1"]:hover .begin-btn .arrow{
+section .evaluation .list .list-box .item[key="1"]:hover .begin-btn .arrow{
 	border-color:#fff;
 }
-section .evaluation .list .item[key="1"]:hover .begin-btn .arrow i{
+section .evaluation .list .list-box .item[key="1"]:hover .begin-btn .arrow i{
 	border-color:#fff;
 }
-section .evaluation .list .item[key="1"]:hover .begin-btn{
+section .evaluation .list .list-box .item[key="1"]:hover .begin-btn{
 	color:#fff;
 }
-section .evaluation .list .item[row="1"][key="1"]:hover .begin-btn{
+section .evaluation .list .list-box .item[row="1"][key="1"]:hover .begin-btn{
 	background:#0099e5;
 	color:#fff;
 }
-section .evaluation .list .item[row="2"][key="1"]:hover .begin-btn{
+section .evaluation .list .list-box .item[row="2"][key="1"]:hover .begin-btn{
 	background:#f7a27b;
 	color:#fff;
 }
-section .evaluation .list .item[row="3"][key="1"]:hover .begin-btn{
+section .evaluation .list .list-box .item[row="3"][key="1"]:hover .begin-btn{
 	background:#baa0cb;
 	color:#fff;
 }
@@ -610,6 +613,10 @@ footer span{
 }
 footer span a{
 	font-size:14px;
+	color: rgba(208, 208, 208, 0.9);
+	text-decoration:none;
+}
+footer span a:hover{
 	color: rgba(208, 208, 208, 0.9);
 	text-decoration:none;
 }
