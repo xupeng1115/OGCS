@@ -1,19 +1,51 @@
 @charset "utf-8";
 html,body{
-	min-width:1150px;
+	min-width:1160px;
 	margin:0;
 	padding:0;
 	border: 0;
-	font-family:"Microsoft YaHei","Î¢ÈíÑÅºÚ","PingFang SC","Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+	font-family:"Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","PingFang SC","Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
 	display:block;
 	position:relative;
+}
+.clearfix{
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+	*zoom:1;
+}
+a{
+    text-decoration: none; 
+}
+
+
+.container-fluid {
+  	padding:0;
+}
+.row{
+	margin:0;
+}
+.col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12{
+	padding:0;
+}
+.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{
+	padding:0;
+}
+.overflow-text{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 .logo-box{
     width:100%;
     height:60px;
     background:#fff;
     position:relative;
- }
+}
+
 .logo-box .logo{
 	width:140px;
 	height:22px;
@@ -74,11 +106,12 @@ header .line{
   	width: 180px;
   	height: 1px;
   	margin:0 auto;
+  	margin-top:35px;
   	background: rgba(256,256,256,.5);
 }
 header ul{
-	width:290px;
-	height:22px;
+	width:335px;
+	height:50px;
 	margin:0 auto;
 	padding-top:28px;
 	padding-left: 45px;
@@ -86,7 +119,7 @@ header ul{
 }
 header ul li{
 	display:inline-block;
-	width: 64px;
+	width: 95px;
 	height: 22px;
 	float:left;
 	font-size: 16px;
@@ -131,10 +164,11 @@ section .flow .flow-line {
   	width: 40px;
   	height: 2px;
   	margin:0 auto;
+  	margin-top:45px;
   	background:#efa03c;
 }
 section .flow .flow-step{
-	width:1100px;
+	width:1110px;
 	margin:0 auto;
 	height:211px;
 	padding:50px 0;
@@ -154,22 +188,22 @@ section .flow .flow-step .step .step-icon{
 section .flow .flow-step .step:nth-of-type(4) .step-icon{
 	width:200px;
 }
-section .flow .flow-step .step .step-icon .badge{
-	width: 6px;
-  	height: 6px;
+section .flow .flow-step .step .step-icon .step-badge{
+	width: 22px;
+  	height: 22px;
   	background:#dddddd;
-  	border:9px solid #dddddd;
+  	border:8px solid #dddddd;
   	border-radius:100px;
   	position:absolute;
-  	top:-12px;
+  	top:-11px;
   	left:-12px;
 }
 section .flow .flow-step .step .step-icon .badgecolor{
-	border:9px solid #ffaa00;
+	border:8px solid #ffaa00;
 	background:#fff;
 }
 section .flow .flow-step .step .step-box{
-	width:260px;
+	width:284px;
   	height: 143px;
   	margin-left:16px;
   	padding-left:14px;
@@ -277,7 +311,7 @@ section .personal .personal-name-bottom{
 	z-index:10;
 }
 section .personal .personal-message{
-	width:900px;
+	width:1000px;
 	height:240px;
 	margin:0 auto;
 	padding-left:100px;
@@ -375,7 +409,7 @@ section .personal .personal-message .item .item-message .item-content{
 	word-break:break-all;
 }
 
-/************************************ºÏ×÷»ï°é***************************/
+/************************************ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½***************************/
 section .friend{
 	width:100%;
 	background:#fff;
@@ -452,7 +486,7 @@ table,table tr td {
 	transition:all 0.2s;
 	-ms-transition:all 0.2s; 	/* IE 9 */
 	-moz-transition:all 0.2s; 	/* Firefox */
-	-webkit-transition:all 0.2s; /* Safari ºÍ Chrome */
+	-webkit-transition:all 0.2s; /* Safari ï¿½ï¿½ Chrome */
 	-o-transition:all 0.2s;
 }
 table { 
@@ -534,6 +568,10 @@ footer span a{
 	color: rgba(208, 208, 208, 0.9);
 	text-decoration:none;
 }
+footer span a:hover{
+	color: rgba(208, 208, 208, 0.9);
+	text-decoration:none;
+}
 footer .in{
 	padding-right:103px;
 }
@@ -554,7 +592,7 @@ footer .reg{
 
 @media screen and (max-width:1248px) {
 	section .flow .flow-step {
-    	width: 1000px;
+    	width: 1010px;
 	}
 	section .flow .flow-step .step .step-box {
     	width: 240px;

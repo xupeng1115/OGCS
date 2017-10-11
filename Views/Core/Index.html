@@ -7,9 +7,15 @@
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title>Index</title>
     
+    <link href="../../Content/ogcs/lib/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Core/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../Content/ogcs/Core/css/base.css" />
     <link rel="stylesheet" href="../../Content/ogcs/Core/css/Index.css?v=20170930" />
+
+	<!--[if lt IE 9]>
+      <script src="../../Scripts/ogcs/ContactUser/html5shiv.min.js"></script>
+      <script src="../../Scripts/ogcs/ContactUser/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 <body>
@@ -20,7 +26,7 @@
             <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
         </div>
     </div>
-    
+<div class="container-fluid">
 <header>
 	<div class="title">海途学子-智慧生涯服务平台</div>
 	<div class="line"></div>
@@ -37,12 +43,12 @@
 		<div class="flow-step" data-bind="foreach:Steps">
 			<div class="step">
 				<div class="step-icon">
-					<div class="badge" data-bind="css:{badgecolor:jump==1}"></div>
+					<div class="step-badge" data-bind="css:{badgecolor:$parent.Status>=$index()}"></div>
 				</div>
-				<div class="step-box" data-bind="attr:{jump:jump,index:$index}">
+				<div class="step-box" data-bind="attr:{index:$index()},click:function(){vm.ClickItem($index())}">
 					<div class="step-title" data-bind="text:title"><!--探索自我--></div>
 					<div class="step-dec" data-bind="text:dec"><!--通过完整系统的测评工具建立对自己客观公正的认知--></div>
-					<div class="step-btn" data-bind="{text:btn,css:{btnjump:jump==1}}"><!--点击查看--></div>
+					<div class="step-btn" data-bind="{text:$parent.BtnText,css:{btnjump:($parent.Status>=$index())}}"><!--点击查看--></div>
 				</div>
 			</div>
 		</div>
@@ -167,7 +173,7 @@
 		</div>
 	</div>
 </section>
-
+</div>
     <footer>
 	<span class="reg">©肯耐珂萨 2017 | 沪ICP备09051952号-2</span>
 	<span class="in"><a href="http://www.linkedin.com/company/knx?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1825638231400554720831%2CVSRPtargetId%3A3707210%2CVSRPcmpt%3Aprimary" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></span>
@@ -178,9 +184,10 @@
     
     <script type="text/javascript" src="../../Scripts/ogcs/Core/knockout.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/Core/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-
-        //判断浏览器版本是否低于IE9
+    <script type="text/javascript" src="../../Scripts/ogcs/Course/knockout.min.js"></script>
+    
+    <script>
+    	//判断浏览器版本是否低于IE9
         (function(){
             var DEFAULT_VERSION = 8;
             var ua = navigator.userAgent.toLowerCase();
@@ -200,59 +207,75 @@
 
             }
         }());
+    </script>
+    <script type="text/javascript">
 
-        $(document).ready(function () {
-            
-            var userModel =  {"ContactUserID":31,"IsGraduation":1,"Status":4,"ID":119,"Email":"71233@13.com","FirstName":"餐","LastName":"新","Gender":2,"Tel":"13712345678","Partnerid":1,"Education":"本科学历","Major":"计算机科学","GraduationTime":"2016-07-01","JobIntention":"这个","School":"中国人民解放军国防科学技术大学","Key":"c0cc4119-e6ec-4be7-ba27-2116cea63cf3","CreateDate":"2017-09-28T20:34:45.317","UpdatedDate":"2017-09-28T20:34:45.317"} ; 	//传进来的用户个人信息
+        var userModel =  {"ContactUserID":31,"IsGraduation":1,"Status":4,"ID":119,"Email":"71233@13.com","FirstName":"餐","LastName":"新","Gender":2,"Tel":"13712345678","Partnerid":1,"Education":"本科学历","Major":"计算机科学","GraduationTime":"2016-07-01","JobIntention":"这个","School":"中国人民解放军国防科学技术大学","Key":"c0cc4119-e6ec-4be7-ba27-2116cea63cf3","CreateDate":"2017-09-28T20:34:45.317","UpdatedDate":"2017-09-28T20:34:45.317"} ; 	//传进来的用户个人信息
 
-            var oUsers = {			//用户个人信息
-                "name": userModel.LastName + userModel.FirstName,
-                "school":userModel.School,
-                "date": userModel.GraduationTime,
-                "education": userModel.Education,
-                "position": userModel.JobIntention,
-                "professional": userModel.Major,
-                "email": userModel.Email
-            }
+        //操作流程信息
+        var oSteps = [{
+            "title": "探索自我",
+            "dec": "通过完整系统的测评工具建立对自己客观公正的认知",
+        }, {
+            "title": "解读自我",
+            "dec": "参照行业内与专家和职业规划师的建议，形成完整的个人发展计划",
+        }, {
+            "title": "打造自我",
+            "dec": "分解个人目标，落实行动，稳步提高市场竞争力",
+        }, {
+            "title": "营销自我",
+            "dec": "匹配优质实习、就业机会",
+        }]
 
-            //操作流程信息
-            var oSteps = [{
-                "jump": 1,
-                "title": "探索自我",
-                "dec": "通过完整系统的测评工具建立对自己客观公正的认知",
-                "btn": "点击查看"
-            }, {
-                "jump": 0,
-                "title": "解读自我",
-                "dec": "参照行业内与专家和职业规划师的建议，形成完整的个人发展计划",
-                "btn": "点击查看"
-            }, {
-                "jump": 0,
-                "title": "打造自我",
-                "dec": "分解个人目标，落实行动，稳步提高市场竞争力",
-                "btn": "点击查看"
-            }, {
-                "jump": 0,
-                "title": "营销自我",
-                "dec": "匹配优质实习、就业机会",
-                "btn": "点击查看"
-            }]
-
-            //ko绑定数据
-            var vm = {
-                Steps: ko.observable(getStep(oSteps, userModel.Status)),
-                Users: {
-                    "name": ko.observable(oUsers.name),
-                    "school":ko.observable(oUsers.school),
-                    "date": ko.observable(oUsers.date),
-                    "education": ko.observable(oUsers.education),
-                    "position": ko.observable(oUsers.position),
-                    "professional": ko.observable(oUsers.professional),
-                    "email": ko.observable(oUsers.email)
+        //ko绑定数据
+        var vm = {
+        	BtnText:"点击查看",
+        	Status:parseInt(userModel.Status),
+            Steps: ko.observableArray(oSteps),
+            Users: {
+                "name": ko.observable(userModel.LastName + userModel.FirstName),
+                "school":ko.observable(userModel.School),
+                "date": ko.observable(userModel.GraduationTime),
+                "education": ko.observable(userModel.Education),
+                "position": ko.observable(userModel.JobIntention),
+                "professional": ko.observable(userModel.Major),
+                "email": ko.observable(userModel.Email)
+            },
+            //点击进度项
+            ClickItem:function(index){
+            	if (vm.Status>=index) {
+                    switch (index) {
+                        case 0:
+                            window.location.href = "/ogcs/Assessment/Index";
+                            break;
+                        case 1: 
+                        window.location.href = "/ogcs/Assessment/Explore";
+                            break;
+                        case 2:
+                            window.location.href = "/ogcs/Course/";
+                            break;
+                        case 3:
+                             window.location.href = "/ogcs/ContactUser/Index";
+                            break;
+                    }
                 }
             }
-            ko.applyBindings(vm);
+        }
+        ko.applyBindings(vm);
 
+        $(document).ready(function () {
+        	
+        	
+        	function getScrollHeight(){
+        		console.log($(document).scrollTop());
+        	}
+        	
+        	getScrollHeight();
+        	
+        	$(window).scroll(function(){
+        		console.log($(document).scrollTop());
+        	})
+        	
             //鼠标移入流程块
             $("body").on("mouseover", ".step-box", function (event) {
                 if (!this.contains(event.fromElement)) {
@@ -266,40 +289,7 @@
                     $(this).children(".step-btn").animate({ "opacity": "0" }, 200);
                 }
             })
-
-            //鼠标点击流程块
-            $("body").on("click", ".step-box", function (event) {
-                var oIndex = $(this).attr("index");
-                var oJump = $(this).attr("jump");
-                if (oJump==="1") {
-                    switch (oIndex) {
-                        case "0":
-                            window.location.href = "/ogcs/Assessment/Index";
-                            break;
-                        case "1": 
-                        window.location.href = "/ogcs/Assessment/Explore";
-                            break;
-                        case "2":
-                            window.location.href = "/ogcs/Course/";
-                            break;
-                        case "3":
-                             window.location.href = "/ogcs/ContactUser/Index";
-                            break;
-                    }
-                }
-            })
-
-            //获取用户操作的当前步骤
-            function getStep(oSteps, oStepValue) {
-                var oNewStep = [];
-                for (var i = 0; i < oSteps.length; i++) {
-                    if (i < oStepValue) {
-                        oSteps[i].jump = 1;
-                    }
-                    oNewStep.push(oSteps[i]);
-                }
-                return oNewStep;
-            }
+            
         })
     </script>
 
