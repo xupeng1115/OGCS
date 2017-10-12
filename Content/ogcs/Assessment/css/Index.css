@@ -255,9 +255,9 @@ section .evaluation .tip .tip-text{
 section .evaluation .list{
 	width:100%;
 	padding:70px 0 20px 0;
-	display: -webkit-flex;		/****设定容器为弹性盒模型***/
+	display: -webkit-flex;		
     display: flex;
-    -webkit-flex-wrap: wrap;	/******设定弹性容器为多行，超出换新行*******/
+    -webkit-flex-wrap: wrap;	
     flex-wrap: wrap;
 }
 section .evaluation .list .list-box{
@@ -285,59 +285,71 @@ section .evaluation .list .list-box .item{
 	height:200px;
 	position:relative;
 	border-radius:4px;
+	
+	transition:all 0.5s;
+	-ms-transition:all 0.5s; 	/* IE 9 */
+	-moz-transition:all 0.5s; 	/* Firefox */
+	-webkit-transition:all 0.5s; /* Safari 和 Chrome */
+	-o-transition:all 0.5;
 }
+
 section .evaluation .list .list-box .item[key="1"]{
 	cursor:pointer;
 }
-section .evaluation .list .list-box .item:nth-of-type(1)[key="0"]{
+section .evaluation .list .list-box:nth-of-type(1) .item[key="0"]{
 	background:url(../img/es02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(1)[enlignt="1"]{
+section .evaluation .list .list-box:nth-of-type(1) .item[enlignt="1"]{
 	background:url(../img/es01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(2)[key="0"]{
+section .evaluation .list .list-box:nth-of-type(2) .item[key="0"]{
 	background:url(../img/at02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(2)[enlignt="1"]{
+section .evaluation .list .list-box:nth-of-type(2) .item[enlignt="1"]{
 	background:url(../img/at01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(3)[key="0"]{
+section .evaluation .list .list-box:nth-of-type(3) .item[key="0"]{
 	background:url(../img/start02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(3)[enlignt="1"]{
+section .evaluation .list .list-box:nth-of-type(3) .item[enlignt="1"]{
 	background:url(../img/start01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(4)[key="0"]{
+section .evaluation .list .list-box:nth-of-type(4) .item[key="0"]{
 	background:url(../img/eq02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(4)[enlignt="1"]{
+section .evaluation .list .list-box:nth-of-type(4) .item[enlignt="1"]{
 	background:url(../img/eq01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(5)[key="0"]{
+section .evaluation .list .list-box:nth-of-type(5) .item[key="0"]{
 	background:url(../img/epa02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(5)[enlignt="1"]{
+section .evaluation .list .list-box:nth-of-type(5) .item[enlignt="1"]{
 	background:url(../img/epa01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(6)[key="0"]{
+section .evaluation .list .list-box:nth-of-type(6) .item[key="0"]{
 	background:url(../img/ha02.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-section .evaluation .list .list-box .item:nth-of-type(6)[enlignt="1"]{
+section .evaluation .list .list-box:nth-of-type(6) .item[enlignt="1"]{
 	background:url(../img/ha01.jpg)no-repeat center center;
 	background-size:100% 100%;
 }
-
+section .evaluation .list .list-box:hover .item[key="1"][enlignt="1"]{
+	width:515px;
+	height:210px;
+	top:-5px;
+	left:-7px;
+}
 section .evaluation .list .list-box .item .title{
 	width:340px;
 	padding-left:30px;

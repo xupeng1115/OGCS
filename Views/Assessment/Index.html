@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../Content/ogcs/lib/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/font-awesome.min.css"
         type="text/css" />
-    <link rel="stylesheet" href="../../Content/ogcs/lib/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/lib/css/K_animate.css" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/Index.css?v=20170925"
         type="text/css" />
        
@@ -31,8 +31,8 @@
     
 <header>
 	<div class="content">
-		<div class="left"></div>
-		<div class="right">
+		<div class="left wow fadeInLeft"></div>
+		<div class="right wow fadeInRight">
 			<div class="title">探索自我<span></span>专业测评</div>
 			<div class="dec">通过完整系统的测评工具建立对自己客观公正的认知</div>
 			<div class="begin-btn" data-bind="click:ClickBegin">立即开始<i></i></div>
@@ -49,24 +49,24 @@
 		</div>
 	</div>
     <div class="nav-tip">
-        <div class="nav-one">
+        <div class="nav-one wow fadeInUp" data-wow-delay="0.2s">
             请仔细阅读以下测评简介，您可以根据自己的实际情况选择其中三个测评进行作答，
         </div>
-        <div class="nav-two">
+        <div class="nav-two wow fadeInUp" data-wow-delay="0.4s">
             作答过程中每个单独的测评都需要一次性作答完毕，请您在安静的环境中，保持注意力集中作答。
         </div>
-        <div class="nav-three">
+        <div class="nav-three wow fadeInUp" data-wow-delay="0.6s">
             测评结束后你将解锁“<span class="yel">解读自我</span>”功能，查看个人报告和观看解读视频。
         </div>
     </div>
 	<div class="evaluation">
-		<div class="select-box">
+		<div class="select-box wow fadeInUp" data-wow-delay="0.2s">
 			已选<span class="selected-num red" data-bind="text:Num"><!--1--></span><span class="red">/</span><span class="total-num red">3</span>个
 		</div>
-		<div class="tip">
+		<div class="tip wow fadeInUp" data-wow-delay="0.4s">
 			<div class="tip-text">您将在3个工作日内收到报告结果</div>
 		</div>
-		<div class="list" data-bind="foreach:Items">
+		<div class="list wow fadeInUp" data-wow-delay="0.6s" data-bind="foreach:Items">
 			<div class="list-box">
 				<a class="item" target="_blank" data-bind="attr:{index:ID,status:AssessmenStatus,num:$index(),key:(AssessmenStatus==3)?2:((AssessmenStatus==1||AssessmenStatus==2)?1:($parent.Num()>=3?0:1)),row:$index()>=4?3:($index()>=2?2:1),enlignt:($parent.Num()>=3&&AssessmenStatus==0)?0:1},click:function(){vm.ClickItem($index())},event:{mouseover:function(){vm.ItemOver(ID)},mouseout:function(){vm.ItemOut(ID)}}">
 					<div class="title" data-bind="text:Name"><!--ES就业竞争力测试--></div>
@@ -119,16 +119,29 @@
     <script type="text/javascript" src="../../Scripts/ogcs/Assessment/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/Assessment/knockout.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/lib/swiper.animate.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/lib/wow.min.js"></script>
+    <script>
+    	//判段浏览器版本高于IE9时增加wow动画效果
+    	if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+			var wow = new WOW({
+			    boxClass: 'wow',
+			    animateClass: 'animated',
+			    mobile: true,
+			    live: true
+			});
+			wow.init();
+		};
+    </script>
     <script type="text/javascript">
         var oList = [{"ID":1,"Name":"ES就业竞争力测试","Description":"对照就业能力标准，<br/>123<br/>123<br/>第四行<br/><br/><br/>","AssessmenStatus":0},
-	        {"ID":2,"Name":"AT能力测试\r\n","Description":"外企名企校招必备，在线能力测评，提前预知能力水平，稳抓胜率\r\n","AssessmenStatus":3},
+	        {"ID":2,"Name":"AT能力测试\r\n","Description":"外企名企校招必备，在线能力测评，提前预知能力水平，稳抓胜率\r\n","AssessmenStatus":0},
 	        {"ID":3,"Name":"创业成功率测试\r\n","Description":"在小型互联网公司拼搏到底适不适合\r\n如何才能与初创公司共同进步\r\n","AssessmenStatus":0},
 	        {"ID":4,"Name":"情商测试\r\n","Description":"如何在职场中如鱼得水\r\n如何发挥自己的性格优势赢得职场战争\r\n","AssessmenStatus":0},
 	        {"ID":5,"Name":"EPA职业性格测试","Description":"全面了解职业性格，找到性格亮点，区别对待，客观评价","AssessmenStatus":0},
 	        {"ID":6,"Name":"Harrison性格测试","Description":"与心仪职位的匹配度精确到两位小数！在不同职业中纠结？来测测！<br/>还可以挖掘最大性格优势，用性格优势与面试官对话！<br/>","AssessmenStatus":0}
         ];
     
-		var oNum=1;			//已经选择过的测评数量
+		var oNum=0;			//已经选择过的测评数量
 		
         var vm = {
             Items: ko.observableArray(oList),
@@ -199,26 +212,24 @@
                	vm.ShowDialog(false);
             },
             ItemOver:function(oId){
-            	console.log(33);
-				var oItem=$(".item[index="+oId+"]");    
-		        var wValue=(1.03* 495)+"px";  
-		        var hValue=(1.03*200)+"px";
-		        oItem.stop().animate({  
-		            width: wValue,  
-		            height:hValue,
-		            left:("-"+(0.03 * 495)/2),  
-		            top:("-"+(0.03 * 200)/2)
-		        }, 200);
+//				var oItem=$(".item[index="+oId+"]");    
+//		        var wValue=(1.03* 495)+"px";  
+//		        var hValue=(1.03*200)+"px";
+//		        oItem.stop().animate({  
+//		            width: wValue,  
+//		            height:hValue,
+//		            left:("-"+(0.03 * 495)/2),  
+//		            top:("-"+(0.03 * 200)/2)
+//		        }, 200);
             },
             ItemOut:function(oId){
-            	console.log(66);
-            	var oItem=$(".item[index="+oId+"]");   
-		        oItem.stop().animate({
-		        	width: "495px",
-		            height: "200px",
-		            left:"0px",  
-		            top:"0px"
-		        }, 200 );
+//          	var oItem=$(".item[index="+oId+"]");   
+//		        oItem.stop().animate({
+//		        	width: "495px",
+//		            height: "200px",
+//		            left:"0px",  
+//		            top:"0px"
+//		        }, 200 );
 		    },
             //立即开始
             ClickBegin:function(){
