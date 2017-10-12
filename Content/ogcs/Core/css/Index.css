@@ -93,7 +93,6 @@ header .title{
 	width:100%;
 	height: 33px;
 	margin:0 auto;
-	padding-top:137px;
 	padding-bottom:12px;
 	font-size: 30px;
 	font-weight: 600;
@@ -101,6 +100,10 @@ header .title{
 	letter-spacing: 6px;
 	text-align: center;
 	color: rgba(255, 255, 255, 0.9);
+	position:absolute;
+	top:90px;
+	left:0;
+	opacity:0;
 }
 header .line{
   	width: 180px;
@@ -108,14 +111,23 @@ header .line{
   	margin:0 auto;
   	margin-top:35px;
   	background: rgba(256,256,256,.5);
+  	position:absolute;
+	top:130px;
+	left:50%;
+	margin-left:-90px;
+  	opacity:0;
 }
 header ul{
 	width:335px;
 	height:50px;
 	margin:0 auto;
-	padding-top:28px;
 	padding-left: 45px;
 	list-style-type:none;
+	position:absolute;
+	top:230px;
+	left:50%;
+	margin-left:-167px;
+	opacity:0;
 }
 header ul li{
 	display:inline-block;
