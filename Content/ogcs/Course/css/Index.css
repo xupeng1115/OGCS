@@ -440,6 +440,11 @@ section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-rig
   	margin-bottom:5px;
   	cursor:pointer;
   	text-decoration:none;
+  	
+  	transition:all 0.5s;
+	-webkit-transition:all 0.5s; /* Safari */
+	-moz-transition-duration:all 0.5s;
+	-o-transition-duration:all 0.5s;
 }
 section .tutor-message .tutor-message-box .tutor-message-item .tutor-message-right .tutor-message-course-box .tutor-course-item span{
 	display:inline-block;
@@ -676,6 +681,11 @@ section .list-box .list .item-box .item{
 	margin-top:55px;
 	float:left;
 	cursor:pointer;
+	
+	transition:all 0.5s;
+	-webkit-transition:all 0.5s; /* Safari */
+	-moz-transition-duration:all 0.5s;
+	-o-transition-duration:all 0.5s;
 }
 section .hot .list .item-box .item {
     width: 300px;
@@ -719,6 +729,18 @@ section .list-box .list .item-box .item .img-box .item-img{
 	top:0;
 	left:0;
 	z-index:1;
+	
+	transition:all 0.5s;
+	-webkit-transition:all 0.5s; /* Safari */
+	-moz-transition-duration:all 0.5s;
+	-o-transition-duration:all 0.5s;
+}
+section .list-box .list .item-box .item:hover .img-box .item-img{
+	transform:scale(1.1);
+	-ms-transform:scale(1.1); 	/* IE 9 */
+	-moz-transform:scale(1.1); 	/* Firefox */
+	-webkit-transform:scale(1.1); /* Safari 和 Chrome */
+	-o-transform:scale(1.1); 
 }
 section .list-box .list .item-box .item .img-box .flo{
 	width:100%;
