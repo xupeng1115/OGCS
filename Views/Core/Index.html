@@ -266,15 +266,51 @@
         $(document).ready(function () {
         	
         	
+        	//初始化执行
+        	init();
+        	
+        	
         	function getScrollHeight(){
-        		console.log($(document).scrollTop());
+//      		console.log($(document).scrollTop());
         	}
         	
         	getScrollHeight();
         	
         	$(window).scroll(function(){
-        		console.log($(document).scrollTop());
+				var oTop=$(document).scrollTop();
+				if(oTop<=220){
+					ATitle();
+				}
         	})
+        	
+        	function ATitle(){
+        		setTimeout(function(){
+    				$(".title").animate({
+        				top:"110px",
+        				opacity:"1"
+        			},1000)
+    			},0)
+    			setTimeout(function(){
+    				$(".line").animate({
+        				opacity:"1"
+        			},1000)
+    			},0)
+    			
+    			setTimeout(function(){
+    				$("header ul").animate({
+        				top:"210px",
+        				opacity:"1"
+        			},1000)
+    			},0)
+        	}
+        	
+        	function init(){
+        		var oTop=$(document).scrollTop();
+        		console.log(oTop);
+        		if(oTop<=220){
+        			ATitle();
+        		}
+        	}
         	
             //鼠标移入流程块
             $("body").on("mouseover", ".step-box", function (event) {
