@@ -8,8 +8,8 @@
     <title>Index</title>
     
     <link href="../../Content/ogcs/lib/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/ogcs/lib/css/K_animate.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Core/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../Content/ogcs/Core/css/base.css" />
     <link rel="stylesheet" href="../../Content/ogcs/Core/css/Index.css?v=20170930" />
 
 	<!--[if lt IE 9]>
@@ -38,10 +38,10 @@
 </header>
 <section>
 	<div class="flow">
-		<div class="flow-title">Career Success</div>
+		<div class="flow-title wow fadeInDown">Career Success</div>
 		<div class="flow-line"></div>
 		<div class="flow-step" data-bind="foreach:Steps">
-			<div class="step">
+			<div class="step wow fadeInUp">
 				<div class="step-icon">
 					<div class="step-badge" data-bind="css:{badgecolor:$parent.Status>=$index()}"></div>
 				</div>
@@ -54,11 +54,14 @@
 		</div>
 	</div>
 	<div class="personal">
-		<div class="personal-title">个人信息</div>
-		<div class="personal-line"></div>
-        <div class="personal-name">姓名：<span data-bind="text:Users.name"></span></div>
-		<div class="personal-name-bottom"></div>
-		<div class="personal-message">
+		<div class="personal-title wow fadeInDown">个人信息</div>
+		<div class="personal-line">
+			<div class="personal-name-box">
+				<div class="personal-name">姓名：<span data-bind="text:Users.name"></span></div>
+				<div class="personal-name-bottom"></div>
+			</div>
+		</div>
+		<div class="personal-message wow fadeInUp">
 			<div class="item">
 				<div class="circle">
 					<i class="fa fa-university" aria-hidden="true"></i> 
@@ -117,9 +120,9 @@
 	</div>
 
     <div class="friend">
-		<div class="friend-title">合作伙伴</div>
+		<div class="friend-title wow fadeInDown">合作伙伴</div>
 		<div class="friend-line"></div>
-		<div class="friend-box">
+		<div class="friend-box wow fadeInUp">
 			<div class="line-left-one"></div>
 			<div class="line-left-two"></div>
 			<div class="line-right-one"></div>
@@ -184,7 +187,7 @@
     
     <script type="text/javascript" src="../../Scripts/ogcs/Core/knockout.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/Core/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="../../Scripts/ogcs/Course/knockout.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/lib/wow.min.js"></script>
     
     <script>
     	//判断浏览器版本是否低于IE9
@@ -207,6 +210,18 @@
 
             }
         }());
+    </script>
+    <script>
+    	//判段浏览器版本高于IE9时增加wow动画效果
+    	if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+			var wow = new WOW({
+			    boxClass: 'wow',
+			    animateClass: 'animated',
+			    mobile: true,
+			    live: true
+			});
+			wow.init();
+		};
     </script>
     <script type="text/javascript">
 
@@ -265,64 +280,17 @@
 
         $(document).ready(function () {
         	
-        	
-        	//初始化执行
-        	init();
-        	
-        	
-        	function getScrollHeight(){
-//      		console.log($(document).scrollTop());
-        	}
-        	
-        	getScrollHeight();
-        	
-        	$(window).scroll(function(){
-				var oTop=$(document).scrollTop();
-				if(oTop<=220){
-					ATitle();
-				}
-        	})
-        	
-        	function ATitle(){
-        		setTimeout(function(){
-    				$(".title").animate({
-        				top:"110px",
-        				opacity:"1"
-        			},1000)
-    			},0)
-    			setTimeout(function(){
-    				$(".line").animate({
-        				opacity:"1"
-        			},1000)
-    			},0)
-    			
-    			setTimeout(function(){
-    				$("header ul").animate({
-        				top:"210px",
-        				opacity:"1"
-        			},1000)
-    			},0)
-        	}
-        	
-        	function init(){
-        		var oTop=$(document).scrollTop();
-        		console.log(oTop);
-        		if(oTop<=220){
-        			ATitle();
-        		}
-        	}
-        	
             //鼠标移入流程块
             $("body").on("mouseover", ".step-box", function (event) {
                 if (!this.contains(event.fromElement)) {
-                    $(this).children(".step-btn").animate({ "opacity": "1" }, 200);
+//                  $(this).children(".step-btn").animate({ "opacity": "1" }, 200);
                 }
             })
 
             //鼠标移出流程块
             $("body").on("mouseout", ".step-box", function (event) {
                 if (!this.contains(event.toElement)) {
-                    $(this).children(".step-btn").animate({ "opacity": "0" }, 200);
+//                  $(this).children(".step-btn").animate({ "opacity": "0" }, 200);
                 }
             })
             
