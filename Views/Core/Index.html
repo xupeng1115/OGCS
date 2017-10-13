@@ -10,6 +10,8 @@
     <link href="../../Content/ogcs/lib/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../Content/ogcs/lib/css/K_animate.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Core/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../Content/ogcs/Core/css/lib.css">
+	<link rel="stylesheet" href="../../Content/ogcs/Core/css/tabris.css" />
     <link rel="stylesheet" href="../../Content/ogcs/Core/css/Index.css?v=20170930" />
 
 	<!--[if lt IE 9]>
@@ -28,6 +30,24 @@
     </div>
 <div class="container-fluid">
 <header>
+	<div class="logo-animate" data-bind="if:LogoAnimate">
+		<div class="bg0 pa">
+	        <div class="bg1"></div>
+	    </div>
+	    <div class="hx-box pa">
+	        <ul class="pr">
+	            <li class="hx-k1 pa0">
+	                <span></span>
+	            </li>
+	            <li class="hx-k2 pa0">
+	                <span></span>
+	            </li>
+	            <li class="hx-k3 pa0">
+	                <span></span>
+	            </li>
+	        </ul>
+	    </div>
+	</div>
 	<div class="title">海途学子-智慧生涯服务平台</div>
 	<div class="line"></div>
 	<ul>
@@ -221,6 +241,8 @@
 			    live: true
 			});
 			wow.init();
+		}else{
+			vm.LogoAnimate(false);
 		};
     </script>
     <script type="text/javascript">
@@ -244,6 +266,7 @@
 
         //ko绑定数据
         var vm = {
+        	LogoAnimate:ko.observable(true),
         	BtnText:"点击查看",
         	Status:parseInt(userModel.Status),
             Steps: ko.observableArray(oSteps),
@@ -274,6 +297,9 @@
                             break;
                     }
                 }
+            },
+            ImgOver:function(){
+            	
             }
         }
         ko.applyBindings(vm);

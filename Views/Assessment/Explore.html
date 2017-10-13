@@ -7,6 +7,8 @@
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title>Explore</title>
     
+    <!--<link rel="stylesheet" href="../../Content/ogcs/lib/css/bootstrap.min.css" type="text/css" />-->
+    <link rel="stylesheet" href="../../Content/ogcs/lib/css/K_animate.css" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/font-awesome.min.css"
         type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Assessment/iconfont/material-icons.css"
@@ -14,6 +16,11 @@
     <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/base.css" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/Explore.css?v=20170925"
         type="text/css" />
+
+	<!--[if lt IE 9]>
+      <script src="../../Scripts/ogcs/ContactUser/html5shiv.min.js"></script>
+      <script src="../../Scripts/ogcs/ContactUser/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 <body>
@@ -24,7 +31,7 @@
             <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
         </div>
     </div>
-    
+<!--<div class="container-fluid"></div>-->
 <header>
     <div class="content">
         <div class="left"></div>
@@ -118,18 +125,14 @@
     var oCurrent=0;         //保存当前点击报告的下表ID
     var oItems = [{"ID":1,"Name":"ES就业竞争力测试","Description":"对照就业能力标准，<br/>123<br/>123<br/>第四行<br/><br/><br/>","Cover":"/ogcs_file/assessment/Cover/1.png","Video":"","ReportUrl":[],"AssessmenComplete":0},{"ID":2,"Name":"AT能力测试\r\n","Description":"外企名企校招必备，在线能力测评，提前预知能力水平，稳抓胜率\r\n","Cover":"/ogcs_file/assessment/Cover/2.png","Video":"","ReportUrl":[],"AssessmenComplete":0},{"ID":3,"Name":"创业成功率测试\r\n","Description":"在小型互联网公司拼搏到底适不适合\r\n如何才能与初创公司共同进步\r\n","Cover":"/ogcs_file/assessment/Cover/3.png","Video":"http://material.knx.com.cn/report/chuangyechenggonglvbaogaojiedu_720p.mp4","ReportUrl":[],"AssessmenComplete":1},{"ID":4,"Name":"情商测试\r\n","Description":"如何在职场中如鱼得水\r\n如何发挥自己的性格优势赢得职场战争\r\n","Cover":"/ogcs_file/assessment/Cover/4.png","Video":"http://material.knx.com.cn/report/daxueshengqingshangbaogaojiedu_720p.mp4","ReportUrl":[],"AssessmenComplete":1},{"ID":5,"Name":"EPA职业性格测试","Description":"全面了解职业性格，找到性格亮点，区别对待，客观评价","Cover":"/ogcs_file/assessment/Cover/5.png","Video":"http://material.knx.com.cn/report/EPAbaogaojiedu_720p.mp4","ReportUrl":[],"AssessmenComplete":1},{"ID":6,"Name":"Harrison性格测试","Description":"与心仪职位的匹配度精确到两位小数！在不同职业中纠结？来测测！<br/>还可以挖掘最大性格优势，用性格优势与面试官对话！<br/>","Cover":"/ogcs_file/assessment/Cover/6.png","Video":"","ReportUrl":[],"AssessmenComplete":0}];
 	
-	
 	var vm = {
         Items: ko.observableArray(oItems),
     };
 
     ko.applyBindings(vm);
 	
-	
 	var player = new ump.Player();
 
-    
-	
 	$(document).ready(function(){
 
         //打开视频
