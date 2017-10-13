@@ -7,9 +7,15 @@
 	<meta name="renderer" content="webkit|ie-comp|ie-stand">
     <title>Exam</title>
     
+    <link rel="stylesheet" href="../../Content/ogcs/lib/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../Content/ogcs/lib/css/K_animate.css" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Course/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../Content/ogcs/Course/css/base.css" type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/Course/css/Exam.css?v=20170925" type="text/css" />
+
+	<!--[if lt IE 9]>
+      <script src="../../Scripts/ogcs/ContactUser/html5shiv.min.js"></script>
+      <script src="../../Scripts/ogcs/ContactUser/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 <body>
@@ -20,7 +26,9 @@
             <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
         </div>
     </div>
-    
+<div class="container-fluid">
+	
+  
 <header>
 	<div class="back-btn">
 		<i></i>返回课程详情
@@ -30,8 +38,8 @@
 	<div class="top">
 		<div class="begin">
 			<div class="begin-box">
-				<div class="begin-bg"></div>
-				<div class="begin-dec">
+				<div class="begin-bg wow fadeInLeft"></div>
+				<div class="begin-dec wow fadeInRight">
 					<p class="begin-title">开始考试</p>
 					<p class="begin-text">
 						以下题目均为单选题（共<span class="num" data-bind="text:Number"><!--20--></span>道题）
@@ -75,8 +83,8 @@
 			</div>
 			<div class="tip-one" data-bind="visible:OneExam">敲黑板！！！虽然我们提供重考机会，但是，我们比较看重你<span class="blue">第一次答</span>题的分数哦，希望童鞋们认真作答，把握机会！</div>
 			<div class="tip-two" data-bind="style:{marginTop:!OneExam?'70px':'0px'}">本考试满分<span class="red">100</span>分，当您的成绩<span class="red">≥80</span>分，即为通过，否则视为不通过。</div>
-			<div class="btn know-btn">知道了</div>
-			<div class="btn cancel-btn">取消</div>
+			<div class="tip-btn know-btn">知道了</div>
+			<div class="tip-btn cancel-btn">取消</div>
 		</div>
 		<div class="dialog-box result">
 			<div class="result-top dialog-top">
@@ -89,7 +97,7 @@
 			<div class="result-two" data-bind="visible:parseInt(Score())<80">没关系，您还有重考机会。</div>
 			<div class="result-three" data-bind="visible:parseInt(Score())<80">建议您把课程认真学完后再重考，加油哦！</div>
             <div class="result-success" data-bind="visible:parseInt(Score())>=80">恭喜您，考试通过！</div>
-			<div class="btn result-back-btn">返回</div>
+			<div class="tip-btn result-back-btn">返回</div>
 		</div>
         <div class="dialog-box earn">
 			<div class="earn-top dialog-top">
@@ -99,7 +107,7 @@
 				</div>
 			</div>
 			<div class="earn-one">您还有题目未答，请答完所有的题目！</div>
-			<div class="btn confirm-btn">确定</div>
+			<div class="tip-btn confirm-btn">确定</div>
 		</div>
         <div class="dialog-box back">
 			<div class="back-top dialog-top">
@@ -109,12 +117,12 @@
 				</div>
 			</div>
 			<div class="back-one">您确定要退出本次答题吗！</div>
-			<div class="btn back-cancel-btn">取消</div>
-            <div class="btn back-confirm-btn">确定</div>
+			<div class="tip-btn back-cancel-btn">取消</div>
+            <div class="tip-btn back-confirm-btn">确定</div>
 		</div>
 	</div>
 </section>
-
+</div>
     <footer>
 	<span class="reg">©肯耐珂萨 2017 | 沪ICP备09051952号-2</span>
 	<span class="in"><a href="http://www.linkedin.com/company/knx?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1825638231400554720831%2CVSRPtargetId%3A3707210%2CVSRPcmpt%3Aprimary" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></span>
@@ -124,9 +132,24 @@
     </footer>
     
     <script type="text/javascript" src="../../Scripts/ogcs/Course/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/Course/knockout.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/lib/wow.min.js"></script>
+    
+    <script>
+    	//判段浏览器版本高于IE9时增加wow动画效果
+    	if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+			var wow = new WOW({
+			    boxClass: 'wow',
+			    animateClass: 'animated',
+			    mobile: true,
+			    live: true
+			});
+			wow.init();
+		};
+    </script>
     <script type="text/javascript">
-     var courseId =2;
+     	var courseId =2;
         var oExams =  [{"ID":77,"CourseId":2,"Num":"","Title":"团队决策易于解决什么问题？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":259,"CourseId":2,"QuestionId":77,"Num":"A","Title":"个别问题","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":260,"CourseId":2,"QuestionId":77,"Num":"B","Title":"综合性问题","OptionValue":10,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":261,"CourseId":2,"QuestionId":77,"Num":"C","Title":"疑难问题","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.333"}]},{"ID":74,"CourseId":2,"Num":"","Title":"（）是激励组织内创新活动的主要动力？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":250,"CourseId":2,"QuestionId":74,"Num":"A","Title":"核心竞争力","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":251,"CourseId":2,"QuestionId":74,"Num":"B","Title":"团队运动","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":252,"CourseId":2,"QuestionId":74,"Num":"C","Title":"团队文化","OptionValue":10,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.33"}]},{"ID":71,"CourseId":2,"Num":"","Title":"以下关于个人和团队之间的关系，说法错误的是？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":241,"CourseId":2,"QuestionId":71,"Num":"A","Title":"个人从属团队","OptionValue":10,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.313"},{"ID":242,"CourseId":2,"QuestionId":71,"Num":"B","Title":"个人能力有限","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.327"},{"ID":243,"CourseId":2,"QuestionId":71,"Num":"C","Title":"团队早就个人","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.327"}]},{"ID":72,"CourseId":2,"Num":"","Title":"团队决策的主要特征不包括？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":244,"CourseId":2,"QuestionId":72,"Num":"A","Title":"责任分担","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.327"},{"ID":245,"CourseId":2,"QuestionId":72,"Num":"B","Title":"封闭性","OptionValue":10,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.327"},{"ID":246,"CourseId":2,"QuestionId":72,"Num":"C","Title":"合理性","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.327"}]},{"ID":75,"CourseId":2,"Num":"","Title":"团队成员为实现团队目标做出共同的承诺，各成员之间应该互相支持、互相配合。该特点为创新团队目标的（）？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":253,"CourseId":2,"QuestionId":75,"Num":"A","Title":"一致性","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":254,"CourseId":2,"QuestionId":75,"Num":"B","Title":"具体性","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":255,"CourseId":2,"QuestionId":75,"Num":"C","Title":"合作性","OptionValue":10,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.33"}]},{"ID":79,"CourseId":2,"Num":"","Title":"高效团队具有的文化特征不包括？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":265,"CourseId":2,"QuestionId":79,"Num":"A","Title":"生活实践","OptionValue":10,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.337"},{"ID":266,"CourseId":2,"QuestionId":79,"Num":"B","Title":"团队精神","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.337"},{"ID":267,"CourseId":2,"QuestionId":79,"Num":"C","Title":"不断进取","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.337"}]},{"ID":73,"CourseId":2,"Num":"","Title":"（）是团队对其成员的吸引力和成员之间的相互吸引力，是无形的精神力量？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":247,"CourseId":2,"QuestionId":73,"Num":"A","Title":"团队凝聚力","OptionValue":10,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":248,"CourseId":2,"QuestionId":73,"Num":"B","Title":"合作能力","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":249,"CourseId":2,"QuestionId":73,"Num":"C","Title":"沟通","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.33"}]},{"ID":78,"CourseId":2,"Num":"","Title":"创新团队建设的第一大障碍是团队成员间？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":262,"CourseId":2,"QuestionId":78,"Num":"A","Title":"惧怕冲突","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":263,"CourseId":2,"QuestionId":78,"Num":"B","Title":"缺乏信任","OptionValue":10,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":264,"CourseId":2,"QuestionId":78,"Num":"C","Title":"逃避责任","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.333"}]},{"ID":76,"CourseId":2,"Num":"","Title":"创新团队精神的核心是？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":256,"CourseId":2,"QuestionId":76,"Num":"A","Title":"团结合作、优势互补","OptionValue":10,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.33"},{"ID":257,"CourseId":2,"QuestionId":76,"Num":"B","Title":"奉献精神","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.333"},{"ID":258,"CourseId":2,"QuestionId":76,"Num":"C","Title":"合作精神","OptionValue":0,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.333"}]},{"ID":80,"CourseId":2,"Num":"","Title":"强化团队执行力的关键在于？","Type":1,"CreatedDate":"2017-09-22T14:12:05.65","Options":[{"ID":268,"CourseId":2,"QuestionId":80,"Num":"A","Title":"树立明确的团队目标","OptionValue":0,"Sort":1,"CreatedDate":"2017-09-22T14:12:29.337"},{"ID":269,"CourseId":2,"QuestionId":80,"Num":"B","Title":"引入竞争机制","OptionValue":0,"Sort":2,"CreatedDate":"2017-09-22T14:12:29.337"},{"ID":270,"CourseId":2,"QuestionId":80,"Num":"C","Title":"强化执行力文化建设","OptionValue":10,"Sort":3,"CreatedDate":"2017-09-22T14:12:29.337"}]}];
         var oneExam = "0" == "1" ;
 
