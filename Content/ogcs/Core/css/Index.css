@@ -513,7 +513,7 @@ section .friend .friend-box .line-right-two{
   	right:-1px;
   	z-index:100;
 }
-table,table tr td {
+table,table tr td{
 	width:220px;
 	text-align:center;
 	padding:0; 
@@ -527,6 +527,19 @@ table,table tr td {
 	-moz-transition:all 0.2s; 	/* Firefox */
 	-webkit-transition:all 0.2s; /* Safari �� Chrome */
 	-o-transition:all 0.2s;
+	
+	-webkit-perspective: 800px;
+    -moz-perspective: 800px;
+}
+table,table tr td .logo-company-box{
+	width:100%;
+	height:100%;
+	position:relative;
+	
+	-webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-transition: .8s ease-in-out ;
+    -moz-transition:  .8s ease-in-out ;
 }
 table { 
 	width:100%;
@@ -544,7 +557,7 @@ section .friend .friend-box table tr td img{
 	top:20px;
 	left:50%;
 }
-section .friend .friend-box table tr td .logo-name{
+section .friend .friend-box table tr td .logo-company-box .logo-name{
   	position:absolute;
   	width:100%;
   	bottom:20px;
@@ -586,74 +599,12 @@ section .friend .friend-box table tr td .tengmen{
 	margin-left:-28px;
 }
 
-
-@-webkit-keyframes flipOutYtest {
-  from {
-    -webkit-transform: perspective(1400px);
-    transform: perspective(1400px);
-  }
-
-  40% {
-    -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, 60deg);
-    transform: perspective(1400px) rotate3d(0, 1, 0, 60deg);
-    opacity: 1;
-  }
-
-  50% {
-    -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, 90deg);
-    transform: perspective(1400px) rotate3d(0, 1, 0, 90deg);
-    opacity: 0;
-  }
-
-  to {
-    -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, 180deg);
-    transform: perspective(1400px) rotate3d(0, 1, 0, 180deg);
-    opacity: 0;
-  }
+table tr .logo-top:hover .logo-company-box{
+	transform: rotateY(180deg);
 }
-
-.test1{
-  -webkit-animation: flipOutYtest 0.75s linear;
-  animation: flipOutYtest 0.75s linear;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+table tr .logo-bottom:hover .logo-company-box{
+	transform: rotateX(180deg);
 }
-
-
-@-webkit-keyframes flipInYtest {
-  from {
-    -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, -180deg);
-    transform: perspective(1400px) rotate3d(0, 1, 0, -180deg);
-    opacity: 0;
-  }
-
-  50% {
-    -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, -90deg);
-    transform: perspective(1400px) rotate3d(0, 1, 0, -90deg);
-    opacity: 0;
-  }
-
-  60% {
-    -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, -60deg);
-    transform: perspective(1400px) rotate3d(0, 1, 0, -60deg);
-    opacity: 1;
-  }
-
-  to {
-    -webkit-transform: perspective(1400px);
-    transform: perspective(1400px);
-    opacity: 1;
-  }
-}
-
-.test2{
-  -webkit-animation: flipInYtest 0.75s linear;
-  animation: flipInYtest 0.75s linear;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-
 footer{
 	width:100%;
 	height:80px;
