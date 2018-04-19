@@ -19,10 +19,25 @@ html,body{
 	height:0;
 	*zoom:1;
 }
-.container{
-	width:100%;
-	position:relative;
-	overflow:auto;
+a{
+    text-decoration: none; 
+}
+.container-fluid {
+  	padding:0;
+}
+.row{
+	margin:0;
+}
+.col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12{
+	padding:0;
+}
+.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{
+	padding:0;
+}
+.overflow-text{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 .logo-box{
     width:100%;
@@ -118,7 +133,7 @@ header .dec{
   	color: #f3f3f3;
   	padding:20px 0 30px 0;
 }
-header .btn{
+header .begin-btn{
 	width: 147px;
   	height: 45px;
   	border-radius: 100px;
@@ -130,7 +145,7 @@ header .btn{
   	color: #ffffff;
   	cursor:pointer;
 }
-header .btn i{
+header .begin-btn i{
 	display:inline-block;
 	width:7px;
 	height:7px;
@@ -200,7 +215,7 @@ section .top .top-box .read-text{
 section .evaluation{
 	width:820px;
 	margin:0 auto;
-	padding:60px 90px 87px 90px;
+	padding:60px 0 87px 0;
 }
 section .evaluation .list{
 	width:100%;
@@ -281,6 +296,12 @@ section .evaluation .list .item .video-box{
 }
 section .evaluation .list .item .video-box img{
 	width:100%;
+	
+	transition:all 0.7s;
+	-ms-transition:all 0.7s; 	/* IE 9 */
+	-moz-transition:all 0.7s; 	/* Firefox */
+	-webkit-transition:all 0.7s; /* Safari 和 Chrome */
+	-o-transition:all 0.7s;
 }
 section .evaluation .list .item .dec{
 	width:290px;
@@ -416,7 +437,13 @@ section .evaluation .list .item .video-box .flo .flo-btn:before {
 section .evaluation .list .item[selected="1"]:hover .video-box .flo .flo-btn{
 	opacity:1;
 }
-
+section .evaluation .list .item[selected="1"]:hover .video-box img{
+	transform:scale(1.1);
+	-ms-transform:scale(1.1); 	/* IE 9 */
+	-moz-transform:scale(1.1); 	/* Firefox */
+	-webkit-transform:scale(1.1); /* Safari 和 Chrome */
+	-o-transform:scale(1.1); 
+}
 section .evaluation .list .item[selected="1"]:hover{
 	box-shadow: 0 2px 4px 0 rgba(214, 214, 214, 0.5);
 }
@@ -550,9 +577,6 @@ section .evaluation .list .item:nth-of-type(6)[selected="1"]:hover .begin-btn{
 }
 
 
-
-
-
 footer{
 	width:100%;
 	height:80px;
@@ -569,6 +593,10 @@ footer span{
 }
 footer span a{
 	font-size:14px;
+	color: rgba(208, 208, 208, 0.9);
+	text-decoration:none;
+}
+footer span a:hover,a:visited,a:active{
 	color: rgba(208, 208, 208, 0.9);
 	text-decoration:none;
 }

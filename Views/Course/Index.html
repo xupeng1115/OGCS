@@ -32,7 +32,7 @@
 	<header>
 		<div class="row title wow fadeIn">打造自我<span></span>课程视频</div>
 		<div class="row dec wow fadeIn">分解个人目标，落实行动，稳步提高市场竞争力</div>
-		<div class="begin-btn" data-bind="click:BeginBtn">立即开始<i></i></div>
+		<div class="begin-btn wow fadeIn" data-bind="click:BeginBtn">立即开始<i></i></div>
 	</header>
 	<section>
 		<div class="top">
@@ -212,16 +212,16 @@
 		</div>
 		
 	    <div class="nav-tip">
-	        <div class="nav-tip-title wow fadeInUp" data-wow-delay="0.2s">课程须知</div>
-	        <div class="nav-tip-wave wow fadeInUp" data-wow-delay="0.4s"></div>
-	        <div class="nav-one nav-circle wow fadeInUp" data-wow-delay="0.6s">
+	        <div class="nav-tip-title wow fadeIn">课程须知</div>
+	        <div class="nav-tip-wave wow fadeIn"></div>
+	        <div class="nav-one nav-circle wow fadeIn">
 	            强烈推荐的课程是根据您测评结果中有待发展的能力专属定制的,
 	        </div>
-	        <div class="nav-two wow fadeInUp" data-wow-delay="0.8s">您需要学完这些课程并通过课后考试才能顺利结业。</div> 
-	        <div class="nav-three nav-circle wow fadeInUp" data-wow-delay="1.0s">
+	        <div class="nav-two wow fadeIn">您需要学完这些课程并通过课后考试才能顺利结业。</div> 
+	        <div class="nav-three nav-circle wow fadeIn">
 	            职业必备课程能帮助您全面地提升职业素养和综合能力，
 	        </div>
-	        <div class="nav-four wow fadeInUp" data-wow-delay="1.2s">如果您想顺利拿到各大名企的OFFER，不要偷懒哦！</div>       
+	        <div class="nav-four wow fadeIn">如果您想顺利拿到各大名企的OFFER，不要偷懒哦！</div>       
 	    </div>
 		<div class="hot list-box">
 			<div class="list">
@@ -232,7 +232,7 @@
 					</div>
 				</div>
 				<div class="item-box wow fadeInUp" data-bind="foreach:Hots" data-wow-delay="0.4s">
-					<a class="item" data-bind="attr:{href:'/ogcs/Course/Detail/'+ID,num:ID},event:{mouseover:function(){vm.ItemOver(ID)},mouseout:function(){vm.ItemOut(ID)}}">
+					<a class="item" data-bind="attr:{href:'/ogcs/Course/Detail/'+ID,num:ID}">
 						<div class="img-box">
 							<img class="item-img" data-bind="attr:{src:Cover}" onerror="nofind();"/>
 							<div class="flo"></div>
@@ -266,7 +266,7 @@
 					</div>
 				</div>
 				<div class="item-box wow fadeInUp" data-wow-delay="0.4s" data-bind="foreach:Necessarys">
-					<a class="item" data-bind="attr:{href:'/ogcs/Course/Detail/'+ID,num:ID},event:{mouseover:function(){vm.ItemOver(ID)},mouseout:function(){vm.ItemOut(ID)}}">
+					<a class="item" data-bind="attr:{href:'/ogcs/Course/Detail/'+ID,num:ID}">
 						<div class="img-box">
 							<img class="item-img" data-bind="attr:{src:Cover}" onerror="nofind();"/>
 							<div class="flo"></div>
@@ -304,7 +304,6 @@
     <script type="text/javascript" src="../../Scripts/ogcs/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/jquery.nicescroll.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/Course/knockout.min.js"></script>
-    <script type="text/javascript" src="../../Scripts/ogcs/lib/swiper.animate.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/lib/wow.min.js"></script>
     
     <script>
@@ -339,20 +338,28 @@
             OverHead:function(index){
                 if(vm.CurrentTutor()!=index){
                     $(".tutor-head-item").eq(vm.CurrentTutor()).css({
-                        "borderColor":"transparent",
+                        "borderColor":"#f7f7f7",
                     })
                     $(".tutor-head-flo").eq(vm.CurrentTutor()).css({
                         "background":"rgba(0,0,0,0.3)"
                     })
-
-                    $(".tutor-head-item").eq(index).css({
-                        "borderColor":"#efa03c",
+                    
+                    $(".tutor-head-item").hover(function(){
+                    	$(this).css({"borderColor":"#efa03c"});
+                    	$(this).find(".tutor-head-flo").css({"background":"rgba(0,0,0,0)"})
+                    },function(){
+                    	$(this).css({"borderColor":"#f7f7f7"});
+                    	$(this).find(".tutor-head-flo").css({"background":"rgba(0,0,0,0.3)"})
                     })
-                    $(".tutor-head-flo").eq(index).css({
-                        "background":"rgba(0,0,0,0)"
+                    
+                    $(".tutor-head-item").eq(index).hover(function(){
+                    	$(this).css({"borderColor":"#efa03c"});
+                    	$(this).find(".tutor-head-flo").css({"background":"rgba(0,0,0,0)"})
+                    },function(){
+                    	$(this).css({"borderColor":"#efa03c"});
+                    	$(this).find(".tutor-head-flo").css({"background":"rgba(0,0,0,0)"})
                     })
-
-                    vm.CurrentTutor(index);
+					vm.CurrentTutor(index);
         	        vm.ShowList(0);
 
                     $("html,body").animate({scrollTop: 410}, 400);
@@ -361,12 +368,6 @@
             ClickCourseList:function(index){
         	    vm.ShowList(1);
             },
-            ItemOver:function(oId){
-
-            },
-            ItemOut:function(oId){
-
-		    },
 		    AddBtn:function(){
 		    	var oNum = $(".hot .item").length;
                 var oRow = Math.ceil(oNum / 3);

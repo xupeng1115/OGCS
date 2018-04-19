@@ -75,7 +75,7 @@
 			</a>
             
 			<div class="file-upload file">
-            <div id="picker"">
+            <div id="picker">
 				<div class="upload-img load-img"></div>
 				<div id="uploadbtn" class="upload-btn load-btn">
                     上传简历
@@ -154,7 +154,7 @@
     <script type="text/javascript" src="../../Scripts/ogcs/ContactUser/knockout.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/ContactUser/foundation-datepicker.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/ContactUser/foundation-datepicker.zh-CN.js"></script>
-    <script type="text/javascript" src="../../Areas/ogcs/Scripts/webuploader.min.js"></script>
+    <script type="text/javascript" src="../../Scripts/ogcs/lib/webuploader.min.js"></script>
     <script type="text/javascript">
         var oCitys = [
 		    { "ID": 1, "Text": "北京" },
@@ -348,7 +348,7 @@
                 vm.ShowAddress(0);
             },
             AddressFocus: function () {
-                if (vm.Status > 0) return;
+                // if (vm.Status > 0) return;
                 vm.ShowAddress(1);
             }
         }
@@ -434,7 +434,7 @@
         function SetCSS() {
             if (model.Status > 0) {
                 $("#Address").css("cursor","default");
-                $(".address-select-btn").css({"cursor":"default","color":"#c3c3c3"});
+                // $(".address-select-btn").css({"cursor":"default","color":"#c3c3c3"});
                 $('input[name=file]').attr('disabled', 'disabled');
                 $('#txtArrivalDate').attr("readonly", "readonly");
                 $('#Address').attr("readonly", "readonly");

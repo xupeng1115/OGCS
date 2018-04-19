@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/font-awesome.min.css"
         type="text/css" />
     <link rel="stylesheet" href="../../Content/ogcs/lib/css/K_animate.css" type="text/css" />
-    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/Index.css?v=20170925"
+    <link rel="stylesheet" href="../../Content/ogcs/Assessment/css/Index.css?v=20171017"
         type="text/css" />
        
     <!--[if lt IE 9]>
@@ -28,7 +28,7 @@
             <a href="https://www.htsaclub.com/" target="_blank">海途学子首页</a>
         </div>
     </div>
-    
+<div class="container-fluid">
 <header>
 	<div class="content">
 		<div class="left wow fadeInLeft"></div>
@@ -49,13 +49,13 @@
 		</div>
 	</div>
     <div class="nav-tip">
-        <div class="nav-one wow fadeInUp" data-wow-delay="0.2s">
+        <div class="nav-one wow fadeIn">
             请仔细阅读以下测评简介，您可以根据自己的实际情况选择其中三个测评进行作答，
         </div>
-        <div class="nav-two wow fadeInUp" data-wow-delay="0.4s">
+        <div class="nav-two wow fadeIn">
             作答过程中每个单独的测评都需要一次性作答完毕，请您在安静的环境中，保持注意力集中作答。
         </div>
-        <div class="nav-three wow fadeInUp" data-wow-delay="0.6s">
+        <div class="nav-three wow fadeIn">
             测评结束后你将解锁“<span class="yel">解读自我</span>”功能，查看个人报告和观看解读视频。
         </div>
     </div>
@@ -68,7 +68,7 @@
 		</div>
 		<div class="list wow fadeInUp" data-wow-delay="0.6s" data-bind="foreach:Items">
 			<div class="list-box">
-				<a class="item" target="_blank" data-bind="attr:{index:ID,status:AssessmenStatus,num:$index(),key:(AssessmenStatus==3)?2:((AssessmenStatus==1||AssessmenStatus==2)?1:($parent.Num()>=3?0:1)),row:$index()>=4?3:($index()>=2?2:1),enlignt:($parent.Num()>=3&&AssessmenStatus==0)?0:1},click:function(){vm.ClickItem($index())},event:{mouseover:function(){vm.ItemOver(ID)},mouseout:function(){vm.ItemOut(ID)}}">
+				<a class="item" target="_blank" data-bind="attr:{index:ID,status:AssessmenStatus,num:$index(),key:(AssessmenStatus==3)?2:((AssessmenStatus==1||AssessmenStatus==2)?1:($parent.Num()>=3?0:1)),row:$index()>=4?3:($index()>=2?2:1),enlignt:($parent.Num()>=3&&AssessmenStatus==0)?0:1},click:function(){vm.ClickItem($index())}">
 					<div class="title" data-bind="text:Name"><!--ES就业竞争力测试--></div>
 					<div class="dec" data-bind="html:Description"><!--对照就业能力标准，识别短板及时提升--></div>
 					<div class="begin-btn">
@@ -107,7 +107,7 @@
             取消</div>
     </div>
 </div>
-
+</div>
     <footer>
 	<span class="reg">©肯耐珂萨 2017 | 沪ICP备09051952号-2</span>
 	<span class="in"><a href="http://www.linkedin.com/company/knx?trk=vsrp_companies_res_name&trkInfo=VSRPsearchId%3A1825638231400554720831%2CVSRPtargetId%3A3707210%2CVSRPcmpt%3Aprimary" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></span>
@@ -118,7 +118,6 @@
     
     <script type="text/javascript" src="../../Scripts/ogcs/Assessment/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/Assessment/knockout.min.js"></script>
-    <script type="text/javascript" src="../../Scripts/ogcs/lib/swiper.animate.min.js"></script>
     <script type="text/javascript" src="../../Scripts/ogcs/lib/wow.min.js"></script>
     <script>
     	//判段浏览器版本高于IE9时增加wow动画效果
@@ -141,7 +140,7 @@
 	        {"ID":6,"Name":"Harrison性格测试","Description":"与心仪职位的匹配度精确到两位小数！在不同职业中纠结？来测测！<br/>还可以挖掘最大性格优势，用性格优势与面试官对话！<br/>","AssessmenStatus":0}
         ];
     
-		var oNum=0;			//已经选择过的测评数量
+		var oNum=getSelected();			//已经选择过的测评数量
 		
         var vm = {
             Items: ko.observableArray(oList),
@@ -211,26 +210,6 @@
             	vm.ShowRepeat(false);
                	vm.ShowDialog(false);
             },
-            ItemOver:function(oId){
-//				var oItem=$(".item[index="+oId+"]");    
-//		        var wValue=(1.03* 495)+"px";  
-//		        var hValue=(1.03*200)+"px";
-//		        oItem.stop().animate({  
-//		            width: wValue,  
-//		            height:hValue,
-//		            left:("-"+(0.03 * 495)/2),  
-//		            top:("-"+(0.03 * 200)/2)
-//		        }, 200);
-            },
-            ItemOut:function(oId){
-//          	var oItem=$(".item[index="+oId+"]");   
-//		        oItem.stop().animate({
-//		        	width: "495px",
-//		            height: "200px",
-//		            left:"0px",  
-//		            top:"0px"
-//		        }, 200 );
-		    },
             //立即开始
             ClickBegin:function(){
             	$("html,body").animate({ scrollTop: 410 }, 400);
@@ -238,6 +217,19 @@
         }
         
 		ko.applyBindings(vm);
+		
+		
+		//获取已选中的测评项目数量
+        function getSelected() {
+            var oTotal = oList;
+            var oNum = 0;
+            for (var i = 0; i < oTotal.length; i++) {
+                if (oTotal[i].AssessmenStatus != 0) {
+                    oNum++;
+                }
+            }
+            return oNum;
+        }
 		
         $(function () {
 			

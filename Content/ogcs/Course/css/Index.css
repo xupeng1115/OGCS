@@ -219,14 +219,14 @@ section .tutor-box .tutor-head .tutor-head-item{
 	height:82px;
 	float:left;
 	padding:5px;
-	border:1px dashed transparent;
+	border:1px dashed #f7f7f7;
 	border-radius:100px;
 	margin-right:50px;
 	position:relative;
 	cursor:pointer;
 }
 section .tutor-box .tutor-head .tutor-head-item:nth-of-type(1){
-    border:1px dashed #efa03c;
+    border-color:#efa03c;
 }
 section .tutor-box .tutor-head .tutor-head-item .tutor-head-flo{
 	width:72px;
@@ -242,7 +242,7 @@ section .tutor-box .tutor-head .tutor-head-item:nth-of-type(1) .tutor-head-flo{
     background:rgba(0,0,0,0);
 }
 section .tutor-box .tutor-head .tutor-head-item:hover{
-	border:1px dashed #ff9713;
+	border-color:#efa03c;
 }
 section .tutor-box .tutor-head .tutor-head-item:hover .tutor-head-flo{
 	background:rgba(0,0,0,0);
@@ -730,10 +730,10 @@ section .list-box .list .item-box .item .img-box .item-img{
 	left:0;
 	z-index:1;
 	
-	transition:all 0.5s;
-	-webkit-transition:all 0.5s; /* Safari */
-	-moz-transition-duration:all 0.5s;
-	-o-transition-duration:all 0.5s;
+	transition:all 0.6s;
+	-webkit-transition:all 0.6s; /* Safari */
+	-moz-transition-duration:all 0.6s;
+	-o-transition-duration:all 0.6s;
 }
 section .list-box .list .item-box .item:hover .img-box .item-img{
 	transform:scale(1.1);

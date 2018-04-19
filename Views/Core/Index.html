@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,24 +29,6 @@
     </div>
 <div class="container-fluid">
 <header>
-	<div class="logo-animate" data-bind="if:LogoAnimate">
-		<div class="bg0 pa">
-	        <div class="bg1"></div>
-	    </div>
-	    <div class="hx-box pa">
-	        <ul class="pr">
-	            <li class="hx-k1 pa0">
-	                <span></span>
-	            </li>
-	            <li class="hx-k2 pa0">
-	                <span></span>
-	            </li>
-	            <li class="hx-k3 pa0">
-	                <span></span>
-	            </li>
-	        </ul>
-	    </div>
-	</div>
 	<div class="title">海途学子-智慧生涯服务平台</div>
 	<div class="line"></div>
 	<ul>
@@ -152,31 +133,31 @@
 					<td class="logo-top">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/volvo_logo.png" class="volvo"/>
-							<p class="logo-name">公司名字三生三世试试</p>
+							<p class="logo-name">沃尔沃汽车（亚太）投资控股有限公司</p>
 						</div>
 					</td>
 					<td class="logo-top">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/dun_logo.png" class="dun"/>
-							<p class="logo-name">公司名字三世试试</p>
+							<p class="logo-name">上海华夏邓白氏商业信息咨询有限公司</p>
 						</div>
 					</td>
 					<td class="logo-top">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/taikang_logo.png" class="taikang"/>
-							<p class="logo-name">公司名生三世试试</p>
+							<p class="logo-name">泰康人寿保险股份有限公司</p>
 						</div>
 					</td>
 					<td class="logo-top">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/kws_logo.png" class="kws"/>
-							<p class="logo-name">公司名生三世试试</p>
+							<p class="logo-name">科沃斯机器人股份有限公司</p>
 						</div>
 					</td>
 					<td class="logo-top">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/gen_logo.png" class="gen"/>
-							<p class="logo-name">公三世试试</p>
+							<p class="logo-name">通用磨坊（中国）投资有限公司</p>
 						</div>
 					</td>
 				</tr>
@@ -184,31 +165,31 @@
 					<td class="logo-bottom">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/dazhong_logo.png" class="dazhong"/>
-							<p class="logo-name">公司名字三世试试</p>
+							<p class="logo-name">上汽大众汽车有限公司</p>
 						</div>
 					</td>
 					<td class="logo-bottom">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/lijinji_logo.png" class="lijinji"/>
-							<p class="logo-name">公司名字三世试试</p>
+							<p class="logo-name">李锦记（新会）食品有限公司</p>
 						</div>
 					</td>
 					<td class="logo-bottom">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/anyong_logo.png" class="anyong"/>
-							<p class="logo-name">公司名字三生三世试试</p>
+							<p class="logo-name">安永华明会计师事务所</p>
 						</div>
 					</td>
 					<td class="logo-bottom">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/pwc_logo.png" class="pwc"/>
-							<p class="logo-name">公司名字三生三世试试</p>
+							<p class="logo-name">普华永道咨询公司</p>
 						</div>
 					</td>
 					<td class="logo-bottom">
 						<div class="logo-company-box">
 							<img src="../../Content/ogcs/Core/img/tengmen_logo.png" class="tengmen"/>
-							<p class="logo-name">公司名字三生三世试试</p>
+							<p class="logo-name">藤门国际教育咨询（北京）有限公司</p>
 						</div>
 					</td>
 				</tr>
@@ -261,9 +242,7 @@
 			    live: true
 			});
 			wow.init();
-		}else{
-			vm.LogoAnimate(false);
-		};
+		}
     </script>
     <script type="text/javascript">
 
@@ -286,7 +265,6 @@
 
         //ko绑定数据
         var vm = {
-        	LogoAnimate:ko.observable(true),
         	BtnText:"点击查看",
         	Status:parseInt(userModel.Status),
             Steps: ko.observableArray(oSteps),
@@ -317,29 +295,12 @@
                             break;
                     }
                 }
-            },
-            ImgOver:function(){
-            	
             }
         }
         ko.applyBindings(vm);
 
         $(document).ready(function () {
         	
-            //鼠标移入流程块
-            $("body").on("mouseover", ".step-box", function (event) {
-                if (!this.contains(event.fromElement)) {
-//                  $(this).children(".step-btn").animate({ "opacity": "1" }, 200);
-                }
-            })
-
-            //鼠标移出流程块
-            $("body").on("mouseout", ".step-box", function (event) {
-                if (!this.contains(event.toElement)) {
-//                  $(this).children(".step-btn").animate({ "opacity": "0" }, 200);
-                }
-            })
-            
         })
     </script>
 
